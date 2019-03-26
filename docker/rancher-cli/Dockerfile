@@ -1,6 +1,21 @@
-FROM rancher/cli:v0.6.10@sha256:0f1c75a7a2fa2294a792d58eaa6011dbba56506c03df1428696e1d6707b83693
+FROM rancher/cli:v0.6.13@sha256:bebabb1c137117ba708598c3e1babea9667bb58090ba35d65d52af3785847124
 
-ENTRYPOINT [ ]
+FROM alpine:3.9.2@sha256:644fcb1a676b5165371437feaa922943aaf7afcfa8bfee4472f6860aad1ef2a0
+
+ENV CATTLE_RANCHER_CLI_VERSION v0.6.13
+
+ENV DEFAULT_CATTLE_RANCHER_CLI_LINUX_URL https://releases.rancher.com/cli/${CATTLE_RANCHER_CLI_VERSION}/rancher-linux-amd64-${CATTLE_RANCHER_CLI_VERSION}.tar.gz
+
+RUN set -x \
+    && apk add --no-cache \
+        openssh-client \
+        curl \
+        ca-certificates \
+    && mkdir -p ~/.ssh \
+    && chmod 700 ~/.ssh \
+    && curl -sL $DEFAULT_CATTLE_RANCHER_CLI_LINUX_URL | tar xvzf - -C /usr/bin/ --strip-components=2 \
+    && rancher --version
+
 
 COPY VisualOnRoot.pem /usr/local/share/ca-certificates/
 
