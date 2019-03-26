@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "config:base",
+    ":assignAndReview(kriese)",
+    ":automergeDigest",
+    ":automergeMinor",
+    "docker:enableMajor",
+    "schedule:daily"
+  ],
+  "semanticCommits": true,
+  "automergeType": "branch"
+}

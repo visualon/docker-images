@@ -1,0 +1,3 @@
+FROM renovate/renovate:14.57.1@sha256:7cc3a4f446d9d6310ec1f4b011afe436c82fc5625dead1557730ff187c45087a
+
+ENTRYPOINT [ ]

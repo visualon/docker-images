@@ -1,0 +1,43 @@
+pull_requests:
+  do_not_increment_build_number: true
+
+
+skip_tags: false
+skip_branch_with_pr: true
+skip_commits:
+  files:
+    - README.md
+    - CHANGELOG.md
+    - .editorconfig
+    - .gitignore
+    - renovate.json
+
+
+max_jobs: 1
+
+image: ubuntu
+stack: docker
+
+init:
+- git config --global core.autocrlf true
+- ps: >-
+    if ($env:APPVEYOR_REPO_TAG -eq "true")
+    {
+        Update-AppveyorBuild -Version ($env:APPVEYOR_REPO_TAG_NAME).TrimStart("v")
+    }
+
+build_script:
+  - ps: ./scripts/build.ps1
+
+test_script:
+  - ps: ./scripts/test.ps1
+
+for:
+
+-
+  branches:
+    only:
+      - master
+      - /v\d*\.\d*\.\d*/
+  deploy_script:
+    - ps: ./scripts/deploy.ps1
