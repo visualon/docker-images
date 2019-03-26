@@ -1,4 +1,10 @@
 $ErrorActionPreference = 'Stop';
 
 Write-Host Starting build
-docker build -t renovate ./docker/renovate
+
+$images = @('renovate', 'rancher-cli')
+
+$images | ForEach-Object {
+    Write-Host Building $_ -ForegroundColor Green
+    docker build -t $_ ./docker/$_
+}

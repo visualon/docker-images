@@ -8,5 +8,11 @@
     "schedule:daily"
   ],
   "semanticCommits": true,
-  "automergeType": "branch"
+  "automergeType": "branch",
+  "packageRules": [
+    {
+      "packageNames": ["rancher/cli"],
+      "allowedVersions": "<=0.6.10"
+    }
+  ]
 }
