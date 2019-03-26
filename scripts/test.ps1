@@ -18,3 +18,9 @@ Write-Host Starting test
 # $ErrorActionPreference = 'SilentlyContinue';
 # docker kill jiratest
 # docker rm -f jiratest
+
+Write-Host testing renovate -ForegroundColor Green
+docker run --rm -t renovate node /usr/src/app/lib/renovate.js --version
+
+Write-Host testing rancher-cli -ForegroundColor Green
+docker run --rm -t rancher-cli rancher --version
