@@ -20,7 +20,7 @@ $ErrorActionPreference = 'Stop';
 # docker rm -f jiratest
 
 Write-Host testing renovate -ForegroundColor Green
-docker run --rm -t renovate node /usr/src/app/lib/renovate.js --version
+docker run --rm -t renovate renovate --version
 
 Write-Host testing rancher-cli -ForegroundColor Green
 docker run --rm -t rancher-cli rancher --version
