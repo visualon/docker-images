@@ -3,7 +3,6 @@
     "config:base",
     ":assignAndReview(kriese)",
     ":automergeDigest",
-    ":automergeMinor",
     "docker:enableMajor",
     "schedule:daily"
   ],
@@ -13,6 +12,10 @@
     {
       "packageNames": ["rancher/cli"],
       "allowedVersions": "<=0.6.10"
+    },
+    {
+      "packageNames": ["renovate/renovate"],
+      "extends": [":automergeMinor"]
     }
   ]
 }
