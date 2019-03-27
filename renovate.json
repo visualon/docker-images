@@ -1,5 +1,21 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    ":assignAndReview(kriese)",
+    ":automergeDigest",
+    "docker:enableMajor",
+    "schedule:daily"
+  ],
+  "semanticCommits": true,
+  "automergeType": "branch",
+  "packageRules": [
+    {
+      "packageNames": ["rancher/cli"],
+      "allowedVersions": "<=0.6.10"
+    },
+    {
+      "packageNames": ["renovate/renovate"],
+      "extends": [":automergeMinor"]
+    }
   ]
 }
