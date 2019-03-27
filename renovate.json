@@ -15,7 +15,8 @@
     },
     {
       "packageNames": ["renovate/renovate"],
-      "extends": [":automergeMinor"]
+      "extends": [":automergeMinor"],
+      "schedule": []
     }
   ]
 }
