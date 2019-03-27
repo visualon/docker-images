@@ -24,3 +24,10 @@ docker run --rm -t renovate renovate --version
 
 Write-Host testing rancher-cli -ForegroundColor Green
 docker run --rm -t rancher-cli rancher --version
+
+$images = @('dotnet-sdk', 'dotnet-aspnet')
+
+$images | ForEach-Object {
+    Write-Host testing $_ -ForegroundColor Green
+    docker run --rm -t $_ dotnet --info
+}

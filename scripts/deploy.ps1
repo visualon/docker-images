@@ -21,7 +21,7 @@ $auth64 = [Convert]::ToBase64String($auth)
 "@ | Out-File -Encoding Ascii ~/.docker/config.json
 
 
-$images = @('renovate', 'rancher-cli')
+$images = @('renovate', 'rancher-cli', 'dotnet-sdk', 'dotnet-aspnet')
 
 $images | ForEach-Object {
 
