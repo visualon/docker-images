@@ -20,6 +20,10 @@
     {
       "paths": ["docker/dotnet-aspnet", "docker/dotnet-sdk"],
       "allowedVersions": "<3.0"
+    },
+    {
+      "packagePatterns": ["mcr.microsoft.com/dotnet/core"],
+      "groupName": "dotnet core images"
     }
   ]
 }
