@@ -3,11 +3,11 @@
     "config:base",
     ":assignAndReview(kriese)",
     ":automergeDigest",
-    "docker:enableMajor",
-    "schedule:daily"
+    "docker:enableMajor"
   ],
   "semanticCommits": true,
   "automergeType": "branch",
+  "timezone": "Europe/Berlin",
   "packageRules": [
     {
       "packageNames": ["rancher/cli"],
@@ -15,8 +15,11 @@
     },
     {
       "packageNames": ["renovate/renovate"],
-      "extends": [":automergeMinor"],
-      "schedule": []
+      "extends": [":automergeMinor"]
+    },
+    {
+      "paths": ["docker/dotnet-aspnet", "docker/dotnet-sdk"],
+      "allowedVersions": "<3.0"
     }
   ]
 }
