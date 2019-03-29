@@ -6,7 +6,6 @@
     "docker:enableMajor"
   ],
   "semanticCommits": true,
-  "automergeType": "branch",
   "timezone": "Europe/Berlin",
   "packageRules": [
     {
