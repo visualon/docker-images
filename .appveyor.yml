@@ -11,7 +11,12 @@ skip_commits:
     - .editorconfig
     - .gitignore
     - renovate.json
-
+branches:
+  only:
+    - staging
+    - trying
+    - master
+    - /v\d*\.\d*\.\d*/
 
 max_jobs: 1
 
