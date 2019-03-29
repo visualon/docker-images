@@ -7,6 +7,8 @@
   ],
   "semanticCommits": true,
   "timezone": "Europe/Berlin",
+  "automergeType": "pr-comment",
+  "automergeComment": "bors r+",
   "packageRules": [
     {
       "packageNames": ["rancher/cli"],
