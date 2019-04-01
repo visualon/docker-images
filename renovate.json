@@ -9,6 +9,7 @@
   "timezone": "Europe/Berlin",
   "automergeType": "pr-comment",
   "automergeComment": "bors r+",
+  "requiredStatusChecks": null,
   "packageRules": [
     {
       "packageNames": ["rancher/cli"],
