@@ -1,4 +1,4 @@
-FROM renovate/renovate:14.58.1
+FROM renovate/renovate:14.59.4
 
 ENTRYPOINT [ ]
 
