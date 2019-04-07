@@ -1,4 +1,4 @@
-FROM renovate/renovate:15.4.3
+FROM renovate/renovate:15.5.2
 
 ENTRYPOINT [ ]
 
