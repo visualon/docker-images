@@ -1,4 +1,4 @@
-FROM renovate/renovate:16.1.0
+FROM renovate/renovate:16.1.1
 
 ENTRYPOINT [ ]
 
