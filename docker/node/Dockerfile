@@ -14,6 +14,8 @@ RUN set -x \
     && echo -n "yarn: " \
     && yarn --version
 
+ENV PATH="/root/.yarn/bin:/root/.config/yarn/global/node_modules/.bin:$PATH"
+
 # pnpm
 ENV PNPM_VERSION=3.3.0
 RUN set -x \
