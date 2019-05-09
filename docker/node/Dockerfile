@@ -3,7 +3,9 @@ FROM node:lts-alpine
 RUN set -x \
     && apk add --no-cache \
         git \
-        curl
+        curl \
+        bash \
+    && echo "done"
 
 # yarn
 ENV YARN_VERSION=1.15.2
