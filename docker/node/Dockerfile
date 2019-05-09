@@ -10,7 +10,9 @@ RUN set -x \
 # yarn
 ENV YARN_VERSION=1.15.2
 RUN set -x \
-    curl -o- -sL https://yarnpkg.com/install.sh | bash -s -- --version ${YARN_VERSION} \
+    && rm -f /usr/local/bin/yarn \
+    && curl -o- -sL https://yarnpkg.com/install.sh | bash -s -- --version ${YARN_VERSION} \
+    && export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH" \
     && echo -n "yarn: " \
     && yarn --version
 
@@ -19,7 +21,6 @@ ENV PATH="/root/.yarn/bin:/root/.config/yarn/global/node_modules/.bin:$PATH"
 # pnpm
 ENV PNPM_VERSION=3.3.0
 RUN set -x \
-    && rm -f /usr/local/bin/yarn \
     && curl -o- -sL https://unpkg.com/@pnpm/self-installer | node \
     && echo -n "pnpm: " \
     && pnpm --version
