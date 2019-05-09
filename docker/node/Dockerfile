@@ -5,6 +5,7 @@ RUN set -x \
         git \
         curl \
         yarn \
+    && rm -f /usr/local/bin/yarn \
     && echo -n "yarn: " \
     && yarn --version
 
