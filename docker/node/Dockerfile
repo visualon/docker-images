@@ -3,19 +3,22 @@ FROM node:lts-alpine
 RUN set -x \
     && apk add --no-cache \
         git \
-        curl \
-        yarn \
-    && rm -f /usr/local/bin/yarn \
+        curl
+
+# yarn
+ENV YARN_VERSION=1.15.2
+RUN set -x \
+    curl -o- -sL https://yarnpkg.com/install.sh | bash -s -- --version ${YARN_VERSION} \
     && echo -n "yarn: " \
     && yarn --version
 
 # pnpm
-ENV PNPM_VERSION=3.2.0
+ENV PNPM_VERSION=3.3.0
 RUN set -x \
-    && curl -sL https://unpkg.com/@pnpm/self-installer | node \
+    && rm -f /usr/local/bin/yarn \
+    && curl -o- -sL https://unpkg.com/@pnpm/self-installer | node \
     && echo -n "pnpm: " \
     && pnpm --version
-
 
 # metadata
 ARG APPVEYOR_REPO_COMMIT
