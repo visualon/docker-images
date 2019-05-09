@@ -23,7 +23,7 @@ $ErrorActionPreference = 'Stop'
 #docker run --rm -t renovate renovate --version
 
 Write-Host testing node -ForegroundColor Green
-docker run --rm -t node sh -c 'yarn --version && pnpm --version'
+docker run --rm -t node bash -c 'yarn --version && pnpm --version'
 if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode); throw "test error" }
 
 Write-Host testing rancher-cli -ForegroundColor Green
