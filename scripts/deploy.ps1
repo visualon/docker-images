@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop';
+$global:ErrorActionPreference = 'Stop';
 
 $image = "visualon/images"
 

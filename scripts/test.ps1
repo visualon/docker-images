@@ -4,7 +4,7 @@ Write-Host Starting test
 # docker kill jiratest
 # docker rm -f jiratest
 
-$ErrorActionPreference = 'Stop';
+$global:ErrorActionPreference = 'Stop';
 # Write-Host Starting container
 # docker run --name jiratest -p 8080:8080 -d jira
 # Start-Sleep 20

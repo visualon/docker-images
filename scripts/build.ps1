@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop';
+$global:ErrorActionPreference = 'Stop';
 
 Write-Host Starting build
 
