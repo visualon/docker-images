@@ -2,7 +2,8 @@ FROM node:lts-alpine
 
 RUN set -x \
     && apk add --no-cache \
-        git
+        git \
+        curl
 
 # pnpm
 ENV PNPM_VERSION=3.2.0
