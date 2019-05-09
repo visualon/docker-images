@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop';
+$ErrorActionPreference = 'Stop'
 
 $image = "visualon/images"
 
@@ -28,7 +28,9 @@ $images | ForEach-Object {
     Write-Host Deploying $_ -ForegroundColor Green
 
     docker tag $_ "$($image):$($_)"
+    if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode); throw "deploy error" }
     docker push "$($image):$($_)"
+    if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode); throw "deploy error" }
 }
 
 # if ($env:APPVEYOR_REPO_TAG -ne "true") {
