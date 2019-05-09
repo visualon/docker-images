@@ -2,9 +2,9 @@ $ErrorActionPreference = 'Stop';
 
 Write-Host Starting build
 
-$images = @('renovate', 'rancher-cli', 'dotnet-sdk', 'dotnet-aspnet')
+$images = @('node', 'rancher-cli', 'dotnet-sdk', 'dotnet-aspnet')
 
 $images | ForEach-Object {
     Write-Host Building $_ -ForegroundColor Green
-    docker build -t $_ ./docker/$_
+    docker build -t $_ --build-arg APPVEYOR_REPO_COMMIT --build-arg APPVEYOR_BUILD_VERSION ./docker/$_
 }

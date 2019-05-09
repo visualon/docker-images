@@ -19,8 +19,11 @@ $ErrorActionPreference = 'Stop';
 # docker kill jiratest
 # docker rm -f jiratest
 
-Write-Host testing renovate -ForegroundColor Green
-docker run --rm -t renovate renovate --version
+#Write-Host testing renovate -ForegroundColor Green
+#docker run --rm -t renovate renovate --version
+
+Write-Host testing node -ForegroundColor Green
+docker run --rm -t node sh -c 'yarn --version && pnpm --version'
 
 Write-Host testing rancher-cli -ForegroundColor Green
 docker run --rm -t rancher-cli rancher --version
