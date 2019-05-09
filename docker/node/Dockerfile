@@ -3,11 +3,17 @@ FROM node:lts-alpine
 RUN set -x \
     && apk add --no-cache \
         git \
-        curl
+        curl \
+        yarn \
+    && echo -n "yarn: " \
+    && yarn --version
 
 # pnpm
 ENV PNPM_VERSION=3.2.0
-RUN curl -sL https://unpkg.com/@pnpm/self-installer | node
+RUN set -x \
+    && curl -sL https://unpkg.com/@pnpm/self-installer | node \
+    && echo -n "pnpm: " \
+    && pnpm --version
 
 
 # metadata
