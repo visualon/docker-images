@@ -8,7 +8,7 @@ RUN set -x \
     && echo "done"
 
 # yarn
-ENV YARN_VERSION=1.15.2
+ENV YARN_VERSION=1.16.0
 RUN set -x \
     && rm -f /usr/local/bin/yarn \
     && curl -o- -sL https://yarnpkg.com/install.sh | bash -s -- --version ${YARN_VERSION} \
