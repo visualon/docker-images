@@ -1,4 +1,4 @@
-FROM renovate/renovate:18.2.1
+FROM renovate/renovate:18.2.4
 
 # pnpm
 ENV PNPM_VERSION=3.2.0
