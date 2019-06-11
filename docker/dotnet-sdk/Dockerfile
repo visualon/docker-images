@@ -1,1 +1,1 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine@sha256:ac7c5f37e3b1bd10cf0c73ff86b4eac85a10791cfdbc625e42514e256a44aa28
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine@sha256:58866369573bf0870bc91620fe7d31ef0b74d7776f2b937b88538a25609b157d
