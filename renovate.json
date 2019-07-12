@@ -17,7 +17,8 @@
     },
     {
       "packageNames": ["renovate/renovate"],
-      "extends": [":automergeMinor"]
+      "extends": [":automergeMinor"],
+      "enabled": false
     },
     {
       "paths": ["docker/dotnet-aspnet", "docker/dotnet-sdk"],
