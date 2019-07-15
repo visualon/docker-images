@@ -5,6 +5,7 @@ RUN set -x \
         git \
         curl \
         bash \
+        openjdk8-jre-base \
     && echo "done"
 
 # yarn
