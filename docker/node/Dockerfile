@@ -19,7 +19,7 @@ RUN set -x \
 ENV PATH="/root/.yarn/bin:/root/.config/yarn/global/node_modules/.bin:$PATH"
 
 # pnpm
-ENV PNPM_VERSION=3.5.3
+ENV PNPM_VERSION=3.5.7
 RUN set -x \
     && curl -o- -sL https://unpkg.com/@pnpm/self-installer | node \
     && echo -n "pnpm: " \
