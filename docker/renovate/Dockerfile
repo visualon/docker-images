@@ -4,7 +4,7 @@ LABEL maintainer="Rhys Arkins <rhys@arkins.net>"
 LABEL name="renovate"
 LABEL org.opencontainers.image.source="https://github.com/renovatebot/renovate"
 
-WORKDIR /usr/src/app/dist
+WORKDIR /usr/src/app/
 
 # required for install
 USER root
