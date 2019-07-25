@@ -3,13 +3,20 @@
     "config:base",
     ":assignee(viceice)",
     ":automergeDigest",
-    "docker:enableMajor"
+    "docker:enableMajor",
+    ":masterIssue"
   ],
   "semanticCommits": true,
   "timezone": "Europe/Berlin",
   "automergeType": "pr-comment",
   "automergeComment": "bors r+",
   "labels": ["deps"],
+  "major": {
+    "masterIssueApproval": true
+  },
+  "minor": {
+    "masterIssueApproval": true
+  },
   "packageRules": [
     {
       "packageNames": ["rancher/cli"],
@@ -21,12 +28,12 @@
       "enabled": false
     },
     {
-      "paths": ["docker/dotnet-aspnet", "docker/dotnet-sdk"],
-      "allowedVersions": "<3.0"
-    },
-    {
       "packagePatterns": ["mcr.microsoft.com/dotnet/core"],
       "groupName": "dotnet core images"
     }
-  ]
+  ],
+  "digest": {
+    "extends": ["schedule:daily"],
+    "automerge": true
+  }
 }
