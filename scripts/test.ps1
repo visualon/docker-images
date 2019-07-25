@@ -21,6 +21,7 @@ $ErrorActionPreference = 'Stop'
 
 Write-Host testing renovate -ForegroundColor Green
 docker run --rm -t renovate renovate --version
+if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode); throw "test error" }
 
 Write-Host testing node -ForegroundColor Green
 docker run --rm -t node bash -c 'yarn --version && pnpm --version'
