@@ -23,9 +23,11 @@
       "allowedVersions": "<2.0"
     },
     {
-      "packageNames": ["renovate/renovate"],
+      "packageNames": ["renovate"],
       "extends": [":automergeMinor"],
-      "enabled": false
+      "minor": {
+        "masterIssueApproval": false
+      }
     },
     {
       "packagePatterns": ["mcr.microsoft.com/dotnet/core"],
