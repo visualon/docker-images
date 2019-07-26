@@ -1,8 +1,15 @@
 FROM renovate/yarn:1.17.3@sha256:08571fc2c7f5a213f25df2b10f393ff6ea296341129466ac661d228dbc1f92ca
 
-LABEL maintainer="Rhys Arkins <rhys@arkins.net>"
-LABEL name="renovate"
-LABEL org.opencontainers.image.source="https://github.com/renovatebot/renovate"
+ARG SOURCE_COMMIT
+
+
+LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
+    name="renovate" \
+    org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.revision="$SOURCE_COMMIT" \
+    org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
+    org.opencontainers.image.url="https://github.com/renovatebot/renovate"
 
 WORKDIR /usr/src/app/
 
