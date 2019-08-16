@@ -240,11 +240,6 @@ bluebird@^3.5.0, bluebird@^3.5.1, bluebird@^3.5.3, bluebird@^3.5.5:
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.5.tgz#a8d0afd73251effbbd5fe384a77d73003c17a71f"
   integrity sha512-5am6HnnfN+urzt4yfg7IgTbotDjIT/u8AJpEt0sIU9FtXfVeezXAPKswrG+xKUCOYAINpSdgZVDU6QFh+cuH3w==
 
-boolean@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/boolean/-/boolean-0.2.0.tgz#808dff32ce1c87b828cc381428dc3b158d4f85cb"
-  integrity sha512-mDcM3ChboDuhv4glLXEH1us7jMiWXRSs3R13Okoo+kkFOlLIjvF1y88507wTfDf9zsuv0YffSDFUwX95VAT/mg==
-
 boolean@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolean/-/boolean-1.0.0.tgz#45764b4aac187a050995b0a33d7579b6759f0dfd"
@@ -621,10 +616,10 @@ copy-concurrently@^1.0.0:
     rimraf "^2.5.4"
     run-queue "^1.0.0"
 
-core-js@^3.1.4:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.1.4.tgz#3a2837fc48e582e1ae25907afcd6cf03b0cc7a07"
-  integrity sha512-YNZN8lt82XIMLnLirj9MhKDFZHalwzzrL9YLt6eb0T5D0EDl4IQ90IGkua8mHbnxNrkj1d8hbdizMc0Qmg1WnQ==
+core-js@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.2.1.tgz#cd41f38534da6cc59f7db050fe67307de9868b09"
+  integrity sha512-Qa5XSVefSVPRxy2XfUC13WbvqkxhkwB3ve+pgCQveNgYzbM/UxZeu1dcOX/xr4UmfUd+muuvsaxilQzCyUurMw==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -699,7 +694,7 @@ debug@^4.0.1:
   dependencies:
     ms "^2.1.1"
 
-debuglog@^1.0.1:
+debuglog@*, debuglog@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debuglog/-/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
   integrity sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=
@@ -787,6 +782,11 @@ detect-newline@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
   integrity sha1-9B8cEL5LAOh7XxPaaAdZ8sW/0+I=
+
+detect-node@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c"
+  integrity sha512-ZIzRpLJrOj7jjP2miAtgqIfmzbxa4ZOr5jJc601zklsfEx9oTzmmj2nVpIPRpNlRTIh8lc1kyViIY7BWSGNmKw==
 
 dezalgo@^1.0.0, dezalgo@~1.0.3:
   version "1.0.3"
@@ -1216,17 +1216,17 @@ glob@^7.0.3, glob@^7.1.1, glob@^7.1.3, glob@^7.1.4:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-global-agent@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/global-agent/-/global-agent-2.0.1.tgz#c466058a04acaa610b805bf12d1e3bed19dc4546"
-  integrity sha512-2iGb96/51XxsekctZR4IiP7SoWuGEkmFpsyySasq3RFmvIwDCQJzatB2NqK0sk7h2hVYQdRphL52lrO5grF/jg==
+global-agent@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/global-agent/-/global-agent-2.0.2.tgz#4c09f89dc3aef78e9304bcd5b42e8d4a5048daab"
+  integrity sha512-mQLICTW+QGJPuEI8WvEjdyPCcEnx5OqmJH2ADGtv9NknBfUsTnUsV9NeKfrjkwauT2zrSGQqDrS49f86kvnXoA==
   dependencies:
     boolean "^1.0.0"
-    core-js "^3.1.4"
+    core-js "^3.2.1"
     es6-error "^4.1.1"
     matcher "^2.0.0"
-    roarr "^2.13.2"
-    semver "^6.2.0"
+    roarr "^2.14.1"
+    semver "^6.3.0"
     serialize-error "^4.1.0"
 
 global-dirs@^0.1.0:
@@ -1255,6 +1255,15 @@ global-prefix@^1.0.1:
     ini "^1.3.4"
     is-windows "^1.0.1"
     which "^1.2.14"
+
+globalthis@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/globalthis/-/globalthis-1.0.0.tgz#c5fb98213a9b4595f59cf3e7074f141b4169daae"
+  integrity sha512-vcCAZTJ3r5Qcu5l8/2oyVdoFwxKgfYnMTR2vwWeux/NAVZK3PwcMaWkdUIn4GJbmKuRK7xcvDsLuK+CKcXyodg==
+  dependencies:
+    define-properties "^1.1.2"
+    function-bind "^1.1.1"
+    object-keys "^1.0.12"
 
 got@9.6.0:
   version "9.6.0"
@@ -1361,10 +1370,15 @@ homedir-polyfill@^1.0.1:
   dependencies:
     parse-passwd "^1.0.0"
 
-hosted-git-info@^2.1.4, hosted-git-info@^2.6.0, hosted-git-info@^2.7.1:
+hosted-git-info@^2.1.4, hosted-git-info@^2.6.0:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
   integrity sha512-7T/BxH19zbcCTa8XkMlbK5lTo1WtgkFi3GvdWEyNuc4Vex7/9Dqbnpsf4JMydcfj9HCg4zUWFTL3Za6lapg5/w==
+
+hosted-git-info@^2.8.2:
+  version "2.8.4"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.4.tgz#44119abaf4bc64692a16ace34700fed9c03e2546"
+  integrity sha512-pzXIvANXEFrc5oFFXRMkbLPQ2rXRoDERwDLyrcUxGhaZhgP54BBSl9Oheh7Vv0T090cszWBxPjkQQ5Sq1PbBRQ==
 
 http-cache-semantics@^3.8.1:
   version "3.8.1"
@@ -1437,7 +1451,7 @@ import-lazy@^2.1.0:
   resolved "https://registry.yarnpkg.com/import-lazy/-/import-lazy-2.1.0.tgz#05698e3d45c88e8d7e9d92cb0584e77f096f3e43"
   integrity sha1-BWmOPUXIjo1+nZLLBYTnfwlvPkM=
 
-imurmurhash@^0.1.4:
+imurmurhash@*, imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
@@ -1966,6 +1980,11 @@ lockfile@^1.0.4:
   dependencies:
     signal-exit "^3.0.2"
 
+lodash._baseindexof@*:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/lodash._baseindexof/-/lodash._baseindexof-3.1.0.tgz#fe52b53a1c6761e42618d654e4a25789ed61822c"
+  integrity sha1-/lK1OhxnYeQmGNZU5KJXie1hgiw=
+
 lodash._baseuniq@~4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash._baseuniq/-/lodash._baseuniq-4.6.0.tgz#0ebb44e456814af7905c6212fa2c9b2d51b841e8"
@@ -1974,10 +1993,32 @@ lodash._baseuniq@~4.6.0:
     lodash._createset "~4.0.0"
     lodash._root "~3.0.0"
 
+lodash._bindcallback@*:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz#e531c27644cf8b57a99e17ed95b35c748789392e"
+  integrity sha1-5THCdkTPi1epnhftlbNcdIeJOS4=
+
+lodash._cacheindexof@*:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/lodash._cacheindexof/-/lodash._cacheindexof-3.0.2.tgz#3dc69ac82498d2ee5e3ce56091bafd2adc7bde92"
+  integrity sha1-PcaayCSY0u5ePOVgkbr9Ktx73pI=
+
+lodash._createcache@*:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/lodash._createcache/-/lodash._createcache-3.1.2.tgz#56d6a064017625e79ebca6b8018e17440bdcf093"
+  integrity sha1-VtagZAF2JeeevKa4AY4XRAvc8JM=
+  dependencies:
+    lodash._getnative "^3.0.0"
+
 lodash._createset@~4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/lodash._createset/-/lodash._createset-4.0.3.tgz#0f4659fbb09d75194fa9e2b88a6644d363c9fe26"
   integrity sha1-D0ZZ+7CddRlPqeK4imZE02PJ/iY=
+
+lodash._getnative@*, lodash._getnative@^3.0.0:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
+  integrity sha1-VwvH3t5G1hzc3mh9ZdPuy6o6r/U=
 
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
@@ -1993,6 +2034,11 @@ lodash.clonedeep@^4.5.0, lodash.clonedeep@~4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
+
+lodash.restparam@*:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.restparam/-/lodash.restparam-3.6.1.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
+  integrity sha1-k2pOMJ7zMKdkXtQUWYbIWuWyCAU=
 
 lodash.template@^4.0.2:
   version "4.5.0"
@@ -2501,10 +2547,10 @@ npm-user-validate@~1.0.0:
   resolved "https://registry.yarnpkg.com/npm-user-validate/-/npm-user-validate-1.0.0.tgz#8ceca0f5cea04d4e93519ef72d0557a75122e951"
   integrity sha1-jOyg9c6gTU6TUZ73LQVXp1Ei6VE=
 
-npm@6.10.2:
-  version "6.10.2"
-  resolved "https://registry.yarnpkg.com/npm/-/npm-6.10.2.tgz#62cd56f9bc39e26a5eae411a20236bb0c2026d85"
-  integrity sha512-B6n5dgmsl1fpBYhor2OTEn9Md0r63/FpQocDn4WNT4gIQRQZLql9g+mk8s3j9qZD370kUTzwDaOBSmDdNGK3NA==
+npm@6.10.3:
+  version "6.10.3"
+  resolved "https://registry.yarnpkg.com/npm/-/npm-6.10.3.tgz#83195598f8930a40ee480567883863321626666e"
+  integrity sha512-AH2uhSRaIMll7xz1JuLA6XbZu5k6DMSc77U6uWfuyBch4EzwpEc5dd54/OsX4Njioi7fSL7YmuPQbqKE2qiklw==
   dependencies:
     JSONStream "^1.3.5"
     abbrev "~1.1.1"
@@ -2524,6 +2570,7 @@ npm@6.10.2:
     cmd-shim "~2.0.2"
     columnify "~1.5.4"
     config-chain "^1.1.12"
+    debuglog "*"
     detect-indent "~5.0.0"
     detect-newline "^2.1.0"
     dezalgo "~1.0.3"
@@ -2536,8 +2583,9 @@ npm@6.10.2:
     glob "^7.1.4"
     graceful-fs "^4.2.0"
     has-unicode "~2.0.1"
-    hosted-git-info "^2.7.1"
+    hosted-git-info "^2.8.2"
     iferr "^1.0.2"
+    imurmurhash "*"
     infer-owner "^1.0.4"
     inflight "~1.0.6"
     inherits "^2.0.4"
@@ -2556,8 +2604,14 @@ npm@6.10.2:
     libnpx "^10.2.0"
     lock-verify "^2.1.0"
     lockfile "^1.0.4"
+    lodash._baseindexof "*"
     lodash._baseuniq "~4.6.0"
+    lodash._bindcallback "*"
+    lodash._cacheindexof "*"
+    lodash._createcache "*"
+    lodash._getnative "*"
     lodash.clonedeep "~4.5.0"
+    lodash.restparam "*"
     lodash.union "~4.6.0"
     lodash.uniq "~4.5.0"
     lodash.without "~4.4.0"
@@ -2587,7 +2641,7 @@ npm@6.10.2:
     path-is-inside "~1.0.2"
     promise-inflight "~1.0.1"
     qrcode-terminal "^0.12.0"
-    query-string "^6.8.1"
+    query-string "^6.8.2"
     qw "~1.0.1"
     read "~1.0.7"
     read-cmd-shim "~1.0.1"
@@ -3001,10 +3055,10 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-query-string@^6.8.1:
-  version "6.8.1"
-  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.8.1.tgz#62c54a7ef37d01b538c8fd56f95740c81d438a26"
-  integrity sha512-g6y0Lbq10a5pPQpjlFuojfMfV1Pd2Jw9h75ypiYPPia3Gcq2rgkKiIwbkS6JxH7c5f5u/B/sB+d13PU+g1eu4Q==
+query-string@^6.8.2:
+  version "6.8.2"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.8.2.tgz#36cb7e452ae11a4b5e9efee83375e0954407b2f6"
+  integrity sha512-J3Qi8XZJXh93t2FiKyd/7Ec6GNifsjKXUsVFkSBj/kjLsDylWhnCz4NT1bkPcKotttPW+QbKGqqPH8OoI2pdqw==
   dependencies:
     decode-uri-component "^0.2.0"
     split-on-first "^1.0.0"
@@ -3243,10 +3297,10 @@ remark@^9.0.0:
     remark-stringify "^5.0.0"
     unified "^6.0.0"
 
-renovate@19.26.0:
-  version "19.26.0"
-  resolved "https://registry.yarnpkg.com/renovate/-/renovate-19.26.0.tgz#b3ed68196cfdff4ae418a453098270c29f82d0ef"
-  integrity sha512-I1Z77ctAyZx0qB31OJkEz6CKnXPAb8hqphKvZ2tTOJ71xhQ5+6COxHoMg4posNolAG2N2bRVgJEg5lWmTm3CNA==
+renovate@19.30.5:
+  version "19.30.5"
+  resolved "https://registry.yarnpkg.com/renovate/-/renovate-19.30.5.tgz#3a072832676573eee6205acb13c8985106d1b9bc"
+  integrity sha512-sCdCe1i1yV3nL8kIpAQ4xNAUKPtjyHu1BT3l4q/o/NMODRGow7WPO1emcfNTBvbaZIA6KXAFR0tOKKZsP0bbnA==
   dependencies:
     "@renovate/pep440" "0.4.1"
     "@sindresorhus/is" "1.0.0"
@@ -3268,7 +3322,7 @@ renovate@19.26.0:
     fs-extra "8.1.0"
     get-installed-path "4.0.8"
     github-url-from-git "1.5.0"
-    global-agent "2.0.1"
+    global-agent "2.0.2"
     got "9.6.0"
     handlebars "4.1.2"
     hasha "5.0.0"
@@ -3287,7 +3341,7 @@ renovate@19.26.0:
     moment "2.24.0"
     moment-timezone "0.5.26"
     node-html-parser "1.1.16"
-    npm "6.10.2"
+    npm "6.10.3"
     p-all "2.1.0"
     parse-diff "0.5.1"
     parse-link-header "1.0.1"
@@ -3406,12 +3460,14 @@ rimraf@~2.4.0:
   dependencies:
     glob "^6.0.1"
 
-roarr@^2.13.2:
-  version "2.13.2"
-  resolved "https://registry.yarnpkg.com/roarr/-/roarr-2.13.2.tgz#98ec422541e1530652590b0327f15daac629b6ec"
-  integrity sha512-HQUuk0VVFmzSrAMFOimSXRBZ8KJu8qH8LOm4ltnJCsQTZr8QQbneI9pzfW3m37Jiq+6oR9c0Xc+W4xnbi7QLKw==
+roarr@^2.14.1:
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/roarr/-/roarr-2.14.1.tgz#812b51c352debbeda1c0ae984aeaf396e0abf421"
+  integrity sha512-Fhm9shQ8JhpjFnOT7bgxKR7Xcg1Tq+0/Tdy+bloB4sUxxAib4MZDMJ6AjUBRE+798l2MnhhF2JTqbqx1+/kRyQ==
   dependencies:
-    boolean "^0.2.0"
+    boolean "^1.0.0"
+    detect-node "^2.0.4"
+    globalthis "^1.0.0"
     json-stringify-safe "^5.0.1"
     semver-compare "^1.0.0"
     sprintf-js "^1.1.2"
@@ -3484,7 +3540,7 @@ semver-utils@1.1.4:
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.0.tgz#790a7cf6fea5459bac96110b29b60412dc8ff96b"
   integrity sha512-Ya52jSX2u7QKghxeoFGpLwCtGlt7j0oY9DYb5apt9nPlJ42ID+ulTXESnt/qAQcoSERyZ5sl3LDIOw0nAn/5DA==
 
-semver@6.3.0, semver@^6.2.0:
+semver@6.3.0, semver@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
