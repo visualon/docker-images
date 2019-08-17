@@ -6,7 +6,7 @@
     "start": "renovate"
   },
   "dependencies": {
-    "renovate": "19.30.5"
+    "renovate": "19.30.7"
   },
   "engines": {
     "node": "^10.13.0 || ^12.0.0",
