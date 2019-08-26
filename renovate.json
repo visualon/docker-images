@@ -23,7 +23,7 @@
       "allowedVersions": "<2.0"
     },
     {
-      "packageNames": ["renovate"],
+      "packageNames": ["renovate", "renovate/renovate"],
       "extends": [":automergeMinor"],
       "minor": {
         "masterIssueApproval": false
@@ -36,6 +36,7 @@
   ],
   "digest": {
     "extends": ["schedule:daily"],
+    "pinDigests": true,
     "automerge": true
   }
 }
