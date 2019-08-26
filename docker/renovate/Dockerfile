@@ -1,4 +1,4 @@
-FROM renovate/renovate:19.33.3-slim
+FROM renovate/renovate:19.34.1-slim
 
 ARG SOURCE_COMMIT
 
