@@ -1,3 +1,3 @@
-# docker-images [![Build status](https://ci.appveyor.com/api/projects/status/arkrdgf8mt7a25yc/branch/master?svg=true)](https://ci.appveyor.com/project/VisualOn/docker-images/branch/master)
+# docker-images [![Build Status](https://dev.azure.com/visual-on/gh/_apis/build/status/VisualOn.docker-images?branchName=master)](https://dev.azure.com/visual-on/gh/_build/latest?definitionId=1&branchName=master)
 
 multiple autobuild docker images

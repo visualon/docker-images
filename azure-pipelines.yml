@@ -1,29 +1,65 @@
-# Docker
-# Build a Docker image 
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
-
 trigger:
-- master
-
-resources:
-- repo: self
+  batch: true
+  branches:
+    include:
+      - "master"
+      - "staging"
+      - "trying"
+pr:
+  autoCancel: true
+  branches:
+    include:
+      - "*"
 
 variables:
-  tag: '$(Build.BuildId)'
+  DOCKER_BUILDKIT: 1
+  CI: true
 
-stages:
-- stage: Build
-  displayName: Build image
-  jobs:  
-  - job: Build
+jobs:
+  - job: build
     displayName: Build
+    timeoutInMinutes: 10
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: "ubuntu-16.04"
+    strategy:
+      matrix:
+        aspnet:
+          imageName: "dotnet-aspnet"
+          testCommand: "dotnet --info"
+        sdk:
+          imageName: "dotnet-sdk"
+          testCommand: "dotnet --info"
+        renovate:
+          imageName: "renovate"
+          testCommand: "renovate --version"
+        node:
+          imageName: "node"
+          testCommand: "bash -c 'yarn --version && pnpm --version && yarn global add re2'"
+        rancher:
+          imageName: "rancher-cli"
+          testCommand: "rancher --version"
     steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/docker/dotnet-aspnet/Dockerfile'
-        tags: |
-          $(tag)
+      - template: .azure/build.yml
+      - template: .azure/test.yml
+
+  - job: publish
+    displayName: Publish
+    timeoutInMinutes: 10
+    dependsOn: build
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    pool:
+      vmImage: "ubuntu-16.04"
+    strategy:
+      matrix:
+        aspnet:
+          imageName: "dotnet-aspnet"
+        sdk:
+          imageName: "dotnet-sdk"
+        node:
+          imageName: "node"
+        rancher:
+          imageName: "rancher-cli"
+    steps:
+      - template: .azure/build.yml
+        parameters:
+          command: buildAndPush

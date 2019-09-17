@@ -34,17 +34,19 @@ init:
     }
 
 build_script:
-  - ps: . ./scripts/build.ps1
+  # - ps: . ./scripts/build.
+  - echo "build"
 
 test_script:
-  - ps: . ./scripts/test.ps1
+  # - ps: . ./scripts/test.ps1
+  - echo "test"
 
-for:
+# for:
 
--
-  branches:
-    only:
-      - master
-      - /v\d*\.\d*\.\d*/
-  deploy_script:
-    - ps: . ./scripts/deploy.ps1
+# -
+#   branches:
+#     only:
+#       - master
+#       - /v\d*\.\d*\.\d*/
+#   deploy_script:
+#     - ps: . ./scripts/deploy.ps1

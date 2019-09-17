@@ -31,10 +31,10 @@ Write-Host testing rancher-cli -ForegroundColor Green
 docker run --rm -t rancher-cli rancher --version
 if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode); throw "test error" }
 
-$images = @('dotnet-sdk', 'dotnet-aspnet')
+# $images = @('dotnet-sdk', 'dotnet-aspnet')
 
-$images | ForEach-Object {
-    Write-Host testing $_ -ForegroundColor Green
-    docker run --rm -t $_ dotnet --info
-    if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode); throw "test error" }
-}
+# $images | ForEach-Object {
+#     Write-Host testing $_ -ForegroundColor Green
+#     docker run --rm -t $_ dotnet --info
+#     if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode); throw "test error" }
+# }
