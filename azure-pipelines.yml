@@ -2,9 +2,9 @@ trigger:
   batch: true
   branches:
     include:
-      - "master"
-      - "staging"
-      - "trying"
+      - master
+      - staging
+      - trying
 pr:
   autoCancel: true
   branches:
