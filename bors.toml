@@ -1,5 +1,6 @@
 status = [
-  "continuous-integration/appveyor/branch"
+  "continuous-integration/appveyor/branch",
+  "VisualOn.docker-images"
 ]
 # Uncomment this to use a two hour timeout.
 # The default is one hour.

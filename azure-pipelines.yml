@@ -3,6 +3,8 @@ trigger:
   branches:
     include:
       - "master"
+      - "staging"
+      - "trying"
 pr:
   autoCancel: true
   branches:
