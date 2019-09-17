@@ -33,7 +33,7 @@ jobs:
       - template: .azure/build.yml
       - template: .azure/test.yml
         parameters:
-          image: $(imageName)
+          image: ${{ variables.imageName }}
 
   - job: publish_dotnet
     displayName: Publish dotnet
