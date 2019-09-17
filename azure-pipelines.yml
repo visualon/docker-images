@@ -16,8 +16,8 @@ variables:
   CI: true
 
 jobs:
-  - job: build_dotnet
-    displayName: Build dotnet
+  - job: build
+    displayName: Build
     timeoutInMinutes: 10
     pool:
       vmImage: "ubuntu-16.04"
@@ -32,12 +32,18 @@ jobs:
         renovate:
           imageName: "renovate"
           testCommand: "renovate --version"
+        node:
+          imageName: "node"
+          testCommand: "bash -c 'yarn --version && pnpm --version && yarn global add re2'"
+        rancher:
+          imageName: "rancher-cli"
+          testCommand: "rancher --version"
     steps:
       - template: .azure/build.yml
       - template: .azure/test.yml
 
-  - job: publish_dotnet
-    displayName: Publish dotnet
+  - job: publish
+    displayName: Publish
     timeoutInMinutes: 10
     dependsOn: build_dotnet
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
@@ -49,8 +55,10 @@ jobs:
           imageName: "dotnet-aspnet"
         sdk:
           imageName: "dotnet-sdk"
-        renovate:
-          imageName: "renovate"
+        node:
+          imageName: "node"
+        rancher:
+          imageName: "rancher-cli"
     steps:
       - template: .azure/build.yml
         parameters:
