@@ -27,9 +27,13 @@ jobs:
           imageName: "dotnet-aspnet"
         sdk:
           imageName: "dotnet-sdk"
+        renovate:
+          imageName: "renovate"
     steps:
       - template: .azure/build.yml
-      - template: .azure/test-dotnet.yml
+      - template: .azure/test.yml
+        parameters:
+          imageName: $(imageName)
 
   - job: publish_dotnet
     displayName: Publish dotnet
@@ -44,6 +48,8 @@ jobs:
           imageName: "dotnet-aspnet"
         sdk:
           imageName: "dotnet-sdk"
+        renovate:
+          imageName: "renovate"
     steps:
       - template: .azure/build.yml
         parameters:
