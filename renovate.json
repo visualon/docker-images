@@ -9,8 +9,6 @@
   "semanticCommits": true,
   "separateMinorPatch": true,
   "timezone": "Europe/Berlin",
-  "automergeType": "pr-comment",
-  "automergeComment": "bors r+",
   "labels": ["deps"],
   "major": {
     "masterIssueApproval": true
