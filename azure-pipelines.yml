@@ -25,15 +25,16 @@ jobs:
       matrix:
         aspnet:
           imageName: "dotnet-aspnet"
+          testCommand: "dotnet --info"
         sdk:
           imageName: "dotnet-sdk"
+          testCommand: "dotnet --info"
         renovate:
           imageName: "renovate"
+          testCommand: "renovate --version"
     steps:
       - template: .azure/build.yml
       - template: .azure/test.yml
-        parameters:
-          image: ${{ variables.imageName }}
 
   - job: publish_dotnet
     displayName: Publish dotnet
