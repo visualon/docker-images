@@ -45,7 +45,7 @@ jobs:
   - job: publish
     displayName: Publish
     timeoutInMinutes: 10
-    dependsOn: build_dotnet
+    dependsOn: build
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     pool:
       vmImage: "ubuntu-16.04"
