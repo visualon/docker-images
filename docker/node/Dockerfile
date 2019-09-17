@@ -6,6 +6,9 @@ RUN set -x \
         curl \
         bash \
         openjdk8-jre-base \
+        python \
+        make \
+        g++ \
     && echo "done"
 
 # yarn
