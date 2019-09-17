@@ -1,7 +1,3 @@
-# Docker
-# Build a Docker image
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
-
 trigger:
   batch: true
   branches:
@@ -13,24 +9,20 @@ pr:
     include:
       - "*"
 
-resources:
-  - repo: self
-
-pool:
-  vmImage: "ubuntu-latest"
-
 variables:
   DOCKER_BUILDKIT: 1
   CI: true
 
 jobs:
-  - job: Build
-    displayName: Build
+  - job: Build dotnet
+    pool:
+      vmImage: "ubuntu-16.04"
     strategy:
       matrix:
-        dotnet-aspnet:
+        aspnet:
           imageName: "dotnet-aspnet"
-        dotnet-sdk:
+        sdk:
           imageName: "dotnet-sdk"
     steps:
       - template: .azure/build.yml
+      - template: .azure/test-dotnet.yml
