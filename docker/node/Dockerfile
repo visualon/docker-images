@@ -6,6 +6,9 @@ RUN set -x \
         curl \
         bash \
         openjdk8-jre-base \
+        python \
+        make \
+        g++ \
     && echo "done"
 
 # yarn
@@ -20,7 +23,7 @@ RUN set -x \
 ENV PATH="/root/.yarn/bin:/root/.config/yarn/global/node_modules/.bin:$PATH"
 
 # pnpm
-ENV PNPM_VERSION=3.6.0
+ENV PNPM_VERSION=3.8.1
 RUN set -x \
     && curl -o- -sL https://unpkg.com/@pnpm/self-installer | node \
     && echo -n "pnpm: " \
