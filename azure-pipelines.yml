@@ -18,6 +18,7 @@ variables:
 jobs:
   - job: build_dotnet
     displayName: Build dotnet
+    timeoutInMinutes: 10
     pool:
       vmImage: "ubuntu-16.04"
     strategy:
@@ -29,3 +30,21 @@ jobs:
     steps:
       - template: .azure/build.yml
       - template: .azure/test-dotnet.yml
+
+  - job: publish_dotnet
+    displayName: Publish dotnet
+    timeoutInMinutes: 10
+    dependsOn: build_dotnet
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    pool:
+      vmImage: "ubuntu-16.04"
+    strategy:
+      matrix:
+        aspnet:
+          imageName: "dotnet-aspnet"
+        sdk:
+          imageName: "dotnet-sdk"
+    steps:
+      - template: .azure/build.yml
+        parameters:
+          command: buildAndPush
