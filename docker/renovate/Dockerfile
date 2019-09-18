@@ -12,4 +12,8 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
     org.opencontainers.image.url="https://github.com/renovatebot/renovate"
 
-ENTRYPOINT []
+# Add Tini
+ENV TINI_VERSION v0.18.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
+ENTRYPOINT ["/tini", "--"]
