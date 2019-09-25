@@ -40,7 +40,7 @@ jobs:
           testCommand: "rancher --version"
         verdaccio:
           imageName: "verdaccio"
-          testCommand: "verdaccio --info"
+          testCommand: "sh -c 'verdaccio --info; rc=$?; if [[ $rc -ne 1 ]]; then exit $rc; fi'"
     steps:
       - template: .azure/build.yml
       - template: .azure/test.yml
