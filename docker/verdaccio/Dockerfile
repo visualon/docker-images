@@ -1,0 +1,11 @@
+FROM verdaccio/verdaccio:4.2.2@sha256:63d1bd1efb23f4365ee9b574a9971a4adf1b403b02f3f3efec1ff61d3d884215
+
+USER root
+
+ENV VERDACCIO_AD_VERSION=1.0.2
+
+RUN NODE_ENV=production yarn add verdaccio-activedirectory@$VERDACCIO_AD_VERSION
+
+USER $VERDACCIO_USER_UID
+
+ENV PATH=$VERDACCIO_APPDIR/bin:$PATH
