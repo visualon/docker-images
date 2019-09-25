@@ -36,12 +36,11 @@ RUN apk --no-cache add dumb-init
 
 RUN mkdir -p /verdaccio/storage /verdaccio/plugins /verdaccio/conf
 
-ENV PATH=$VERDACCIO_APPDIR/bin:$PATH \
+ENV PATH=$VERDACCIO_APPDIR/node_modules/.bin:$PATH \
     HOME=$VERDACCIO_APPDIR
 
 RUN addgroup -g $VERDACCIO_USER_UID $VERDACCIO_USER_NAME && \
     adduser -u $VERDACCIO_USER_UID -D -h $VERDACCIO_APPDIR -G $VERDACCIO_USER_NAME -s /sbin/nologin $VERDACCIO_USER_NAME && \
-    chmod -R +x $VERDACCIO_APPDIR/bin && \
     chown -R $VERDACCIO_USER_UID:$VERDACCIO_USER_UID /verdaccio/storage && \
     chmod -R g=u /verdaccio/storage
 
@@ -51,4 +50,4 @@ COPY --from=build $VERDACCIO_APPDIR/node_modules node_modules
 USER $VERDACCIO_USER_UID
 
 ENTRYPOINT [ "/usr/bin/dumb-init", "--"]
-CMD $VERDACCIO_APPDIR/bin/verdaccio --config /verdaccio/conf/config.yml --listen http://0.0.0.0:$VERDACCIO_PORT
+CMD $VERDACCIO_APPDIR/node_modules/.bin/verdaccio --config /verdaccio/conf/config.yml --listen http://0.0.0.0:$VERDACCIO_PORT
