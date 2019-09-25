@@ -1,0 +1,8 @@
+{
+  "name": "verdaccio",
+  "private": true,
+  "dependencies": {
+    "verdaccio": "4.2.2",
+    "verdaccio-activedirectory": "1.0.2"
+  }
+}

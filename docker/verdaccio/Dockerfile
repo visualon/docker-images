@@ -1,11 +1,54 @@
-FROM verdaccio/verdaccio:4.2.2@sha256:63d1bd1efb23f4365ee9b574a9971a4adf1b403b02f3f3efec1ff61d3d884215
+FROM node:lts-alpine@sha256:5cf3bedcacc2b6ae46504c4c165c74ae88b5fb5eb67f9dfcc3b0cca193f366ff as base
 
-USER root
 
-ENV VERDACCIO_AD_VERSION=1.0.2
 
-RUN NODE_ENV=production yarn add verdaccio-activedirectory@$VERDACCIO_AD_VERSION
+ARG SOURCE_COMMIT
+
+LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
+    name="verdaccio" \
+    org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.revision="$SOURCE_COMMIT" \
+    org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
+    org.opencontainers.image.url="https://github.com/verdaccio/verdaccio"
+
+
+ENV VERDACCIO_APPDIR=/opt/verdaccio \
+    VERDACCIO_USER_NAME=verdaccio \
+    VERDACCIO_USER_UID=10001 \
+    VERDACCIO_PORT=4873
+
+WORKDIR $VERDACCIO_APPDIR
+
+# Build
+FROM base as build
+
+COPY package.json yarn.lock ./
+
+RUN yarn install --frozen-lockfile --prod
+
+
+# Final
+FROM base as final
+
+
+RUN apk --no-cache add dumb-init
+
+RUN mkdir -p /verdaccio/storage /verdaccio/plugins /verdaccio/conf
+
+ENV PATH=$VERDACCIO_APPDIR/bin:$PATH \
+    HOME=$VERDACCIO_APPDIR
+
+RUN addgroup -g $VERDACCIO_USER_UID $VERDACCIO_USER_NAME && \
+    adduser -u $VERDACCIO_USER_UID -D -h $VERDACCIO_APPDIR -G $VERDACCIO_USER_NAME -s /sbin/nologin $VERDACCIO_USER_NAME && \
+    chmod -R +x $VERDACCIO_APPDIR/bin && \
+    chown -R $VERDACCIO_USER_UID:$VERDACCIO_USER_UID /verdaccio/storage && \
+    chmod -R g=u /verdaccio/storage
+
+COPY package.json .
+COPY --from=build $VERDACCIO_APPDIR/node_modules node_modules
 
 USER $VERDACCIO_USER_UID
 
-ENV PATH=$VERDACCIO_APPDIR/bin:$PATH
+ENTRYPOINT [ "/usr/bin/dumb-init", "--"]
+CMD $VERDACCIO_APPDIR/bin/verdaccio --config /verdaccio/conf/config.yml --listen http://0.0.0.0:$VERDACCIO_PORT
