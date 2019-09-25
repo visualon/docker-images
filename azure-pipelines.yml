@@ -38,6 +38,9 @@ jobs:
         rancher:
           imageName: "rancher-cli"
           testCommand: "rancher --version"
+        verdaccio:
+          imageName: "verdaccio"
+          testCommand: "verdaccio --info"
     steps:
       - template: .azure/build.yml
       - template: .azure/test.yml
@@ -59,6 +62,8 @@ jobs:
           imageName: "node"
         rancher:
           imageName: "rancher-cli"
+        verdaccio:
+          imageName: "verdaccio"
     steps:
       - task: Docker@2
         inputs:
