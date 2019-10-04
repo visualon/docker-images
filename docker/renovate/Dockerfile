@@ -1,4 +1,4 @@
-FROM renovate/renovate:19.56.0-slim@sha256:ce07fe855b631ff27343a3ee533f2fec47d2620eea076a57d77e29f44a0fa53e
+FROM renovate/renovate:19.56.1-slim@sha256:13bd3d619200c7b2273d0efacd6847ea49487bdcfb341ceebede9cf570cb5fe9
 
 ARG SOURCE_COMMIT
 
