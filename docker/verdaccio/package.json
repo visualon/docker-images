@@ -2,11 +2,11 @@
   "name": "verdaccio",
   "private": true,
   "dependencies": {
-    "@verdaccio/ui-theme": "0.3.0",
+    "@verdaccio/ui-theme": "0.3.2",
     "verdaccio": "4.2.2",
     "verdaccio-activedirectory": "1.0.2"
   },
   "resolutions": {
-    "@verdaccio/ui-theme": "0.3.0"
+    "@verdaccio/ui-theme": "0.3.2"
   }
 }
