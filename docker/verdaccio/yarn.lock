@@ -54,10 +54,10 @@
   resolved "https://registry.yarnpkg.com/@verdaccio/streams/-/streams-8.0.0.tgz#d8e1aa4121c288b2a305de4607d19d0df3f49e52"
   integrity sha512-N1zCrQfbo8xWMUyYRFLUuA1Xn9cbbvOslIZ1P2jX+E4HyA/4fBwZi6mpsa79RuOmm1Vu2GI/yXADiO4x9F4j2Q==
 
-"@verdaccio/ui-theme@0.2.3", "@verdaccio/ui-theme@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@verdaccio/ui-theme/-/ui-theme-0.3.0.tgz#573a04437cc672e3efe6f4db055f775d86df0958"
-  integrity sha512-CpbiJTxacv/j7yG31x089ZRM4bVTqGRxQEgN4uyqepWtYu6OgI/SvU6rpTuF1BjMkBuvSv8SRBKhpJav5oEs0Q==
+"@verdaccio/ui-theme@0.2.3", "@verdaccio/ui-theme@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@verdaccio/ui-theme/-/ui-theme-0.3.2.tgz#6f4a27abb3781a9741473e55bff7af650dce118c"
+  integrity sha512-bxICDb2dgHXp6DOEx8f1IfU7PsgF1AuuDxa87MbvXqfE3CfMGB2TEwlPWNlX+VSScgWNh/yYSDrOIQ2SqwgAGg==
 
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"
