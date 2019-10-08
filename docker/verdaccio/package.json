@@ -2,11 +2,8 @@
   "name": "verdaccio",
   "private": true,
   "dependencies": {
-    "@verdaccio/ui-theme": "0.3.2",
     "verdaccio": "4.3.3",
-    "verdaccio-activedirectory": "1.0.2"
-  },
-  "resolutions": {
-    "@verdaccio/ui-theme": "0.3.2"
+    "verdaccio-activedirectory": "1.0.2",
+    "verdaccio-ldap": "4.0.0"
   }
 }
