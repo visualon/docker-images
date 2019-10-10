@@ -2008,10 +2008,10 @@ verdaccio-audit@8.1.4:
     express "4.17.1"
     request "2.88.0"
 
-verdaccio-bitbucket-server@1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/verdaccio-bitbucket-server/-/verdaccio-bitbucket-server-1.2.5.tgz#3951290da0212ae8552798333cacb79338cb689d"
-  integrity sha512-S+AqmP300L7Eph84oyjcsYh1yTwDsCQqv2FHQ/Hetx/I8A7M8tS1ey1csIn+YvvpKseGYVIqRo68/DvE1JHN+w==
+verdaccio-bitbucket-server@1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/verdaccio-bitbucket-server/-/verdaccio-bitbucket-server-1.2.6.tgz#22dfe22227ef67b5962515926943b5e6dea56f3e"
+  integrity sha512-3UqHPiYF3/vhao9Tt101qnYmDb6DJJcLn8e3b6J4lSNZWUyw40QR9/owAR/AeFh0fHAUM5I5oZpvSObk361NXg==
   dependencies:
     axios "^0.19.0"
 
