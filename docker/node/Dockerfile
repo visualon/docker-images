@@ -1,4 +1,4 @@
-FROM node:lts-alpine@sha256:5cf3bedcacc2b6ae46504c4c165c74ae88b5fb5eb67f9dfcc3b0cca193f366ff
+FROM node:lts-alpine@sha256:2ecde718fd39a49d2515e197282ac87e8f1873492741f54a6a4e2240ce87ae00
 
 RUN set -x \
     && apk add --no-cache \
