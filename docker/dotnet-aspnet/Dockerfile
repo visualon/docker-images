@@ -1,1 +1,1 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2.7-alpine@sha256:4d6e528f4c09c55804b6032ecc5d60565a3ee16f68bb08d2cf337dff99cdb8c3 AS runtime
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2.7-alpine@sha256:6b1613c55ad18b81094c606e426392d7aa81b6bc30ac30d2d514b34f36b7a203 AS runtime
