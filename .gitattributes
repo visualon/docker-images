@@ -1,1 +1,2 @@
+/bin/*.sh text eol=lf
 /docker/renovate/renovate text eol=lf
