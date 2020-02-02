@@ -46,7 +46,7 @@ jobs:
             --cache-from ${IMAGE}:cache \
             --tag ${IMAGE} \
             .
-        working-directory: ./docker/${FILE}
+        working-directory: ./docker/${{ env.FILE }}
 
       - name: Test run
         run: |
@@ -86,7 +86,7 @@ jobs:
             --cache-to ${IMAGE}:cache \
             --tag ${IMAGE} \
             .
-        working-directory: ./docker/${FILE}
+        working-directory: ./docker/${{ env.FILE }}
 
       - name: Publish the Docker image
         run: |
