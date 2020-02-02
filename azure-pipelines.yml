@@ -29,9 +29,6 @@ jobs:
         sdk:
           imageName: "dotnet-sdk"
           testCommand: "dotnet --info"
-        renovate:
-          imageName: "renovate"
-          testCommand: "renovate --version"
         node:
           imageName: "node"
           testCommand: "bash -c 'yarn --version && pnpm --version && yarn global add re2'"
