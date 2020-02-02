@@ -50,7 +50,7 @@ jobs:
 
       - name: Test run
         run: |
-          docker run --rm -t ${IMAGE} --version
+          docker run --rm -t ${IMAGE} renovate --version
 
       - name: Image history
         run: docker history ${IMAGE}
