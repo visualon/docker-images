@@ -14,10 +14,10 @@ on:
     #  - v*
 
   # Run tests for any PRs.
-  pull_request:
-    paths:
-      - docker/renovate/**
-      - .github/workflows/**
+  # pull_request:
+  #   paths:
+  #     - docker/renovate/**
+  #     - .github/workflows/**
 
 env:
   PLATFORM: linux/amd64

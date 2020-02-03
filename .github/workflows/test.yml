@@ -1,0 +1,62 @@
+name: Test
+
+on:
+  push:
+    # Run tests for any branch excerpt `master`.
+    branches:
+      - '*'
+      - '!master'
+
+  # Run tests for any PRs.
+  pull_request:
+
+env:
+  PLATFORM: linux/amd64
+  SOURCE_COMMIT: ${{ github.sha }}
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 10
+
+    strategy:
+      matrix:
+        file: [renovate,verdaccio]
+
+    env:
+      FILE: ${{ matrix.file }}
+      IMAGE: visualon/${{ matrix.file }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: crazy-max/ghaction-docker-buildx@v1
+#        id: buildx
+#        with:
+#          version: v0.3.1
+
+      - name: Build image
+        run: |
+          docker buildx build \
+            --platform ${PLATFORM} \
+            --build-arg SOURCE_COMMIT \
+            --output "type=docker" \
+            --cache-from ${IMAGE}:cache \
+            --tag ${IMAGE} \
+            .
+        working-directory: ./docker/${{ env.FILE }}
+
+      - name: Test image
+        run: docker-compose --file docker-compose.test.yml run sut
+        working-directory: ./docker/${{ env.FILE }}
+
+      - name: Image history
+        run: docker history ${IMAGE}
+
+      - name: Image size
+        run: docker image ls | grep ${IMAGE}
+
+  
