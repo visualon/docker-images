@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FROM=$(head -1 docker/$FILE/Dockerfile)
+FROM=$(head -1 Dockerfile)
 SEMVER_REGEX=":(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[a-z0-9]+)?@"
 
 echo "Tagging ${IMAGE}"
