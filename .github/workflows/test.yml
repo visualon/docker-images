@@ -4,7 +4,7 @@ on:
   push:
     # Run tests for any branch excerpt `master`.
     branches:
-      - '*'
+      - '**'
       - '!master'
 
   # Run tests for any PRs.
