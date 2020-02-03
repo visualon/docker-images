@@ -2,4 +2,4 @@ version: "2.0"
 services:
   sut:
     image: "${IMAGE}"
-    command: sh -c 'verdaccio --info; rc=$?; if [[ $rc -ne 1 ]]; then exit $rc; fi'
+    command: sh -c 'verdaccio --info; rc=$$?; if [[ $$rc -ne 1 ]]; then exit $$rc; fi'
