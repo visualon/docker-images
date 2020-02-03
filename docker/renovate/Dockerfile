@@ -2,7 +2,7 @@ FROM renovate/renovate:19.117.0-slim@sha256:d67de9a708255cd61293baf86e4a12f23705
 
 #----------------------------
 # fetch tini
-FROM base as tini
+FROM busybox:1.31.1@sha256:edafc0a0fb057813850d1ba44014914ca02d671ae247107ca70c94db686e7de6 as tini
 
 USER root
 
