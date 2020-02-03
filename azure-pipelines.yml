@@ -35,9 +35,6 @@ jobs:
         rancher:
           imageName: "rancher-cli"
           testCommand: "rancher --version"
-        verdaccio:
-          imageName: "verdaccio"
-          testCommand: "sh -c 'verdaccio --info; rc=$?; if [[ $rc -ne 1 ]]; then exit $rc; fi'"
     steps:
       - template: .azure/build.yml
       - template: .azure/test.yml
@@ -59,8 +56,6 @@ jobs:
           imageName: "node"
         rancher:
           imageName: "rancher-cli"
-        verdaccio:
-          imageName: "verdaccio"
     steps:
       - task: Docker@2
         inputs:
