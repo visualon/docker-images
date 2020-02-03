@@ -1,23 +1,11 @@
-name: Renovate Docker Image CI
+name: Release
 
 on:
   push:
     # Publish `master` as Docker `latest` image.
     branches:
       - master
-    paths:
-      - docker/renovate/**
-      - .github/workflows/**
-
-    # Publish `v1.2.3` tags as releases.
-    #tags:
-    #  - v*
-
-  # Run tests for any PRs.
-  # pull_request:
-  #   paths:
-  #     - docker/renovate/**
-  #     - .github/workflows/**
+    
 
 env:
   PLATFORM: linux/amd64
@@ -26,17 +14,24 @@ env:
 
 jobs:
   test:
-    name: Test image
+    name: Release test
     runs-on: ubuntu-latest
+
+    timeout-minutes: 10
+
+    strategy:
+      matrix:
+        file: [renovate,verdaccio]
+
+    env:
+      FILE: ${{ matrix.file }}
+      IMAGE: visualon/${{ matrix.file }}
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Set up Docker Buildx
-        id: buildx
         uses: crazy-max/ghaction-docker-buildx@v1
-        with:
-          version: v0.3.1
 
       - name: Build the Docker image
         run: |
@@ -49,21 +44,25 @@ jobs:
         working-directory: ./docker/${{ env.FILE }}
 
       - name: Test run
-        run: |
-          docker run --rm -t ${IMAGE} renovate --version
-
-      - name: Image history
-        run: docker history ${IMAGE}
-
-      - name: Image size
-        run: docker image ls | grep ${IMAGE}
+        run: docker-compose --file docker-compose.test.yml run sut
+        working-directory: ./docker/$ {{ env.FILE }}
 
   push:
-    name: Publish image
+    name: Release push
     runs-on: ubuntu-latest
 
     needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+
+    timeout-minutes: 10
+
+    strategy:
+      matrix:
+        file: [renovate,verdaccio]
+
+    env:
+      FILE: ${{ matrix.file }}
+      IMAGE: visualon/${{ matrix.file }}
 
     steps:
       - uses: actions/checkout@v2
@@ -90,5 +89,7 @@ jobs:
 
       - name: Publish the Docker image
         run: |
-          ./bin/push.sh
-        shell: bash
+          if [ -f push.sh ]; then
+            ./push.sh
+          fi
+        working-directory: ./docker/${{ env.FILE }}
