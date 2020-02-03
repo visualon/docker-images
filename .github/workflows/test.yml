@@ -38,6 +38,11 @@ jobs:
 #        with:
 #          version: v0.3.1
 
+      - name: Init
+        run: |
+          docker --version
+          docker-compose --version
+
       - name: Build image
         run: |
           docker buildx build \
