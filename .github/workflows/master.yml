@@ -5,7 +5,6 @@ on:
     # Publish `master` as Docker `latest` image.
     branches:
       - master
-    
 
 env:
   PLATFORM: linux/amd64
@@ -21,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate,verdaccio]
+        file: [renovate, verdaccio]
 
     env:
       FILE: ${{ matrix.file }}
@@ -45,7 +44,7 @@ jobs:
 
       - name: Test run
         run: docker-compose --file docker-compose.test.yml run sut
-        working-directory: ./docker/$ {{ env.FILE }}
+        working-directory: ./docker/${{ env.FILE }}
 
   push:
     name: Release push
@@ -58,7 +57,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate,verdaccio]
+        file: [renovate, verdaccio]
 
     env:
       FILE: ${{ matrix.file }}
