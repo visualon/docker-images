@@ -1,4 +1,4 @@
-FROM renovate/renovate:19.129.2-slim@sha256:3f6e36d7548df1d5688d5ec66cb979a1b017c9e3234764edca28c8e94ecc970a as base
+FROM renovate/renovate:19.130.0-slim@sha256:549b9e22f8ee65f10f3999cef5ec114f4351f37a6c9b242decf0bd3439cd3089 as base
 
 #----------------------------
 # fetch tini
