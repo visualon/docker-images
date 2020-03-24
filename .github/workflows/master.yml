@@ -20,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate, verdaccio]
+        file: [renovate, verdaccio, rancher-cli]
 
     env:
       FILE: ${{ matrix.file }}
@@ -38,6 +38,7 @@ jobs:
             --platform ${PLATFORM} \
             --output "type=docker" \
             --cache-from ${IMAGE}:cache \
+            --cache-from visualon/docker-caches:${FILE} \
             --tag ${IMAGE} \
             .
         working-directory: ./docker/${{ env.FILE }}
@@ -57,7 +58,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate, verdaccio]
+        file: [renovate, verdaccio, rancher-cli]
 
     env:
       FILE: ${{ matrix.file }}
@@ -81,7 +82,8 @@ jobs:
             --platform ${PLATFORM} \
             --output "type=docker" \
             --cache-from ${IMAGE}:cache \
-            --cache-to ${IMAGE}:cache \
+            --cache-from visualon/docker-caches:${FILE} \
+            --cache-to visualon/docker-caches:${FILE} \
             --tag ${IMAGE} \
             .
         working-directory: ./docker/${{ env.FILE }}

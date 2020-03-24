@@ -32,9 +32,6 @@ jobs:
         node:
           imageName: "node"
           testCommand: "bash -c 'yarn --version && pnpm --version && yarn global add re2'"
-        rancher:
-          imageName: "rancher-cli"
-          testCommand: "rancher --version"
     steps:
       - template: .azure/build.yml
       - template: .azure/test.yml
@@ -54,8 +51,6 @@ jobs:
           imageName: "dotnet-sdk"
         node:
           imageName: "node"
-        rancher:
-          imageName: "rancher-cli"
     steps:
       - task: Docker@2
         inputs:

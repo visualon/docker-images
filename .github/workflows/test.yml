@@ -23,7 +23,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate,verdaccio]
+        file: [renovate,verdaccio,rancher-cli]
 
     env:
       FILE: ${{ matrix.file }}
@@ -50,6 +50,7 @@ jobs:
             --build-arg SOURCE_COMMIT \
             --output "type=docker" \
             --cache-from ${IMAGE}:cache \
+            --cache-from visualon/docker-caches:${FILE} \
             --tag ${IMAGE} \
             .
         working-directory: ./docker/${{ env.FILE }}
@@ -64,4 +65,3 @@ jobs:
       - name: Image size
         run: docker image ls | grep ${IMAGE}
 
-  
