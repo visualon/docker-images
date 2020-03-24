@@ -24,8 +24,7 @@ RUN set -x \
     && rm -f /usr/local/bin/yarn \
     && curl -o- -sL https://yarnpkg.com/install.sh | bash -s -- --version ${YARN_VERSION} \
     && export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH" \
-    && echo -n "yarn: " \
-    && yarn --version
+    && echo -n "yarn: $(yarn --version)"
 
 ENV PATH="/root/.yarn/bin:/root/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -33,5 +32,4 @@ ENV PATH="/root/.yarn/bin:/root/.config/yarn/global/node_modules/.bin:$PATH"
 ENV PNPM_VERSION=3.8.1
 RUN set -x \
     && curl -o- -sL https://unpkg.com/@pnpm/self-installer | node \
-    && echo -n "pnpm: " \
-    && pnpm --version
+    && echo -n "pnpm: $(pnpm --version)"
