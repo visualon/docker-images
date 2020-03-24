@@ -41,6 +41,14 @@
     {
       "packagePatterns": ["mcr.microsoft.com/dotnet/core"],
       "groupName": "dotnet core images"
+    },
+    {
+      "packagePatterns": ["^verdaccio"],
+      "extends": [":automergePatch"],
+      "minor": {
+        "masterIssueApproval": false
+      },
+      "groupName": "verdaccio packages"
     }
   ],
   "digest": {
