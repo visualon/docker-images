@@ -1,4 +1,11 @@
-FROM node:lts-alpine@sha256:08f387b98dd00c1a746580dbd91e538d534911cdd14f6d1d0b36b4687e823006
+FROM node:12.16.1-alpine@sha256:5e1a147114839599442784549d04b45821c7b178f7fc09d4ab9853543ae1388e
+
+LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
+    org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
+    org.opencontainers.image.url="https://github.com/VisualOn/docker-images"
+
 
 RUN set -x \
     && apk add --no-cache \
@@ -11,7 +18,7 @@ RUN set -x \
         g++ \
     && echo "done"
 
-# yarn
+# renovate: datasource=npm depName=yarn
 ENV YARN_VERSION=1.17.3
 RUN set -x \
     && rm -f /usr/local/bin/yarn \
@@ -22,21 +29,9 @@ RUN set -x \
 
 ENV PATH="/root/.yarn/bin:/root/.config/yarn/global/node_modules/.bin:$PATH"
 
-# pnpm
+# renovate: datasource=npm depName=pnpm
 ENV PNPM_VERSION=3.8.1
 RUN set -x \
     && curl -o- -sL https://unpkg.com/@pnpm/self-installer | node \
     && echo -n "pnpm: " \
     && pnpm --version
-
-# metadata
-ARG APPVEYOR_REPO_COMMIT
-ARG APPVEYOR_BUILD_VERSION
-
-LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
-    org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
-    org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.revision="$APPVEYOR_REPO_COMMIT" \
-    org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
-    org.opencontainers.image.url="https://github.com/VisualOn/docker-images" \
-    org.opencontainers.image.version="$APPVEYOR_BUILD_VERSION"

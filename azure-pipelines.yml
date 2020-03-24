@@ -29,9 +29,6 @@ jobs:
         sdk:
           imageName: "dotnet-sdk"
           testCommand: "dotnet --info"
-        node:
-          imageName: "node"
-          testCommand: "bash -c 'yarn --version && pnpm --version && yarn global add re2'"
     steps:
       - template: .azure/build.yml
       - template: .azure/test.yml
@@ -49,8 +46,6 @@ jobs:
           imageName: "dotnet-aspnet"
         sdk:
           imageName: "dotnet-sdk"
-        node:
-          imageName: "node"
     steps:
       - task: Docker@2
         inputs:

@@ -1,0 +1,5 @@
+version: "3.7"
+services:
+  sut:
+    image: "${IMAGE}"
+    command: bash -c 'echo "Node $(node --version)"; echo "Yarn $(yarn --version)"; echo "Pnpm $(pnpm --version)"; yarn global add re2'

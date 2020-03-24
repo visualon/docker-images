@@ -4,8 +4,8 @@ on:
   push:
     # Run tests for any branch excerpt `master`.
     branches:
-      - '**'
-      - '!master'
+      - "**"
+      - "!master"
 
   # Run tests for any PRs.
   pull_request:
@@ -23,7 +23,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate,verdaccio,rancher-cli]
+        file: [renovate, verdaccio, rancher-cli, node]
 
     env:
       FILE: ${{ matrix.file }}
@@ -34,9 +34,9 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: crazy-max/ghaction-docker-buildx@v1
-#        id: buildx
-#        with:
-#          version: v0.3.1
+      #        id: buildx
+      #        with:
+      #          version: v0.3.1
 
       - name: Init
         run: |
@@ -64,4 +64,3 @@ jobs:
 
       - name: Image size
         run: docker image ls | grep ${IMAGE}
-

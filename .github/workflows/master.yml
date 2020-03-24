@@ -20,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate, verdaccio, rancher-cli]
+        file: [renovate, verdaccio, rancher-cli, node]
 
     env:
       FILE: ${{ matrix.file }}
@@ -58,7 +58,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate, verdaccio, rancher-cli]
+        file: [renovate, verdaccio, rancher-cli, node]
 
     env:
       FILE: ${{ matrix.file }}
