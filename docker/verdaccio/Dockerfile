@@ -1,14 +1,9 @@
-FROM node:lts-alpine@sha256:08f387b98dd00c1a746580dbd91e538d534911cdd14f6d1d0b36b4687e823006 as base
-
-
-
-ARG SOURCE_COMMIT
+FROM node:12.16.1-alpine@sha256:5e1a147114839599442784549d04b45821c7b178f7fc09d4ab9853543ae1388e as base
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="verdaccio" \
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.revision="$SOURCE_COMMIT" \
     org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
     org.opencontainers.image.url="https://github.com/verdaccio/verdaccio"
 

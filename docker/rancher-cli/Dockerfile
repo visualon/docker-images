@@ -1,5 +1,12 @@
 FROM alpine:3.11.5@sha256:cb8a924afdf0229ef7515d9e5b3024e23b3eb03ddbba287f4a19c6ac90b8d221
 
+
+LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
+    org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
+    org.opencontainers.image.url="http://rancher.com"
+
 # renovate: datasource=docker depName=rancher/cli versioning=docker
 ENV CATTLE_RANCHER_CLI_VERSION=v0.6.13
 
