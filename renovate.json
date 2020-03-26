@@ -49,6 +49,10 @@
         "masterIssueApproval": false
       },
       "groupName": "verdaccio packages"
+    },
+    {
+        "managers": ["regex"],
+        "pinDigests": false
     }
   ],
   "digest": {
