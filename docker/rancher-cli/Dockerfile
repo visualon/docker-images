@@ -8,7 +8,7 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.url="http://rancher.com"
 
 # renovate: datasource=docker depName=rancher/cli versioning=docker
-ENV CATTLE_RANCHER_CLI_VERSION=v0.6.13
+ENV CATTLE_RANCHER_CLI_VERSION=v0.6.14
 
 ENV DEFAULT_CATTLE_RANCHER_CLI_LINUX_URL https://releases.rancher.com/cli/${CATTLE_RANCHER_CLI_VERSION}/rancher-linux-amd64-${CATTLE_RANCHER_CLI_VERSION}.tar.gz
 
