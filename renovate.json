@@ -19,6 +19,10 @@
   "minor": {
     "masterIssueApproval": true
   },
+  "pinDigests": true,
+  "digest": {
+    "extends": ["schedule:daily"]
+  },
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": ["at any time"],
@@ -28,12 +32,16 @@
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
-      "packageNames": ["rancher/cli"],
-      "allowedVersions": "<2.0"
-    },
-    {
       "packageNames": ["renovate", "renovate/renovate"],
       "extends": [":automergeMinor"],
+      "minor": {
+        "masterIssueApproval": false
+      }
+    },
+    {
+      "packageNames": ["node", "yarn", "pnpm", "rancher/cli"],
+      "packagePatterns": ["^verdaccio"],
+      "extends": [":automergePatch"],
       "minor": {
         "masterIssueApproval": false
       }
@@ -44,22 +52,13 @@
     },
     {
       "packagePatterns": ["^verdaccio"],
-      "extends": [":automergePatch"],
-      "minor": {
-        "masterIssueApproval": false
-      },
       "groupName": "verdaccio packages"
     },
     {
-        "managers": ["regex"],
-        "pinDigests": false
+      "managers": ["regex"],
+      "pinDigests": false
     }
   ],
-  "digest": {
-    "extends": ["schedule:daily"],
-    "automerge": true
-  },
-  "pinDigests": true,
   "regexManagers": [
     {
       "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
