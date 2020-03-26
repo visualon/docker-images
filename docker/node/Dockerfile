@@ -16,6 +16,7 @@ RUN set -x \
         python \
         make \
         g++ \
+        dumb-init \
     && echo "done"
 
 # renovate: datasource=npm depName=yarn
@@ -33,3 +34,5 @@ ENV PNPM_VERSION=3.8.1
 RUN set -x \
     && curl -o- -sL https://unpkg.com/@pnpm/self-installer | node \
     && echo -n "pnpm: $(pnpm --version)"
+
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]

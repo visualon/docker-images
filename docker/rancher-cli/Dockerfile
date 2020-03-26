@@ -17,6 +17,7 @@ RUN set -x \
         openssh-client \
         curl \
         ca-certificates \
+        dumb-init \
     && mkdir -p ~/.ssh \
     && chmod 700 ~/.ssh \
     && curl -sL $DEFAULT_CATTLE_RANCHER_CLI_LINUX_URL | tar xvzf - -C /usr/bin/ --strip-components=2 \
@@ -26,3 +27,5 @@ RUN set -x \
 COPY VisualOnRoot.pem /usr/local/share/ca-certificates/
 
 RUN update-ca-certificates 2>/dev/null || true
+
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
