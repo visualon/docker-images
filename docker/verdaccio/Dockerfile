@@ -1,4 +1,4 @@
-FROM node:12.18.1-alpine@sha256:ce261771b70f36fb83d075a1f0f7d15d8d486a8aace2c60c4a1cd408d7a47d3f as base
+FROM node:12.18.2-alpine@sha256:7819886e6d22f0e4632aae9a312f48fce28654e8ebda9196f6560480e41197b5 as base
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="verdaccio" \
