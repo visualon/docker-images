@@ -32,11 +32,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Docker Buildx
-        uses: crazy-max/ghaction-docker-buildx@v1
-      #        id: buildx
-      #        with:
-      #          version: v0.3.1
+      - name: docker-config
+        uses: renovatebot/internal-tools@v0
+        with:
+          command: docker-config
 
       - name: Init
         run: |
