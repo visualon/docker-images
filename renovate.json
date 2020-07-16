@@ -30,6 +30,7 @@
     "masterIssueApproval": true
   },
   "postUpdateOptions": ["yarnDedupeHighest"],
+  "ignorePaths": ["**/node_modules/**"],
   "packageRules": [
     {
       "packageNames": ["renovate", "renovate/renovate"],
