@@ -20,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate, verdaccio, rancher-cli, node]
+        file: [renovate, verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner]
 
     env:
       FILE: ${{ matrix.file }}
@@ -60,7 +60,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate, verdaccio, rancher-cli, node]
+        file: [renovate, verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner]
 
     env:
       FILE: ${{ matrix.file }}
