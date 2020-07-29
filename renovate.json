@@ -5,7 +5,8 @@
     ":assignee(viceice)",
     ":automergeDigest",
     "docker:enableMajor",
-    ":masterIssue"
+    "docker:pinDigests",
+    ":dependencyDashboard"
   ],
   "stabilityDays": 3,
   "prCreation": "not-pending",
@@ -14,12 +15,8 @@
   "timezone": "Europe/Berlin",
   "labels": ["deps"],
   "major": {
-    "masterIssueApproval": true
+    "dependencyDashboardApproval": true
   },
-  "minor": {
-    "masterIssueApproval": true
-  },
-  "pinDigests": true,
   "digest": {
     "extends": ["schedule:daily"]
   },
@@ -27,25 +24,19 @@
     "enabled": true,
     "schedule": ["at any time"],
     "stabilityDays": 0,
-    "masterIssueApproval": true
+    "dependencyDashboardApproval": true
   },
   "postUpdateOptions": ["yarnDedupeHighest"],
   "ignorePaths": ["**/node_modules/**"],
   "packageRules": [
     {
       "packageNames": ["renovate", "renovate/renovate"],
-      "extends": [":automergeMinor"],
-      "minor": {
-        "masterIssueApproval": false
-      }
+      "extends": [":automergeMinor"]
     },
     {
       "packageNames": ["node", "yarn", "pnpm", "rancher/cli"],
       "packagePatterns": ["^verdaccio"],
-      "extends": [":automergePatch"],
-      "minor": {
-        "masterIssueApproval": false
-      }
+      "extends": [":automergePatch"]
     },
     {
       "packagePatterns": ["mcr.microsoft.com/dotnet/core"],
@@ -58,6 +49,12 @@
     {
       "managers": ["regex"],
       "pinDigests": false
+    },
+    {
+      "packageNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner"],
+      "extends": [":automergeMinor"],
+      "dependencyDashboardApproval": false,
+      "groupName": "gitlab docker images"
     }
   ],
   "regexManagers": [
