@@ -69,11 +69,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: crazy-max/ghaction-docker-buildx@v1
-        with:
-          version: v0.3.1
+      - name: docker-config
+        uses: renovatebot/internal-tools@v0
 
       - name: Log into registry
         run: echo "${{ secrets.DOCKER_HUB_KEY }}" | docker login -u ${{ secrets.DOCKER_HUB_USER }} --password-stdin
@@ -93,6 +90,7 @@ jobs:
       - name: Publish the Docker image
         run: |
           if [ -f push.sh ]; then
+            chmod +x ./push.sh
             ./push.sh
           fi
         working-directory: ./docker/${{ env.FILE }}
