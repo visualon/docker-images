@@ -71,6 +71,8 @@ jobs:
 
       - name: docker-config
         uses: renovatebot/internal-tools@v0
+        with:
+          command: docker-config
 
       - name: Log into registry
         run: echo "${{ secrets.DOCKER_HUB_KEY }}" | docker login -u ${{ secrets.DOCKER_HUB_USER }} --password-stdin
