@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FROM=$(cat Dockerfile | grep 'FROM gitlab/gitlab-ce:')
-SEMVER_REGEX=":(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)@"
+SEMVER_REGEX=":(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)-"
 
 echo "Tagging ${IMAGE}"
 docker push ${IMAGE}
