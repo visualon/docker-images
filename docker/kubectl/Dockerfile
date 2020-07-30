@@ -21,6 +21,7 @@ RUN set -x \
     && mkdir -p ~/.ssh \
     && chmod 700 ~/.ssh \
     && curl -sL $KUBECTL_CLI_LINUX_URL -o /usr/local/bin/kubectl \
+    && chmod +x /usr/local/bin/kubectl \
     && kubectl version --client=true
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
