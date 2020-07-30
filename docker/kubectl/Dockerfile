@@ -18,6 +18,7 @@ RUN set -x \
         curl \
         ca-certificates \
         dumb-init \
+        bash \
     && mkdir -p ~/.ssh \
     && chmod 700 ~/.ssh \
     && curl -sL $KUBECTL_CLI_LINUX_URL -o /usr/local/bin/kubectl \
