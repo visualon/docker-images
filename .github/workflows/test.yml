@@ -23,7 +23,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate, verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner]
+        file: [renovate, verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl]
 
     env:
       FILE: ${{ matrix.file }}
