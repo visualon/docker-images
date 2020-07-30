@@ -23,9 +23,4 @@ RUN set -x \
     && curl -sL $KUBECTL_CLI_LINUX_URL -o /usr/local/bin/kubectl \
     && kubectl version --client=true
 
-
-COPY VisualOnRoot.pem /usr/local/share/ca-certificates/
-
-RUN update-ca-certificates 2>/dev/null || true
-
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
