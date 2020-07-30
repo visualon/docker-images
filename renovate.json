@@ -51,6 +51,12 @@
       "pinDigests": false
     },
     {
+      "packageNames": [
+        "gitlab/gitlab-runner"
+      ],
+      "versionScheme": "regex:^(?<compatibility>.*)-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
+    },
+    {
       "packageNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner"],
       "extends": [":automergeMinor"],
       "dependencyDashboardApproval": false,
