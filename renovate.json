@@ -64,8 +64,7 @@
     },
 {
 "packageNames": ["gitlab/gitlab-ce"],
-"versionScheme":"loose",
-"automerge": false
+"versionScheme":"loose"
 }
   ],
   "regexManagers": [
