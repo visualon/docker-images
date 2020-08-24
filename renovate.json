@@ -61,7 +61,12 @@
       "extends": [":automergeMinor"],
       "dependencyDashboardApproval": false,
       "groupName": "gitlab docker images"
-    }
+    },
+{
+"packageNames": ["gitlab/gitlab-ce"],
+"versionScheme":"loose",
+"automerge": false
+}
   ],
   "regexManagers": [
     {
