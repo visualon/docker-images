@@ -31,7 +31,9 @@
   "packageRules": [
     {
       "packageNames": ["renovate", "renovate/renovate"],
-      "extends": [":automergeMinor"]
+      "extends": [":automergeMajor"],
+      "stabilityDays": 0,
+      "dependencyDashboardApproval": false
     },
     {
       "packageNames": ["node", "yarn", "pnpm", "rancher/cli"],
