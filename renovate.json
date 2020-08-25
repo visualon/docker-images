@@ -62,10 +62,10 @@
       "dependencyDashboardApproval": false,
       "groupName": "gitlab docker images"
     },
-{
-"packageNames": ["gitlab/gitlab-ce"],
-"versionScheme":"loose"
-}
+    {
+      "packageNames": ["gitlab/gitlab-ce"],
+      "versionScheme":"loose"
+    }
   ],
   "regexManagers": [
     {
