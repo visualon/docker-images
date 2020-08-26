@@ -8,8 +8,6 @@ on:
 
 env:
   PLATFORM: linux/amd64
-  FILE: renovate
-  IMAGE: visualon/renovate
 
 jobs:
   test:
@@ -20,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [renovate, verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl, proget]
+        file: [verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl, proget]
 
     env:
       FILE: ${{ matrix.file }}
