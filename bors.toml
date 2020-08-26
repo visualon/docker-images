@@ -1,6 +1,0 @@
-status = [
-  "VisualOn.docker-images"
-]
-# Uncomment this to use a two hour timeout.
-# The default is one hour.
-#timeout_sec = 7200

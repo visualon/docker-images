@@ -1,5 +1,0 @@
-version: "3.7"
-services:
-  sut:
-    image: "${IMAGE}"
-    command: renovate --version

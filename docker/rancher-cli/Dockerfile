@@ -4,7 +4,7 @@ FROM alpine:3.12.0@sha256:a15790640a6690aa1730c38cf0a440e2aa44aaca9b0e8931a9f2b0
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
+    org.opencontainers.image.source="https://github.com/rancher/cli" \
     org.opencontainers.image.url="http://rancher.com"
 
 # renovate: datasource=docker depName=rancher/cli versioning=docker

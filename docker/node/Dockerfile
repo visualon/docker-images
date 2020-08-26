@@ -2,9 +2,8 @@ FROM node:12.18.3-alpine@sha256:0b5c7eb38785da1ad4c105930faca0bc546dfcceb0464724
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
-    org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
-    org.opencontainers.image.url="https://github.com/VisualOn/docker-images"
+    org.opencontainers.image.source="https://github.com/nodejs/node" \
+    org.opencontainers.image.url="https://nodejs.org/"
 
 
 RUN set -x \

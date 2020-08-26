@@ -4,8 +4,8 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="verdaccio" \
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
-    org.opencontainers.image.url="https://github.com/verdaccio/verdaccio"
+    org.opencontainers.image.source="https://github.com/verdaccio/verdaccio" \
+    org.opencontainers.image.url="https://verdaccio.org"
 
 
 ENV VERDACCIO_APPDIR=/opt/verdaccio \
