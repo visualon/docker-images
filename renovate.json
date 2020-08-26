@@ -36,13 +36,12 @@
       "dependencyDashboardApproval": false
     },
     {
-      "packageNames": ["node", "yarn", "pnpm", "rancher/cli"],
-      "packagePatterns": ["^verdaccio"],
-      "extends": [":automergePatch"]
-    },
-    {
       "packagePatterns": ["mcr.microsoft.com/dotnet/core"],
       "groupName": "dotnet core images"
+    },
+    {
+      "packageNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner"],
+      "groupName": "gitlab docker images"
     },
     {
       "packagePatterns": ["^verdaccio"],
@@ -53,20 +52,28 @@
       "pinDigests": false
     },
     {
-      "packageNames": [
-        "gitlab/gitlab-runner"
-      ],
+      "packageNames": ["gitlab/gitlab-runner"],
       "versionScheme": "regex:^(?<compatibility>.*)-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     },
     {
-      "packageNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner"],
-      "extends": [":automergeMinor"],
-      "dependencyDashboardApproval": false,
-      "groupName": "gitlab docker images"
+      "packageNames": ["rancher/cli"],
+      "packagePatterns": ["^verdaccio"],
+      "extends": [":automergePatch"]
+    },
+    {
+      "packageNames": [
+        "gitlab/gitlab-ce",
+        "gitlab/gitlab-runner",
+        "proget.inedo.com/productimages/inedo/proget",
+        "node",
+        "yarn",
+        "pnpm"
+      ],
+      "extends": [":automergeMinor"]
     },
     {
       "packageNames": ["gitlab/gitlab-ce"],
-      "versionScheme":"loose"
+      "versionScheme": "loose"
     }
   ],
   "regexManagers": [
