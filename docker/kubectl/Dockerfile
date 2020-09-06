@@ -8,7 +8,7 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.url="https://github.com/VisualOn/docker-images"
 
 # renovate: datasource=github-releases depName=kubernetes/kubernetes
-ENV KUBECTL_CLI_VERSION=v1.18.8
+ENV KUBECTL_CLI_VERSION=v1.19.0
 
 ENV KUBECTL_CLI_LINUX_URL https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_CLI_VERSION}/bin/linux/amd64/kubectl
 
