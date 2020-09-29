@@ -2,4 +2,4 @@ version: "3.7"
 services:
   sut:
     image: "${IMAGE}"
-    command: mono /usr/local/proget/service/ProGet.Service.exe help
+    command: dotnet /usr/local/proget/service/ProGet.Service.dll help
