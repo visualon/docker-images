@@ -1,4 +1,4 @@
-FROM gitlab/gitlab-ce:13.5.0-ce.0@sha256:6fac166b8ac4ccbb935079179b7af288d070f006d4696218ae3f32acd04b5be7
+FROM gitlab/gitlab-ce:13.5.1-ce.0@sha256:2c329e4b32adb1f5a396401b34ab1ee7197eb30bb4c63ff20fe53381fd70ac07
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="gitlab-ce" \
