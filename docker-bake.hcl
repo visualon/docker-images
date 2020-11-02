@@ -35,7 +35,7 @@ target "build_ghcr" {
 target "build_docker" {
   inherits = ["settings"]
   output   = ["type=docker"]
-  tags     = ["${OWNER}/${FILE}"]
+  tags     = ["${OWNER}/${FILE}", "ghcr.io/${OWNER}/${FILE}"]
   cache-to = ["type=registry,ref=${OWNER}/docker-caches:${FILE},mode=max"]
 }
 
