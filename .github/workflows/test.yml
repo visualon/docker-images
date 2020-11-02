@@ -42,7 +42,7 @@ jobs:
           docker-compose --version
 
       - name: Build image
-        run: docker buildx test
+        run: docker buildx bake test
 
       - name: Test image
         run: docker-compose --file docker-compose.test.yml run sut

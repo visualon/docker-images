@@ -33,7 +33,7 @@ jobs:
           command: docker-config
 
       - name: Build the Docker image
-        run: docker buildx test
+        run: docker buildx bake test
 
       - name: Test run
         run: docker-compose --file docker-compose.test.yml run sut
@@ -70,7 +70,7 @@ jobs:
           echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
 
       - name: Build the Docker image
-        run: docker buildx
+        run: docker buildx bake
 
       - name: Publish the Docker image
         run: |
