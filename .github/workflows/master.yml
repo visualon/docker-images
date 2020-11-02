@@ -22,7 +22,7 @@ jobs:
 
     env:
       FILE: ${{ matrix.file }}
-      IMAGE: visualon/${{ matrix.file }}
+      IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
 
     steps:
       - uses: actions/checkout@v2.3.3
@@ -54,7 +54,6 @@ jobs:
 
     env:
       FILE: ${{ matrix.file }}
-      IMAGE: visualon/${{ matrix.file }}
 
     steps:
       - uses: actions/checkout@v2.3.3
@@ -70,12 +69,13 @@ jobs:
           echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
 
       - name: Build the Docker image
-        run: docker buildx bake
+        run: docker buildx bake build
 
       - name: Publish the Docker image
         run: |
           if [ -f push.sh ]; then
             chmod +x ./push.sh
-            ./push.sh
+            IMAGE="${{ github.repository_owner }}/${{ env.FILE }}" ./push.sh
+            IMAGE="ghcr.io/${{ github.repository_owner }}/${{ env.FILE }}" ./push.sh
           fi
         working-directory: ./docker/${{ env.FILE }}
