@@ -22,7 +22,7 @@ group "test" {
 target "settings" {
   context    = "./docker/${FILE}"
   inherits   = ["settings"]
-  cache-from = ["type=registry,ref=ghcr.io/${OWNER}/cache:${FILE}", "type=registry,ref=${OWNER}/docker-caches:${FILE}"]
+  cache-from = ["type=registry,ref=ghcr.io/${OWNER}/cache:${FILE}"]
 }
 
 target "build_ghcr" {
@@ -36,7 +36,6 @@ target "build_docker" {
   inherits = ["settings"]
   output   = ["type=docker"]
   tags     = ["${OWNER}/${FILE}", "ghcr.io/${OWNER}/${FILE}"]
-  cache-to = ["type=registry,ref=${OWNER}/docker-caches:${FILE},mode=max"]
 }
 
 target "test_docker" {
