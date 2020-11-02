@@ -10,7 +10,7 @@
   ],
   "stabilityDays": 3,
   "prCreation": "not-pending",
-  "semanticCommits": true,
+  "semanticCommits": "enabled",
   "separateMinorPatch": true,
   "timezone": "Europe/Berlin",
   "labels": ["deps"],
@@ -74,6 +74,11 @@
     {
       "packageNames": ["gitlab/gitlab-ce"],
       "versionScheme": "loose"
+    },
+    {
+      "depTypeList": ["action"],
+      "extractVersion": "^(?<version>v\\d+\\.\\d+\\.\\d+)$",
+      "versioning": "regex:^v(?<major>\\d+)(\\.(?<minor>\\d+)\\.(?<patch>\\d+))?$"
     }
   ],
   "regexManagers": [
