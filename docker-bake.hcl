@@ -12,11 +12,11 @@ group "build" {
 }
 
 group "push" {
-  targets = ["push_ghcr", "push_docker"]
+  targets = ["push_ghcr"]
 }
 
 group "test" {
-  targets = ["test_docker"]
+  targets = ["build_docker"]
 }
 
 target "settings" {
@@ -35,23 +35,11 @@ target "build_ghcr" {
 target "build_docker" {
   inherits = ["settings"]
   output   = ["type=docker"]
-  tags     = ["${OWNER}/${FILE}", "ghcr.io/${OWNER}/${FILE}"]
-}
-
-target "test_docker" {
-  inherits = ["settings"]
-  output   = ["type=docker"]
-  tags     = ["${OWNER}/${FILE}", "ghcr.io/${OWNER}/${FILE}"]
+  tags     = ["ghcr.io/${OWNER}/${FILE}"]
 }
 
 target "push_ghcr" {
   inherits = ["settings"]
   output   = ["type=registry"]
   tags     = ["ghcr.io/${OWNER}/${FILE}"]
-}
-
-target "push_docker" {
-  inherits = ["settings"]
-  output   = ["type=registry"]
-  tags     = ["${OWNER}/${FILE}"]
 }
