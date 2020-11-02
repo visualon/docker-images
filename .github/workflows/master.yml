@@ -7,7 +7,7 @@ on:
       - master
 
 env:
-  PLATFORM: linux/amd64
+  OWNER: ${{ github.repository_owner }}
 
 jobs:
   test:
@@ -22,7 +22,7 @@ jobs:
 
     env:
       FILE: ${{ matrix.file }}
-      IMAGE: visualon/${{ matrix.file }}
+      IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
 
     steps:
       - uses: actions/checkout@v2.3.3
@@ -33,15 +33,7 @@ jobs:
           command: docker-config
 
       - name: Build the Docker image
-        run: |
-          docker buildx build \
-            --platform ${PLATFORM} \
-            --output "type=docker" \
-            --cache-from ${IMAGE}:cache \
-            --cache-from visualon/docker-caches:${FILE} \
-            --tag ${IMAGE} \
-            .
-        working-directory: ./docker/${{ env.FILE }}
+        run: docker buildx bake test
 
       - name: Test run
         run: docker-compose --file docker-compose.test.yml run sut
@@ -62,7 +54,6 @@ jobs:
 
     env:
       FILE: ${{ matrix.file }}
-      IMAGE: visualon/${{ matrix.file }}
 
     steps:
       - uses: actions/checkout@v2.3.3
@@ -73,24 +64,18 @@ jobs:
           command: docker-config
 
       - name: Log into registry
-        run: echo "${{ secrets.DOCKER_HUB_KEY }}" | docker login -u ${{ secrets.DOCKER_HUB_USER }} --password-stdin
+        run: |
+          echo "${{ secrets.DOCKER_HUB_KEY }}" | docker login -u ${{ secrets.DOCKER_HUB_USER }} --password-stdin
+          echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
 
       - name: Build the Docker image
-        run: |
-          docker buildx build \
-            --platform ${PLATFORM} \
-            --output "type=docker" \
-            --cache-from ${IMAGE}:cache \
-            --cache-from visualon/docker-caches:${FILE} \
-            --cache-to visualon/docker-caches:${FILE} \
-            --tag ${IMAGE} \
-            .
-        working-directory: ./docker/${{ env.FILE }}
+        run: docker buildx bake build
 
       - name: Publish the Docker image
         run: |
           if [ -f push.sh ]; then
             chmod +x ./push.sh
-            ./push.sh
+            IMAGE="${{ github.repository_owner }}/${{ env.FILE }}" ./push.sh
+            IMAGE="ghcr.io/${{ github.repository_owner }}/${{ env.FILE }}" ./push.sh
           fi
         working-directory: ./docker/${{ env.FILE }}

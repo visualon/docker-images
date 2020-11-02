@@ -11,8 +11,7 @@ on:
   pull_request:
 
 env:
-  PLATFORM: linux/amd64
-  SOURCE_COMMIT: ${{ github.sha }}
+  OWNER: ${{ github.repository_owner }}
 
 jobs:
   build:
@@ -27,7 +26,7 @@ jobs:
 
     env:
       FILE: ${{ matrix.file }}
-      IMAGE: visualon/${{ matrix.file }}
+      IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
 
     steps:
       - uses: actions/checkout@v2.3.3
@@ -43,16 +42,7 @@ jobs:
           docker-compose --version
 
       - name: Build image
-        run: |
-          docker buildx build \
-            --platform ${PLATFORM} \
-            --build-arg SOURCE_COMMIT \
-            --output "type=docker" \
-            --cache-from ${IMAGE}:cache \
-            --cache-from visualon/docker-caches:${FILE} \
-            --tag ${IMAGE} \
-            .
-        working-directory: ./docker/${{ env.FILE }}
+        run: docker buildx bake test
 
       - name: Test image
         run: docker-compose --file docker-compose.test.yml run sut
