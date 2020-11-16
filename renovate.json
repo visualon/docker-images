@@ -30,7 +30,7 @@
   "ignorePaths": ["**/node_modules/**"],
   "packageRules": [
     {
-      "packageNames": ["renovate", "renovate/renovate"],
+      "packageNames": ["renovate", "renovate/renovate", "renovatebot/internal-tools"],
       "extends": [":automergeMajor"],
       "stabilityDays": 0,
       "dependencyDashboardApproval": false
@@ -67,7 +67,8 @@
         "proget.inedo.com/productimages/inedo/proget",
         "node",
         "yarn",
-        "pnpm"
+        "pnpm",
+        "kubernetes/kubernetes"
       ],
       "extends": [":automergeMinor"]
     },
