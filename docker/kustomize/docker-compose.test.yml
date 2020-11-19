@@ -2,4 +2,4 @@ version: "3.7"
 services:
   sut:
     image: "${IMAGE}"
-    command: kubectl version --client=true
+    command: kustomize version

@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl, proget]
+        file: [verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl, kustomize, proget]
 
     env:
       FILE: ${{ matrix.file }}
@@ -50,7 +50,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl, proget]
+        file: [verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl, kustomize, proget]
 
     env:
       FILE: ${{ matrix.file }}

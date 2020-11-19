@@ -4,7 +4,7 @@ FROM alpine:3.12.1@sha256:d7342993700f8cd7aba8496c2d0e57be0666e80b4c441925fc6f93
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.source="https://github.com/kubernetes/kubernetes" \
+    org.opencontainers.image.source="https://github.com/kubernetes-sigs/kustomize" \
     org.opencontainers.image.url="https://github.com/VisualOn/docker-images"
 
 RUN set -x \
@@ -17,14 +17,15 @@ RUN set -x \
     && mkdir -p ~/.ssh \
     && chmod 700 ~/.ssh
 
-# renovate: datasource=github-releases depName=kubernetes/kubernetes
-ENV KUBECTL_VERSION=v1.19.4
 
-ENV KUBECTL_LINUX_URL https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl
+# renovate: datasource=github-releases depName=kubernetes-sigs/kustomize
+ENV KUSTOMIZE_VERSION=v3.8.6
+
+ENV KUSTOMIZE_LINUX_URL https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F${KUSTOMIZE_VERSION}/kustomize_${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 
 RUN set -x \
-    && curl -sL $KUBECTL_LINUX_URL -o /usr/local/bin/kubectl \
-    && chmod +x /usr/local/bin/kubectl \
-    && kubectl version --client=true
+    && curl -sL $KUSTOMIZE_LINUX_URL -o /tmp/kustomize.tgz \
+    && tar -C /usr/local/bin -xzf /tmp/kustomize.tgz \
+    && kustomize version
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
