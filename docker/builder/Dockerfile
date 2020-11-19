@@ -14,6 +14,7 @@ RUN set -x \
         ca-certificates \
         dumb-init \
         bash \
+        skopeo \
     && mkdir -p ~/.ssh \
     && chmod 700 ~/.ssh
 
