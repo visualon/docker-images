@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FROM=$(cat Dockerfile | grep KUBECTL_CLI_VERSION)
+FROM=$(cat Dockerfile | grep KUBECTL_VERSION)
 SEMVER_REGEX="=v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[a-z0-9]+)?"
 
 echo "Tagging ${IMAGE}"
