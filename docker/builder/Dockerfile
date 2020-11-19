@@ -41,7 +41,7 @@ RUN set -x \
 
 
 # renovate: datasource=github-releases depName=kubernetes-sigs/kustomize
-ENV KUSTOMIZE_VERSION=v3.8.6
+ENV KUSTOMIZE_VERSION=v3.8.7
 ENV KUSTOMIZE_LINUX_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F${KUSTOMIZE_VERSION}/kustomize_${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 
 RUN set -x \
