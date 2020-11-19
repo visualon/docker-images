@@ -30,6 +30,16 @@ RUN set -x \
     && rm docker.tgz \
     && docker --version
 
+# renovate: datasource=github-releases depName=docker/buildx
+ENV BUILDX_VERSION=v0.4.2
+
+RUN set -x \
+    && mkdir -p $HOME/.docker/cli-plugins \
+    && BUILDX_DISTRO=linux-amd64 \
+    && BUILDX_URL=https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.${BUILDX_DISTRO} \
+    && TARGET=$HOME/.docker/cli-plugins/docker-buildx \
+    && curl -sL ${BUILDX_URL} -o $TARGET \
+    && chmod +x $TARGET
 
 # renovate: datasource=github-releases depName=kubernetes/kubernetes
 ENV KUBECTL_VERSION=v1.19.4
