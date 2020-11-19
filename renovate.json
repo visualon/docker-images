@@ -68,7 +68,8 @@
         "node",
         "yarn",
         "pnpm",
-        "kubernetes/kubernetes"
+        "kubernetes/kubernetes",
+        "kubernetes-sigs/kustomize"
       ],
       "extends": [":automergeMinor"]
     },
@@ -80,6 +81,11 @@
       "depTypeList": ["action"],
       "extractVersion": "^(?<version>v\\d+\\.\\d+\\.\\d+)$",
       "versioning": "regex:^v(?<major>\\d+)(\\.(?<minor>\\d+)\\.(?<patch>\\d+))?$"
+    },
+    {
+      "packageNames": ["kubernetes-sigs/kustomize"],
+      "extractVersion": "^kustomize\\/(?<version>v\\d+\\.\\d+\\.\\d+)$",
+      "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ],
   "regexManagers": [
