@@ -2,7 +2,7 @@
   "name": "verdaccio",
   "private": true,
   "dependencies": {
-    "verdaccio": "4.9.0",
+    "verdaccio": "4.9.1",
     "verdaccio-activedirectory": "1.0.2",
     "verdaccio-bitbucket-server": "1.3.1",
     "verdaccio-ldap": "4.2.0"
