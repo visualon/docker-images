@@ -16,6 +16,7 @@ RUN set -x \
     bash \
     jq \
     skopeo \
+    rsync \
     && mkdir -p ~/.ssh \
     && chmod 700 ~/.ssh
 
