@@ -78,4 +78,6 @@ COPY --from=hashicorp/terraform:0.14.2 /bin/terraform   /usr/local/bin/terraform
 RUN set -x \
     && terraform version
 
+SHELL [ "/bin/bash" ]
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+CMD [ "bash" ]
