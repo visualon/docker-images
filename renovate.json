@@ -62,6 +62,7 @@
     },
     {
       "packageNames": [
+        "alpine",
         "gitlab/gitlab-ce",
         "gitlab/gitlab-runner",
         "proget.inedo.com/productimages/inedo/proget",
