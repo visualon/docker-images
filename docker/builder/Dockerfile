@@ -46,13 +46,13 @@ RUN set -x \
 
 
 # renovate: datasource=github-releases depName=docker/buildx
-ENV BUILDX_VERSION=v0.4.2
+ENV BUILDX_VERSION=0.4.2
 
 RUN set -x \
-    && mkdir -p $HOME/.docker/cli-plugins \
+    && mkdir -p ${HOME}/.docker/cli-plugins \
     && DISTRO=linux-amd64 \
-    && URL=https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.${DISTRO} \
-    && TARGET=$HOME/.docker/cli-plugins/docker-buildx \
+    && URL=https://github.com/docker/buildx/releases/download/v${BUILDX_VERSION}/buildx-v${BUILDX_VERSION}.${DISTRO} \
+    && TARGET=${HOME}/.docker/cli-plugins/docker-buildx \
     && curl -sL ${URL} -o ${TARGET} \
     && chmod +x ${TARGET} \
     && docker buildx version
@@ -64,8 +64,9 @@ ENV KUBECTL_VERSION=1.19.4
 RUN set -x \
     && DISTRO=linux/amd64 \
     && URL=https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/${DISTRO}/kubectl \
-    && curl -sL ${URL} -o /usr/local/bin/kubectl \
-    && chmod +x /usr/local/bin/kubectl \
+    && TARGET=/usr/local/bin/kubectl \
+    && curl -sL ${URL} -o ${TARGET} \
+    && chmod +x ${TARGET} \
     && kubectl version --client=true
 
 

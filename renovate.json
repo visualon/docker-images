@@ -92,7 +92,7 @@
       "extractVersion": "^kustomize\\/v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
     {
-      "packageNames": ["kubernetes/kubernetes"],
+      "packageNames": ["kubernetes/kubernetes", "docker/buildx"],
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ],
