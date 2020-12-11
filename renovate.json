@@ -56,8 +56,8 @@
       "pinDigests": false
     },
     {
-      "packageNames": ["gitlab/gitlab-runner"],
-      "versionScheme": "regex:^(?<compatibility>.*)-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
+      "packageNames": ["docker/compose", "gitlab/gitlab-runner"],
+      "versionScheme": "regex:^(?<compatibility>.*)-v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     },
     {
       "packageNames": ["rancher/cli"],

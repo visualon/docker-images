@@ -33,15 +33,8 @@ RUN set -x \
     && docker --version
 
 
-# renovate: datasource=github-releases depName=docker/compose
-ENV DOCKER_COMPOSE_VERSION=1.27.4
-
+COPY --from=docker/compose:alpine-1.27.4 /usr/local/bin/docker-compose   /usr/local/bin/docker-compose
 RUN set -x \
-    && DISTRO=Linux-x86_64 \
-    && URL=https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-${DISTRO} \
-    && TARGET=/usr/local/bin/docker-compose \
-    && curl -sL ${URL} -o ${TARGET} \
-    && chmod +x ${TARGET} \
     && docker-compose version
 
 
