@@ -18,7 +18,7 @@ RUN set -x \
     && chmod 700 ~/.ssh
 
 # renovate: datasource=github-releases depName=kubernetes/kubernetes
-ENV KUBECTL_VERSION=1.19.4
+ENV KUBECTL_VERSION=1.20.0
 
 RUN set -x \
     && KUBECTL_LINUX_URL=https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
