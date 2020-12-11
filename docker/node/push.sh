@@ -4,7 +4,6 @@ FROM=$(cat Dockerfile | grep 'FROM node:')
 SEMVER_REGEX=":(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[a-z0-9]+)?@"
 
 echo "Tagging ${IMAGE}"
-docker push ${IMAGE}
 
 if ! [[ "$FROM" =~ $SEMVER_REGEX ]]; then
   echo Not a semver tag - skipping
