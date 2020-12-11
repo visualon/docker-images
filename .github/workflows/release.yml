@@ -1,21 +1,13 @@
-name: Test
+name: Release
 
 on:
   push:
-    # Run tests for any branch excerpt `master`.
-    branches:
-      - "**"
-      - "!master"
-
-  # Run tests for any PRs.
-  pull_request:
 
 env:
   OWNER: ${{ github.repository_owner }}
 
 jobs:
-  build:
-    name: Build & Test
+  release:
     runs-on: ubuntu-latest
 
     timeout-minutes: 30
@@ -36,20 +28,26 @@ jobs:
         with:
           command: docker-config
 
-      - name: Init
-        run: |
-          docker --version
-          docker-compose --version
-
-      - name: Build image
+      - name: Build the Docker image
         run: docker buildx bake test
 
-      - name: Test image
+      - name: Test run
         run: docker-compose --file docker-compose.test.yml run sut
         working-directory: ./docker/${{ env.FILE }}
 
-      - name: Image history
-        run: docker history ${IMAGE}
+      - name: Log into registry
+        if: github.ref == 'refs/heads/master'
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
 
-      - name: Image size
-        run: docker image ls | grep ${IMAGE}
+      - name: Publish the Docker image cache
+        if: github.ref == 'refs/heads/master'
+        run: docker buildx bake build
+
+      - name: Publish the Docker image
+        if: github.ref == 'refs/heads/master'
+        run: |
+          if [ -f push.sh ]; then
+            chmod +x ./push.sh
+            ./push.sh
+          fi
+        working-directory: ./docker/${{ env.FILE }}
