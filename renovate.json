@@ -60,13 +60,14 @@
       "versionScheme": "regex:^(?<compatibility>.*)-v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     },
     {
-      "packageNames": ["rancher/cli"],
+      "packageNames": ["rancher/cli", "hashicorp/terraform"],
       "packagePatterns": ["^verdaccio"],
       "extends": [":automergePatch"]
     },
     {
       "packageNames": [
         "alpine",
+        "docker/compose",
         "gitlab/gitlab-ce",
         "gitlab/gitlab-runner",
         "proget.inedo.com/productimages/inedo/proget",
