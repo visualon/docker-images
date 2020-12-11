@@ -75,7 +75,7 @@
     },
     {
       "packageNames": ["gitlab/gitlab-ce"],
-      "versionScheme": "loose"
+      "versionScheme": "docker"
     },
     {
       "depTypeList": ["action"],
