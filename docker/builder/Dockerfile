@@ -25,39 +25,57 @@ RUN set -x \
 ENV DOCKER_VERSION=19.03.13
 
 RUN set -x \
-    && DOCKER_LINUX_URL=https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
-    && curl -sL $DOCKER_LINUX_URL -o docker.tgz \
+    && DISTRO=linux/static/stable/x86_64 \
+    && URL=https://download.docker.com/${DISTRO}/docker-${DOCKER_VERSION}.tgz \
+    && curl -sL $URL -o docker.tgz \
     && tar -xzvf docker.tgz --strip 1 -C /usr/local/bin docker/docker \
     && rm docker.tgz \
     && docker --version
+
+
+# renovate: datasource=github-releases depName=docker/compose
+ENV DOCKER_COMPOSE_VERSION=1.27.4
+
+RUN set -x \
+    && DISTRO=Linux-x86_64 \
+    && URL=https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-${DISTRO} \
+    && TARGET=/usr/local/bin/docker-compose \
+    && curl -sL ${URL} -o ${TARGET} \
+    && chmod +x ${TARGET} \
+    && docker-compose version
+
 
 # renovate: datasource=github-releases depName=docker/buildx
 ENV BUILDX_VERSION=v0.4.2
 
 RUN set -x \
     && mkdir -p $HOME/.docker/cli-plugins \
-    && BUILDX_DISTRO=linux-amd64 \
-    && BUILDX_URL=https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.${BUILDX_DISTRO} \
+    && DISTRO=linux-amd64 \
+    && URL=https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.${DISTRO} \
     && TARGET=$HOME/.docker/cli-plugins/docker-buildx \
-    && curl -sL ${BUILDX_URL} -o $TARGET \
-    && chmod +x $TARGET
+    && curl -sL ${URL} -o ${TARGET} \
+    && chmod +x ${TARGET} \
+    && docker buildx version
+
 
 # renovate: datasource=github-releases depName=kubernetes/kubernetes
-ENV KUBECTL_VERSION=v1.19.4
+ENV KUBECTL_VERSION=1.19.4
 
 RUN set -x \
-    && KUBECTL_LINUX_URL=https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
-    && curl -sL $KUBECTL_LINUX_URL -o /usr/local/bin/kubectl \
+    && DISTRO=linux/amd64 \
+    && URL=https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/${DISTRO}/kubectl \
+    && curl -sL ${URL} -o /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     && kubectl version --client=true
 
 
 # renovate: datasource=github-releases depName=kubernetes-sigs/kustomize
-ENV KUSTOMIZE_VERSION=v3.8.7
+ENV KUSTOMIZE_VERSION=3.8.7
 
 RUN set -x \
-    && KUSTOMIZE_LINUX_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F${KUSTOMIZE_VERSION}/kustomize_${KUSTOMIZE_VERSION}_linux_amd64.tar.gz \
-    && curl -sL $KUSTOMIZE_LINUX_URL -o kustomize.tgz \
+    && DISTRO=linux_amd64 \
+    && URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_${DISTRO}.tar.gz \
+    && curl -sL ${URL} -o kustomize.tgz \
     && tar -C /usr/local/bin -xzf kustomize.tgz \
     && rm kustomize.tgz \
     && kustomize version

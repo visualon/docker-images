@@ -18,10 +18,10 @@ RUN set -x \
     && chmod 700 ~/.ssh
 
 # renovate: datasource=github-releases depName=kubernetes/kubernetes
-ENV KUBECTL_VERSION=v1.19.4
+ENV KUBECTL_VERSION=1.19.4
 
 RUN set -x \
-    && KUBECTL_LINUX_URL=https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
+    && KUBECTL_LINUX_URL=https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
     && curl -sL $KUBECTL_LINUX_URL -o /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     && kubectl version --client=true
