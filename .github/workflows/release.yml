@@ -39,11 +39,11 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
 
-      - name: Publish the Docker image cache
+      - name: Publish the Docker image
         if: github.ref == 'refs/heads/master'
         run: docker buildx bake build
 
-      - name: Publish the Docker image
+      - name: Publish the Docker image tags
         if: github.ref == 'refs/heads/master'
         run: |
           if [ -f push.sh ]; then

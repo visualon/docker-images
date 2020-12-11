@@ -8,7 +8,7 @@ group "default" {
 }
 
 group "build" {
-  targets = ["build_ghcr", "build_docker"]
+  targets = ["build_ghcr", "build_docker", "push_ghcr"]
 }
 
 group "push" {
