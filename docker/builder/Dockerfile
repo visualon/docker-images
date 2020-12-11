@@ -74,4 +74,8 @@ RUN set -x \
     && rm kustomize.tgz \
     && kustomize version
 
+COPY --from=hashicorp/terraform:0.14.2 /bin/terraform   /usr/local/bin/terraform
+RUN set -x \
+    && terraform version
+
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
