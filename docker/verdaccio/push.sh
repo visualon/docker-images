@@ -3,7 +3,6 @@
 FROM=$(grep '"verdaccio":' < package.json)
 SEMVER_REGEX="\"(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\""
 
-echo "Tagging ${IMAGE}"
 
 if ! [[ "$FROM" =~ $SEMVER_REGEX ]]; then
   echo Not a semver tag - skipping 

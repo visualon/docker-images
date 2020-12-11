@@ -3,7 +3,6 @@
 FROM=$(cat Dockerfile | grep 'FROM gitlab/gitlab-runner:')
 SEMVER_REGEX="v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)"
 
-echo "Tagging ${IMAGE}"
 
 if ! [[ "$FROM" =~ $SEMVER_REGEX ]]; then
   echo Not a semver tag - skipping
