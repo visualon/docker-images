@@ -1,4 +1,4 @@
-FROM renovate/buildpack:2
+FROM renovate/buildpack:2-focal
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
   org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
