@@ -34,7 +34,7 @@ RUN set -x \
     && docker --version
 
 # renovate: datasource=github-releases depName=docker/compose
-ENV DOCKER_COMPOSE_VERSION=19.03.13
+ENV DOCKER_COMPOSE_VERSION=1.27.4
 RUN set -x \
     && DISTRO=Linux-x86_64 \
     && URL=https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-${DISTRO} \
