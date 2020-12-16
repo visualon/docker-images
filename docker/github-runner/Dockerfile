@@ -56,12 +56,14 @@ RUN useradd -m docker
 ARG RUNNER_VERSION="2.274.2"
 
 # cd into the user directory, download and unzip the github actions runner
-RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
-  && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
-  && tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz
-
-# install some additional dependencies
-RUN chown -R docker ~docker && /home/docker/actions-runner/bin/installdependencies.sh
+RUN set -ex; \
+  mkdir -p /home/docker/actions-runner && cd /home/docker/actions-runner \
+  && DISTRO=linux-x64 \
+  && URL=https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-${DISTRO}-${RUNNER_VERSION}.tar.gz \
+  && curl -O -sL $URL \
+  && tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
+  && chown -R docker ~docker && /home/docker/actions-runner/bin/installdependencies.sh \
+  && rm -rf /var/lib/apt/lists/*
 
 # copy over the start.sh script
 COPY start.sh /start.sh
