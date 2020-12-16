@@ -24,14 +24,7 @@ RUN install-apt -y \
 
 # renovate: datasource=docker versioning=docker
 ENV DOCKER_VERSION=19.03.13
-
-RUN set -x \
-    && DISTRO=linux/static/stable/x86_64 \
-    && URL=https://download.docker.com/${DISTRO}/docker-${DOCKER_VERSION}.tgz \
-    && curl -sL $URL -o docker.tgz \
-    && tar -xzvf docker.tgz --strip 1 -C /usr/local/bin docker/docker \
-    && rm docker.tgz \
-    && docker --version
+RUN install-tool docker $DOCKER_VERSION
 
 # renovate: datasource=github-releases depName=docker/compose
 ENV DOCKER_COMPOSE_VERSION=1.27.4
@@ -48,21 +41,18 @@ COPY --from=hashicorp/terraform:0.14.2@sha256:fb74c7a3a4b21e1a4044174413872e4225
 RUN set -x \
     && terraform version
 
-# add a non-sudo user
-RUN useradd -m docker
-
 # set the github runner version
 # renovate: datasource=github-releases depName=actions/runner
 ARG RUNNER_VERSION="2.274.2"
 
 # cd into the user directory, download and unzip the github actions runner
 RUN set -ex; \
-  mkdir -p /home/docker/actions-runner && cd /home/docker/actions-runner \
+  mkdir -p /home/ubuntu/actions-runner && cd /home/ubuntu/actions-runner \
   && DISTRO=linux-x64 \
   && URL=https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-${DISTRO}-${RUNNER_VERSION}.tar.gz \
   && curl -O -sL $URL \
   && tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
-  && chown -R docker ~docker && /home/docker/actions-runner/bin/installdependencies.sh \
+  && chown -R ubuntu ~ubuntu && ./bin/installdependencies.sh \
   && rm -rf /var/lib/apt/lists/*
 
 # copy over the start.sh script
@@ -71,9 +61,7 @@ COPY start.sh /start.sh
 # make the script executable
 RUN chmod +x /start.sh
 
-# since the config and run script for actions are not allowed to be run by root,
-# set the user to "docker" so all subsequent commands are run as the docker user
-USER docker
+WORKDIR /home/ubuntu/actions-runner
 
 # set the entrypoint to the start.sh script
 CMD ["/start.sh"]
@@ -82,3 +70,5 @@ ENV GITHUB_ACCESS_TOKEN=
 ENV GITHUB_REPO=
 ENV RUNNER_LABELS=
 ENV RUNNER_NAME=
+
+USER 1000

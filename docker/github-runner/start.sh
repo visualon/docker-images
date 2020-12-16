@@ -2,8 +2,6 @@
 
 RUNNER_TOKEN=$(curl -sX POST -H "Authorization: token ${GITHUB_ACCESS_TOKEN}" https://api.github.com/repos/${GITHUB_REPO}/actions/runners/registration-token | jq .token --raw-output)
 
-cd /home/docker/actions-runner
-
 if [[ -z $RUNNER_REPLACE_EXISTING ]]; then
     export RUNNER_REPLACE_EXISTING="true"
 fi
