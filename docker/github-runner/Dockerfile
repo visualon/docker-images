@@ -23,7 +23,7 @@ RUN install-apt \
   ;
 
 # renovate: datasource=docker versioning=docker
-RUN install-tool docker 19.03.13
+RUN install-tool docker 19.03.14
 
 COPY src/ /usr/local/
 
