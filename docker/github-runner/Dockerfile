@@ -1,4 +1,4 @@
-FROM renovate/buildpack:2-focal@sha256:f48b35f84292254b3988a8f7af9517944aeca8db7e3e11071f9266a2008b5ec4
+FROM renovate/buildpack:2-focal@sha256:76cbeaf9341627e44037a3b28b12914fabe3f2385d866da4eda626413007bf6a
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
   org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
@@ -26,7 +26,6 @@ RUN install-apt \
 RUN install-tool docker 19.03.13
 
 COPY src/ /usr/local/
-RUN sed -i 's+TOOLNAME=${1}+TOOLNAME=${1//-/_}+' /usr/local/bin/install-tool
 
 # renovate: datasource=github-releases lookupName=docker/compose
 RUN install-tool docker-compose 1.27.4
