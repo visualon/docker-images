@@ -6,7 +6,8 @@
     ":automergeDigest",
     "docker:enableMajor",
     "docker:pinDigests",
-    ":dependencyDashboard"
+    ":dependencyDashboard",
+    "github>renovatebot/presets-internal:docker-images"
   ],
   "stabilityDays": 3,
   "prCreation": "not-pending",
@@ -66,7 +67,9 @@
     },
     {
       "packageNames": [
+        "actions-runner",
         "alpine",
+        "docker-compose",
         "docker/compose",
         "gitlab/gitlab-ce",
         "gitlab/gitlab-runner",

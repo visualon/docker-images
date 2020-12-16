@@ -10,7 +10,7 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
 
 # install python and the packages the your code depends on along with jq so we can parse JSON
 # add additional packages as necessary
-RUN install-apt -y \
+RUN install-apt \
   curl \
   jq \
   libc6 \
@@ -23,48 +23,24 @@ RUN install-apt -y \
   ;
 
 # renovate: datasource=docker versioning=docker
-ENV DOCKER_VERSION=19.03.13
-RUN install-tool docker $DOCKER_VERSION
+RUN install-tool docker 19.03.13
 
-# renovate: datasource=github-releases depName=docker/compose
-ENV DOCKER_COMPOSE_VERSION=1.27.4
-RUN set -x \
-    && DISTRO=Linux-x86_64 \
-    && URL=https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-${DISTRO} \
-    && TARGET=/usr/local/bin/docker-compose \
-    && curl -sL $URL -o $TARGET \
-    && chmod +x ${TARGET} \
-    && docker-compose version
+COPY src/ /usr/local/
+
+# renovate: datasource=github-releases lookupName=docker/compose
+RUN install-tool docker-compose 1.27.4
 
 COPY --from=hashicorp/terraform:0.14.2@sha256:fb74c7a3a4b21e1a4044174413872e4225dfe85c287174c00b4a6bc66382d5fe /bin/terraform   /usr/local/bin/terraform
-
 RUN set -x \
     && terraform version
 
-# set the github runner version
-# renovate: datasource=github-releases depName=actions/runner
-ARG RUNNER_VERSION="2.274.2"
-
-# cd into the user directory, download and unzip the github actions runner
-RUN set -ex; \
-  mkdir -p /home/ubuntu/actions-runner && cd /home/ubuntu/actions-runner \
-  && DISTRO=linux-x64 \
-  && URL=https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-${DISTRO}-${RUNNER_VERSION}.tar.gz \
-  && curl -O -sL $URL \
-  && tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
-  && chown -R ubuntu ~ubuntu && ./bin/installdependencies.sh \
-  && rm -rf /var/lib/apt/lists/*
-
-# copy over the start.sh script
-COPY start.sh /start.sh
-
-# make the script executable
-RUN chmod +x /start.sh
+# renovate: datasource=github-releases lookupName=actions/runner
+RUN install-tool actions-runner 2.274.2
 
 WORKDIR /home/ubuntu/actions-runner
 
 # set the entrypoint to the start.sh script
-CMD ["/start.sh"]
+CMD ["start-runner.sh"]
 
 ENV GITHUB_ACCESS_TOKEN=
 ENV GITHUB_REPO=
