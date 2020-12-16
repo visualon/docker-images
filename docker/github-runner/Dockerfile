@@ -77,3 +77,6 @@ USER docker
 
 # set the entrypoint to the start.sh script
 CMD ["/start.sh"]
+
+ENV GITHUB_ACCESS_TOKEN=
+ENV GITHUB_REPO=
