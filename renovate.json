@@ -41,6 +41,14 @@
       "dependencyDashboardApproval": false
     },
     {
+      "packageNames": [
+        "actions-runner"
+      ],
+      "extends": [":automergeMinor"],
+      "stabilityDays": 0,
+      "dependencyDashboardApproval": false
+    },
+    {
       "packagePatterns": ["mcr.microsoft.com/dotnet/core"],
       "groupName": "dotnet core images"
     },
