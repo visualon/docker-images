@@ -40,7 +40,6 @@ RUN set -x \
     && URL=https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-${DISTRO} \
     && TARGET=/usr/local/bin/docker-compose \
     && curl -sL $URL -o $TARGET \
-    && tar -xzvf docker.tgz --strip 1 -C /usr/local/bin docker/docker \
     && chmod +x ${TARGET} \
     && docker-compose version
 
