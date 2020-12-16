@@ -4,7 +4,25 @@ RUNNER_TOKEN=$(curl -sX POST -H "Authorization: token ${GITHUB_ACCESS_TOKEN}" ht
 
 cd /home/docker/actions-runner
 
-./config.sh --url https://github.com/${GITHUB_REPO} --token ${RUNNER_TOKEN}
+if [[ -z $RUNNER_REPLACE_EXISTING ]]; then
+    export RUNNER_REPLACE_EXISTING="true"
+fi
+
+CONFIG_OPTS=""
+
+if [ "$(echo $RUNNER_REPLACE_EXISTING | tr '[:upper:]' '[:lower:]')" == "true" ]; then
+	CONFIG_OPTS="--replace"
+fi
+
+if [[ -n $RUNNER_LABELS ]]; then
+    CONFIG_OPTS="${CONFIG_OPTS} --labels ${RUNNER_LABELS}"
+fi
+
+if [[ -n $RUNNER_NAME ]]; then
+    CONFIG_OPTS="${CONFIG_OPTS} --name ${RUNNER_NAME}"
+fi
+
+./config.sh --url https://github.com/${GITHUB_REPO} --token ${RUNNER_TOKEN} $CONFIG_OPTS
 
 cleanup() {
     echo "Removing runner..."
