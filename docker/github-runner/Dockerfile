@@ -35,7 +35,7 @@ RUN set -x \
     && terraform version
 
 # renovate: datasource=github-releases lookupName=actions/runner
-RUN install-tool actions-runner 2.274.2
+RUN install-tool actions-runner 2.275.1
 
 WORKDIR /home/ubuntu/actions-runner
 
