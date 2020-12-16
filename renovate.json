@@ -31,19 +31,13 @@
   "ignorePaths": ["**/node_modules/**"],
   "packageRules": [
     {
-      "packageNames": [
-        "renovate",
-        "renovate/renovate",
-        "renovatebot/internal-tools"
-      ],
+      "packageNames": ["renovate", "renovate/renovate", "renovatebot/internal-tools"],
       "extends": [":automergeMajor"],
       "stabilityDays": 0,
       "dependencyDashboardApproval": false
     },
     {
-      "packageNames": [
-        "actions-runner"
-      ],
+      "packageNames": ["actions-runner"],
       "extends": [":automergeMinor"],
       "stabilityDays": 0,
       "dependencyDashboardApproval": false
@@ -104,7 +98,7 @@
       "extractVersion": "^kustomize\\/v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
     {
-      "packageNames": ["kubernetes/kubernetes", "docker/buildx"],
+      "packageNames": ["actions-runner", "kubernetes/kubernetes", "docker/buildx"],
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ],
