@@ -26,6 +26,7 @@ RUN install-apt \
 RUN install-tool docker 19.03.13
 
 COPY src/ /usr/local/
+RUN sed -i 's+TOOLNAME=${1}+TOOLNAME=${1//-/_}+' /usr/local/bin/install-tool
 
 # renovate: datasource=github-releases lookupName=docker/compose
 RUN install-tool docker-compose 1.27.4
