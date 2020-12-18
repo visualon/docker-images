@@ -6,26 +6,18 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
   org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
   org.opencontainers.image.url="https://github.com/VisualOn/docker-images"
 
-
-
 # install python and the packages the your code depends on along with jq so we can parse JSON
 # add additional packages as necessary
 RUN install-apt \
-  curl \
   jq \
-  libc6 \
   libgcc1 \
-  libgssapi-krb5-2 \
   libicu66 \
-  libssl1.1 \
-  libstdc++6 \
-  zlib1g \
   ;
 
 # renovate: datasource=docker versioning=docker
 RUN install-tool docker 20.10.1
 
-COPY src/ /usr/local/
+COPY src/ /
 
 # renovate: datasource=github-releases lookupName=docker/compose
 RUN install-tool docker-compose 1.27.4
