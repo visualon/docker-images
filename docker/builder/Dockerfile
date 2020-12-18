@@ -39,7 +39,7 @@ RUN set -x \
 
 
 # renovate: datasource=github-releases depName=docker/buildx
-ENV BUILDX_VERSION=0.4.2
+ENV BUILDX_VERSION=0.5.1
 
 RUN set -x \
     && mkdir -p ${HOME}/.docker/cli-plugins \
