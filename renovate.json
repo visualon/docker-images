@@ -23,9 +23,8 @@
   },
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["at any time"],
     "stabilityDays": 0,
-    "dependencyDashboardApproval": true
+    "dependencyDashboardApproval": false
   },
   "postUpdateOptions": ["yarnDedupeHighest"],
   "ignorePaths": ["**/node_modules/**"],
