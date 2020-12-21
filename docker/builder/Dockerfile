@@ -53,7 +53,7 @@ RUN set -x \
 
 
 # renovate: datasource=github-releases depName=kubernetes/kubernetes
-ENV KUBECTL_VERSION=1.20.0
+ENV KUBECTL_VERSION=1.20.1
 
 RUN set -x \
     && DISTRO=linux/amd64 \
