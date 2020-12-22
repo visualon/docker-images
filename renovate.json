@@ -97,7 +97,7 @@
       "extractVersion": "^kustomize\\/v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
     {
-      "packageNames": ["actions-runner", "kubernetes/kubernetes", "docker/buildx"],
+      "packageNames": ["actions-runner", "docker/buildx", "kubernetes/kubernetes", "rancher/cli"],
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ],

@@ -22,9 +22,11 @@ COPY src/ /
 # renovate: datasource=github-releases lookupName=docker/compose
 RUN install-tool docker-compose 1.27.4
 
-COPY --from=hashicorp/terraform:0.14.3@sha256:7b1e232f564132b949b812ee138249b5398bedf3c6fab42b468d4ec8acf5343c /bin/terraform   /usr/local/bin/terraform
-RUN set -x \
-    && terraform version
+# renovate: datasource=docker lookupName=hashicorp/terraform versioning=docker
+RUN install-tool terraform 0.14.3
+
+# renovate: datasource=docker lookupName=rancher/cli versioning=docker
+RUN install-tool rancher-cli 0.6.14
 
 # renovate: datasource=github-releases lookupName=actions/runner
 RUN install-tool actions-runner 2.275.1
