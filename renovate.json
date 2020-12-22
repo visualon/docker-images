@@ -99,6 +99,10 @@
     {
       "packageNames": ["actions-runner", "docker/buildx", "kubernetes/kubernetes", "rancher/cli"],
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$"
+    },
+    {
+      "packageNames": ["rancher-cli", "rancher/cli"],
+      "allowedVersions": "<2.0.0"
     }
   ],
   "regexManagers": [
