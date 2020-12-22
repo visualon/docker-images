@@ -16,4 +16,4 @@ curl -sL $URL -o tmp.tar.gz
 tar xzf tmp.tar.gz -C /usr/local/bin/ --strip-components=2
 rm tmp.tar.gz
 
-rancher version
+rancher --version
