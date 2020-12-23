@@ -5,7 +5,7 @@ FROM alpine:3.12 as base
 #=================
 FROM golang:1.14.13 as build
 
-# renovate: datasource=github-releases depName=drone/drone
+# renovate: datasource=github-tags depName=drone/drone
 ARG DRONE_VERSION=1.10.0
 RUN git clone --depth 1 --branch "v${DRONE_VERSION}"  https://github.com/drone/drone.git
 
