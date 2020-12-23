@@ -74,6 +74,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
 
+      - name: Fetch the Docker image
+        run: docker pull ${{ env.IMAGE }}
+
       - name: Build the Docker image
         run: docker build --progress plain -t ${{ env.IMAGE }} --cache-from ${{ env.IMAGE }} ./windows/${{ env.BASE }}/${{ env.FILE }}
 
@@ -122,4 +125,4 @@ jobs:
           command: docker-config
 
       - name: Build the Docker multiarch manifest
-        run: buildx imagetools create --append -t ${{ env.IMAGE }} ${{ env.IMAGE }}:windows-2019
+        run: docker buildx imagetools create --append -t ${{ env.IMAGE }} ${{ env.IMAGE }}:windows-2019
