@@ -107,6 +107,7 @@ jobs:
     needs: [linux, windows]
 
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
 
     timeout-minutes: 30
 
@@ -124,6 +125,9 @@ jobs:
         uses: renovatebot/internal-tools@v1.2.13
         with:
           command: docker-config
+
+      - name: Log into registry
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
 
       - name: Build the Docker multiarch manifest
         run: docker buildx imagetools create --append -t ${{ env.IMAGE }} ${{ env.IMAGE }}:windows-2019
