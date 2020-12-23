@@ -70,13 +70,12 @@ jobs:
       BASE: ${{ matrix.os }}
       FILE: ${{ matrix.file }}
       IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}:windows-${{ matrix.os }}
-      DOCKER_BUILDKIT: 1
 
     steps:
       - uses: actions/checkout@v2.3.4
 
       - name: Build the Docker image
-        run: docker build --progress plain -t ${{ env.IMAGE }} ./windows/${{ env.BASE }}/${{ env.FILE }}
+        run: docker build --progress plain -t ${{ env.IMAGE }} --cache-from ${{ env.IMAGE }} ./windows/${{ env.BASE }}/${{ env.FILE }}
 
       # - name: Test run
       #   run: docker-compose --file docker-compose.test.yml run sut
