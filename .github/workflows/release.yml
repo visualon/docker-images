@@ -69,14 +69,14 @@ jobs:
     env:
       BASE: ${{ matrix.os }}
       FILE: ${{ matrix.file }}
-      IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
+      IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}:windows-${{ matrix.os }}
       DOCKER_BUILDKIT: 1
 
     steps:
       - uses: actions/checkout@v2.3.4
 
       - name: Build the Docker image
-        run: docker build --progress plain -t $IMAGE:windows-${{ env.BASE }}
+        run: docker build --progress plain -t ${{ env.IMAGE }}
         working-directory: ./windows/${{ env.BASE }}/${{ env.FILE }}
 
       # - name: Test run
@@ -89,7 +89,7 @@ jobs:
 
       - name: Publish the Docker image
         if: github.ref == 'refs/heads/master'
-        run: docker push $IMAGE:windows-${{ env.BASE }}
+        run: docker push ${{ env.IMAGE }}
 
       # - name: Publish the Docker image tags
       #   if: github.ref == 'refs/heads/master'
