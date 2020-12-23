@@ -1,15 +1,41 @@
+FROM alpine:3.12 as base
+
+#=================
+# git: clone
+#=================
+FROM alpine/git:v2.26.2 as git
+
+# renovate: datasource=github-releases depName=drone/drone
+ARG DRONE_VERSION=1.10.0
+RUN git clone --depth 1 --branch "v${DRONE_VERSION}"  https://github.com/drone/drone.git
+
+
+#=================
+# build: go build
+#=================
 FROM golang:1.14.13-alpine3.12 as build
 
-ARG DRONE_VERSION=1.10.0
-
-RUN git clone --depth 1 --branch "v${DRONE_VERSION}"  https://github.com/drone/drone.git
+COPY --from=git /git/drone /go
 
 RUN go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o bin/drone-server  github.com/drone/drone/cmd/drone-server
 
-FROM alpine:3.12 as alpine
+#=================
+# alpine: ca certs
+#=================
+FROM base as alpine
 RUN apk add -U --no-cache ca-certificates
 
-FROM alpine:3.12
+#=================
+# final
+#=================
+FROM base as final
+
+LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
+    org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
+    org.opencontainers.image.url="https://github.com/VisualOn/docker-images"
+
 EXPOSE 80 443
 VOLUME /data
 

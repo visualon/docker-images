@@ -97,7 +97,7 @@
       "extractVersion": "^kustomize\\/v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
     {
-      "packageNames": ["actions-runner", "docker/buildx", "kubernetes/kubernetes", "rancher/cli"],
+      "packageNames": ["actions-runner", "docker/buildx", "drone/drone", "kubernetes/kubernetes", "rancher/cli"],
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
     {
@@ -109,7 +109,7 @@
     {
       "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=(?<currentValue>.*)\\s"
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s(ENV|ARG) .*?_VERSION=(?<currentValue>.*)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     }
