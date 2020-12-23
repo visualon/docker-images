@@ -15,9 +15,11 @@ RUN git clone --depth 1 --branch "v${DRONE_VERSION}"  https://github.com/drone/d
 #=================
 FROM golang:1.14.13-alpine3.12 as build
 
-COPY --from=git /git/drone /go
+COPY --from=git /git/drone /git
 
-RUN go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o bin/drone-server  github.com/drone/drone/cmd/drone-server
+WORKDIR /git
+
+RUN go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o /bin/drone-server  github.com/drone/drone/cmd/drone-server
 
 #=================
 # alpine: ca certs
