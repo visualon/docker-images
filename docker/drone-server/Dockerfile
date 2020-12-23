@@ -1,23 +1,17 @@
 FROM alpine:3.12 as base
 
 #=================
-# git: clone
+# build: go build
 #=================
-FROM alpine/git:v2.26.2 as git
+FROM golang:1.14.13 as build
+
+COPY --from=git /git/drone /git
 
 # renovate: datasource=github-releases depName=drone/drone
 ARG DRONE_VERSION=1.10.0
 RUN git clone --depth 1 --branch "v${DRONE_VERSION}"  https://github.com/drone/drone.git
 
-
-#=================
-# build: go build
-#=================
-FROM golang:1.14.13-alpine3.12 as build
-
-COPY --from=git /git/drone /git
-
-WORKDIR /git
+WORKDIR /go/drone
 
 RUN go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o /bin/drone-server  github.com/drone/drone/cmd/drone-server
 
