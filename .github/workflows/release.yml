@@ -7,7 +7,7 @@ env:
   OWNER: ${{ github.repository_owner }}
 
 jobs:
-  release:
+  linux:
     runs-on: ubuntu-latest
 
     timeout-minutes: 30
@@ -51,3 +51,51 @@ jobs:
             ./push.sh
           fi
         working-directory: ./docker/${{ env.FILE }}
+
+  windows:
+    runs-on: windows-${{ matrix.os }}
+
+    timeout-minutes: 30
+
+    defaults:
+      run:
+        shell: bash
+
+    strategy:
+      matrix:
+        file: [builder]
+        os: [2019]
+
+    env:
+      BASE: ${{ matrix.os }}
+      FILE: ${{ matrix.file }}
+      IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
+      DOCKER_BUILDKIT: 1
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: Build the Docker image
+        run: docker build --progress plain -t $IMAGE:windows-${{ env.BASE }}
+        working-directory: ./windows/${{ env.BASE }}/${{ env.FILE }}
+
+      # - name: Test run
+      #   run: docker-compose --file docker-compose.test.yml run sut
+      #   working-directory: ./docker/${{ env.FILE }}
+
+      - name: Log into registry
+        if: github.ref == 'refs/heads/master'
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
+
+      - name: Publish the Docker image
+        if: github.ref == 'refs/heads/master'
+        run: docker push $IMAGE:windows-${{ env.BASE }}
+
+      # - name: Publish the Docker image tags
+      #   if: github.ref == 'refs/heads/master'
+      #   run: |
+      #     if [ -f push.sh ]; then
+      #       chmod +x ./push.sh
+      #       ./push.sh
+      #     fi
+      #   working-directory: ./docker/${{ env.FILE }}
