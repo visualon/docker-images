@@ -3,6 +3,13 @@
 # Use the latest Windows Server Core image with .NET Framework 4.8.
 FROM mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019
 
+LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
+    org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" `
+    org.opencontainers.image.licenses="MIT" `
+    org.opencontainers.image.source="https://github.com/VisualOn/docker-images" `
+    org.opencontainers.image.url="https://github.com/VisualOn/docker-images"
+
+
 # Restore the default Windows shell for correct batch processing.
 SHELL ["cmd", "/S", "/C"]
 
