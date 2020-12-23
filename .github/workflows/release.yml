@@ -7,50 +7,6 @@ env:
   OWNER: ${{ github.repository_owner }}
 
 jobs:
-  linux:
-    runs-on: ubuntu-latest
-
-    timeout-minutes: 30
-
-    strategy:
-      matrix:
-        file: [builder, drone-server, verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl, proget, renovate, github-runner]
-
-    env:
-      FILE: ${{ matrix.file }}
-      IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
-
-    steps:
-      - uses: actions/checkout@v2.3.4
-
-      - name: docker-config
-        uses: renovatebot/internal-tools@v1.2.13
-        with:
-          command: docker-config
-
-      - name: Build the Docker image
-        run: docker buildx bake --progress plain test
-
-      - name: Test run
-        run: docker-compose --file docker-compose.test.yml run sut
-        working-directory: ./docker/${{ env.FILE }}
-
-      - name: Log into registry
-        if: github.ref == 'refs/heads/master'
-        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
-
-      - name: Publish the Docker image
-        if: github.ref == 'refs/heads/master'
-        run: docker buildx bake build
-
-      - name: Publish the Docker image tags
-        if: github.ref == 'refs/heads/master'
-        run: |
-          if [ -f push.sh ]; then
-            chmod +x ./push.sh
-            ./push.sh
-          fi
-        working-directory: ./docker/${{ env.FILE }}
 
   windows:
     runs-on: windows-${{ matrix.os }}
@@ -100,6 +56,51 @@ jobs:
       #       ./push.sh
       #     fi
       #   working-directory: ./docker/${{ env.FILE }}
+
+  linux:
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 30
+
+    strategy:
+      matrix:
+        file: [builder, drone-server, verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl, proget, renovate, github-runner]
+
+    env:
+      FILE: ${{ matrix.file }}
+      IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: docker-config
+        uses: renovatebot/internal-tools@v1.2.13
+        with:
+          command: docker-config
+
+      - name: Build the Docker image
+        run: docker buildx bake --progress plain test
+
+      - name: Test run
+        run: docker-compose --file docker-compose.test.yml run sut
+        working-directory: ./docker/${{ env.FILE }}
+
+      - name: Log into registry
+        if: github.ref == 'refs/heads/master'
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
+
+      - name: Publish the Docker image
+        if: github.ref == 'refs/heads/master'
+        run: docker buildx bake build
+
+      - name: Publish the Docker image tags
+        if: github.ref == 'refs/heads/master'
+        run: |
+          if [ -f push.sh ]; then
+            chmod +x ./push.sh
+            ./push.sh
+          fi
+        working-directory: ./docker/${{ env.FILE }}
 
   multi-arch:
 
