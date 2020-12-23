@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [builder, verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl, proget, renovate, github-runner]
+        file: [builder, drone-server, verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl, proget, renovate, github-runner]
 
     env:
       FILE: ${{ matrix.file }}
@@ -97,3 +97,29 @@ jobs:
       #       ./push.sh
       #     fi
       #   working-directory: ./docker/${{ env.FILE }}
+
+  multi-arch:
+
+    needs: [linux, windows]
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 30
+
+    strategy:
+      matrix:
+        file: [builder]
+
+    env:
+      IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: docker-config
+        uses: renovatebot/internal-tools@v1.2.13
+        with:
+          command: docker-config
+
+      - name: Build the Docker multiarch manifest
+        run: buildx imagetools create --append -t ${{ env.IMAGE }} ${{ env.IMAGE }}:windows-2019
