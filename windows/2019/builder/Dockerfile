@@ -22,6 +22,7 @@ RUN `
     --installPath C:\BuildTools `
     --add Microsoft.VisualStudio.Workload.WebBuildTools `
     --add Microsoft.VisualStudio.Workload.OfficeBuildTools `
+    --add Microsoft.VisualStudio.Workload.NetCoreBuildTools `
     && powershell -Command "if ($err = dir $Env:TEMP -Filter dd_setup_*_errors.log | where Length -gt 0 | Get-Content) { throw $err }" `
     && del vs_BuildTools.exe `
     `
