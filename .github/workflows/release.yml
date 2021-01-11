@@ -74,7 +74,7 @@ jobs:
       - uses: actions/checkout@v2.3.4
 
       - name: docker-config
-        uses: renovatebot/internal-tools@v1.2.17
+        uses: renovatebot/internal-tools@v1.2.19
         with:
           command: docker-config
 
@@ -122,7 +122,7 @@ jobs:
       - uses: actions/checkout@v2.3.4
 
       - name: docker-config
-        uses: renovatebot/internal-tools@v1.2.17
+        uses: renovatebot/internal-tools@v1.2.19
         with:
           command: docker-config
 
