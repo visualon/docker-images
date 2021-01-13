@@ -52,7 +52,7 @@ RUN set -x \
     && docker buildx version
 
 
-# renovate: datasource=github-releases depName=kubernetes/kubernetes
+# renovate: datasource=github-tags depName=kubernetes/kubectl
 ENV KUBECTL_VERSION=1.20.1
 
 RUN set -x \
