@@ -22,7 +22,7 @@ RUN set -x \
     && chmod 700 ~/.ssh
 
 
-# renovate: datasource=github-release depName=moby/moby
+# renovate: datasource=github-releases depName=moby/moby
 ENV DOCKER_VERSION=19.03.13
 
 RUN set -x \
