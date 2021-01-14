@@ -74,12 +74,13 @@
         "docker/compose",
         "gitlab/gitlab-ce",
         "gitlab/gitlab-runner",
-        "proget.inedo.com/productimages/inedo/proget",
-        "node",
-        "yarn",
-        "pnpm",
         "kubernetes/kubernetes",
-        "kubernetes-sigs/kustomize"
+        "kubernetes-sigs/kustomize",
+        "moby/moby",
+        "node",
+        "pnpm",
+        "proget.inedo.com/productimages/inedo/proget",
+        "yarn"
       ],
       "extends": [":automergeMinor"]
     },
