@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [builder]
+        file: [builder, drone-cache]
         os: [2019]
 
     env:

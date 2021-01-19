@@ -104,6 +104,7 @@
         "drone/drone",
         "kubernetes/kubectl",
         "kubernetes/kubernetes",
+        "meltwater/drone-cache",
         "moby/moby",
         "rancher/cli"
       ],
