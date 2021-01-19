@@ -29,7 +29,7 @@ RUN install-tool terraform 0.14.4
 RUN install-tool rancher-cli 0.6.14
 
 # renovate: datasource=github-releases lookupName=actions/runner
-RUN install-tool actions-runner 2.275.1
+RUN install-tool actions-runner 2.276.0
 
 
 # renovate: datasource=github-tags depName=kubernetes/kubectl
