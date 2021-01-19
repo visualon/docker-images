@@ -46,7 +46,7 @@ RUN npm i -g yarn
 
 RUN `
 	setx /M HOME %USERPROFILE% `
-	&& dotnet --info > nul
+	&& dotnet nuget list source
 
 ENV POWERSHELL_TELEMETRY_OPTOUT="1"
 ENV DOTNET_CLI_TELEMETRY_OPTOUT="1"
