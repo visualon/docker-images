@@ -1,5 +1,10 @@
 #!/bin/bash
 
+latest=ghcr.io/$OWNER/$FILE
+
+docker tag $IMAGE $latest
+docker push $latest
+
 # FROM=$(cat Dockerfile | grep KUBECTL_VERSION)
 # SEMVER_REGEX="=(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[a-z0-9]+)?"
 
