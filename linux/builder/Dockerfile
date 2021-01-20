@@ -22,7 +22,7 @@ RUN set -x \
     && chmod 700 ~/.ssh
 
 
-# renovate: datasource=github-releases depName=moby/moby versioning=regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?:-(?<prerelease>.*))?$
+# renovate: datasource=github-releases depName=moby/moby versioning=regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)(?:-(?<prerelease>.*))?$
 ENV DOCKER_VERSION=19.03.13
 
 RUN set -x \
