@@ -50,6 +50,7 @@ RUN `
 
 ENV POWERSHELL_TELEMETRY_OPTOUT="1"
 ENV DOTNET_CLI_TELEMETRY_OPTOUT="1"
+
 # Define the entry point for the docker container.
 # This entry point starts the developer command prompt and launches the PowerShell shell.
-ENTRYPOINT ["pwsh.exe", "-NoLogo", "-NoExit", "-ExecutionPolicy", "Bypass", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue'; C:\BuildTools\Common7\Tools\Launch-VsDevShell.ps1"]
+ENTRYPOINT ["pwsh", "-NoLogo", "-NoProfile", "-NoExit", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
