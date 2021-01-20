@@ -41,6 +41,8 @@ jobs:
       - name: Test run
         run: docker-compose --file docker-compose.test.yml run sut
         working-directory: ./windows/${{ env.BASE }}/${{ env.FILE }}
+        env:
+          IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
 
       - name: Log into registry
         if: github.ref == 'refs/heads/master'
@@ -86,6 +88,8 @@ jobs:
       - name: Test run
         run: docker-compose --file docker-compose.test.yml run sut
         working-directory: ./linux/${{ env.FILE }}
+        env:
+          IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
 
       - name: Log into registry
         if: github.ref == 'refs/heads/master'
