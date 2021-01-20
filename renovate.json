@@ -106,6 +106,7 @@
         "kubernetes/kubernetes",
         "meltwater/drone-cache",
         "moby/moby",
+        "PowerShell/PowerShell",
         "rancher/cli"
       ],
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$"

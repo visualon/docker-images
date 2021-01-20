@@ -1,7 +1,8 @@
 # escape=`
 
 # Use the latest Windows Server Core image with .NET Framework 4.8.
-FROM mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019@sha256:88d62c8de6bb570e3c9fff100121afb1f400371de546418b56ccceb967d6910d
+#FROM mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019@sha256:88d62c8de6bb570e3c9fff100121afb1f400371de546418b56ccceb967d6910d
+FROM mcr.microsoft.com/dotnet/framework/runtime:4.8-windowsservercore-ltsc2019@sha256:8a3e3cac97f04de4683e0f54f9a2be97c1fd4f92f76ac30449f34d18eafb4f28
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" `
@@ -9,48 +10,24 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
     org.opencontainers.image.source="https://github.com/VisualOn/docker-images" `
     org.opencontainers.image.url="https://github.com/VisualOn/docker-images"
 
+ENV `
+  POWERSHELL_TELEMETRY_OPTOUT=1 `
+  DOTNET_CLI_TELEMETRY_OPTOUT=1 `
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
 
-# Restore the default Windows shell for correct batch processing.
-SHELL ["cmd", "/S", "/C"]
+COPY root\ c:\
 
-# Install Build Tools
-RUN `
-	# Install VS Build Tools
-	curl -fSLo vs_BuildTools.exe https://aka.ms/vs/16/release/vs_buildtools.exe`
-    && setx /M DOTNET_SKIP_FIRST_TIME_EXPERIENCE 1 `
-	&& vs_buildtools.exe --quiet --wait --norestart --nocache `
-    --installPath C:\BuildTools `
-    --add Microsoft.VisualStudio.Workload.WebBuildTools `
-    --add Microsoft.VisualStudio.Workload.OfficeBuildTools `
-    --add Microsoft.VisualStudio.Workload.NetCoreBuildTools `
-    && powershell -Command "if ($err = dir $Env:TEMP -Filter dd_setup_*_errors.log | where Length -gt 0 | Get-Content) { throw $err }" `
-    && del vs_BuildTools.exe `
-    `
-	# Cleanup
-    && (for /D %i in ("%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\*") do rmdir /S /Q "%i") `
-    && (for %i in ("%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\*") do if not "%~nxi" == "vswhere.exe" del "%~i") `
-    && echo clean temp `
-    && powershell -Command "Get-ChildItem $Env:TEMP | Remove-Item -Force -Recurse"
+# renovate: datasource=github-releases depName=PowerShell/PowerShell
+ARG PWSH_VERSION=7.1.1
+RUN c:\tools\installer\pwsh.bat
 
-RUN powershell -Command "iwr -useb get.scoop.sh | iex"
-RUN `
-	scoop config shim kiennq `
-	&& scoop install git nodejs-lts pwsh `
-	`
-	&& git config --system --unset credential.helper `
-	&& git config --global --unset credential.helper `
-	# Cleanup
-	&& pwsh -Command "Get-ChildItem ~\scoop\cache | Remove-Item"
+SHELL ["pwsh", "-NoLogo", "-NoProfile", "-NoExit", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-RUN npm i -g yarn
+RUN c:\tools\installer\vs-tools.bat
 
-RUN `
-	setx /M PATH "%PATH%;C:\BuildTools\MSBuild\Current\Bin" `
-	&& dotnet nuget list source
-
-ENV POWERSHELL_TELEMETRY_OPTOUT="1"
-ENV DOTNET_CLI_TELEMETRY_OPTOUT="1"
+# renovate: datasource=npm depName=yarn
+ARG YARN_VERSION=1.22.10
+RUN c:\tools\installer\scoop.ps1
 
 # Define the entry point for the docker container.
-# This entry point starts the developer command prompt and launches the PowerShell shell.
 ENTRYPOINT ["pwsh", "-NoLogo", "-NoProfile", "-NoExit", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
