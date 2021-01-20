@@ -23,7 +23,7 @@ group "test" {
 }
 
 target "settings" {
-  context    = "./docker/${FILE}"
+  context    = "./linux/${FILE}"
   inherits   = ["settings"]
   cache-from = ["type=registry,ref=ghcr.io/${OWNER}/cache:${FILE}", "type=registry,ref=ghcr.io/${OWNER}/cache:${FILE}-${TAG}"]
 }
