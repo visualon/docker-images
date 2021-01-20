@@ -1,4 +1,4 @@
-name: Release
+name: multiarch-builds
 
 on:
   push:
@@ -24,18 +24,19 @@ jobs:
     env:
       BASE: ${{ matrix.os }}
       FILE: ${{ matrix.file }}
-      IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}:windows-${{ matrix.os }}
+      IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
+      TAG: windows-${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v2.3.4
 
       # ignore not yet existing images
       - name: Fetch the Docker image
-        run: docker pull ${{ env.IMAGE }}
+        run: docker pull ${{ env.IMAGE }}:${{ env.TAG }}
         continue-on-error: true
 
       - name: Build the Docker image
-        run: docker build --progress plain -t ${{ env.IMAGE }} --cache-from ${{ env.IMAGE }} ./windows/${{ env.BASE }}/${{ env.FILE }}
+        run: docker build --progress plain -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} ./windows/${{ env.BASE }}/${{ env.FILE }}
 
       - name: Test run
         run: docker-compose --file docker-compose.test.yml run sut
@@ -53,7 +54,6 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: |
           if [ -f push.sh ]; then
-            chmod +x ./push.sh
             ./push.sh
           fi
         working-directory: ./windows/${{ env.BASE }}/${{ env.FILE }}
@@ -65,11 +65,12 @@ jobs:
 
     strategy:
       matrix:
-        file: [builder, drone-server, verdaccio, rancher-cli, node, gitlab-ce, gitlab-runner, kubectl, proget, renovate, github-runner]
+        file: [builder, drone-cache]
 
     env:
       FILE: ${{ matrix.file }}
       IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
+      TAG: linux
 
     steps:
       - uses: actions/checkout@v2.3.4
@@ -84,7 +85,7 @@ jobs:
 
       - name: Test run
         run: docker-compose --file docker-compose.test.yml run sut
-        working-directory: ./docker/${{ env.FILE }}
+        working-directory: ./linux/${{ env.FILE }}
 
       - name: Log into registry
         if: github.ref == 'refs/heads/master'
@@ -98,10 +99,9 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: |
           if [ -f push.sh ]; then
-            chmod +x ./push.sh
             ./push.sh
           fi
-        working-directory: ./docker/${{ env.FILE }}
+        working-directory: ./linux/${{ env.FILE }}
 
   multi-arch:
     needs: [linux, windows]
@@ -113,7 +113,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [builder]
+        file: [builder, drone-cache]
 
     env:
       IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
@@ -130,4 +130,7 @@ jobs:
         run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
 
       - name: Build the Docker multiarch manifest
-        run: docker buildx imagetools create --append -t ${{ env.IMAGE }} ${{ env.IMAGE }}:windows-2019
+        run: docker buildx imagetools create -t ${{ env.IMAGE }} ${{ env.IMAGE }}:linux ${{ env.IMAGE }}:windows-2019
+
+      - name: Inspect the Docker multiarch manifest
+        run: docker buildx imagetools inspect ${{ env.IMAGE }}

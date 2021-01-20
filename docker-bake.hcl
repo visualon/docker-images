@@ -2,6 +2,9 @@ variable "OWNER" {
   default = "visualon"
 }
 variable "FILE" {}
+variable "TAG" {
+  default = "latest"
+}
 
 group "default" {
   targets = ["build_ghcr", "build_docker"]
@@ -22,24 +25,24 @@ group "test" {
 target "settings" {
   context    = "./docker/${FILE}"
   inherits   = ["settings"]
-  cache-from = ["type=registry,ref=ghcr.io/${OWNER}/cache:${FILE}"]
+  cache-from = ["type=registry,ref=ghcr.io/${OWNER}/cache:${FILE}", "type=registry,ref=ghcr.io/${OWNER}/cache:${FILE}-${TAG}"]
 }
 
 target "build_ghcr" {
   inherits = ["settings"]
   output   = ["type=registry"]
-  tags     = ["ghcr.io/${OWNER}/cache:${FILE}"]
+  tags     = ["ghcr.io/${OWNER}/cache:${FILE}-${TAG}"]
   cache-to = ["type=inline,mode=max"]
 }
 
 target "build_docker" {
   inherits = ["settings"]
   output   = ["type=docker"]
-  tags     = ["ghcr.io/${OWNER}/${FILE}"]
+  tags     = ["ghcr.io/${OWNER}/${FILE}:${TAG}"]
 }
 
 target "push_ghcr" {
   inherits = ["settings"]
   output   = ["type=registry"]
-  tags     = ["ghcr.io/${OWNER}/${FILE}"]
+  tags     = ["ghcr.io/${OWNER}/${FILE}:${TAG}"]
 }
