@@ -34,7 +34,7 @@ RUN set -x \
     && docker --version
 
 
-COPY --from=docker/compose:alpine-1.27.4@sha256:4479af5256e02c3e7710051706a7abbcd39b0b31b0e306b2c18a0cbc88aee705 /usr/local/bin/docker-compose   /usr/local/bin/docker-compose
+COPY --from=docker/compose:alpine-1.28.0@sha256:b9b7cf79120164e95bbe718a191cd8be2389cdd783de62f8839382c60403688a /usr/local/bin/docker-compose   /usr/local/bin/docker-compose
 RUN set -x \
     && docker-compose version
 
