@@ -23,7 +23,7 @@ RUN set -x \
 
 
 # renovate: datasource=github-releases depName=moby/moby versioning=docker
-ENV DOCKER_VERSION=19.03.13
+ENV DOCKER_VERSION=20.10.2
 
 RUN set -x \
     && DISTRO=linux/static/stable/x86_64 \
