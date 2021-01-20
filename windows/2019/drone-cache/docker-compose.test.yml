@@ -2,5 +2,4 @@ version: "3.7"
 services:
   sut:
     image: "${IMAGE}"
-    entrypoint:
     command: --help
