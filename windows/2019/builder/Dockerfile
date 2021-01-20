@@ -45,7 +45,7 @@ RUN `
 RUN npm i -g yarn
 
 RUN `
-	setx /M PATH %PATH%;C:\BuildTools\MSBuild\Current\Bin `
+	setx /M PATH "%PATH%;C:\BuildTools\MSBuild\Current\Bin" `
 	&& dotnet nuget list source
 
 ENV POWERSHELL_TELEMETRY_OPTOUT="1"
