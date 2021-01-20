@@ -37,9 +37,9 @@ jobs:
       - name: Build the Docker image
         run: docker build --progress plain -t ${{ env.IMAGE }} --cache-from ${{ env.IMAGE }} ./windows/${{ env.BASE }}/${{ env.FILE }}
 
-      # - name: Test run
-      #   run: docker-compose --file docker-compose.test.yml run sut
-      #   working-directory: ./docker/${{ env.FILE }}
+      - name: Test run
+        run: docker-compose --file docker-compose.test.yml run sut
+        working-directory: ./windows/${{ env.BASE }}/${{ env.FILE }}
 
       - name: Log into registry
         if: github.ref == 'refs/heads/master'

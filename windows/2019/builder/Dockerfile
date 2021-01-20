@@ -45,11 +45,11 @@ RUN `
 RUN npm i -g yarn
 
 RUN `
-	setx /M HOME %USERPROFILE% `
+	setx /M PATH %PATH%;C:\BuildTools\MSBuild\Current\Bin `
 	&& dotnet nuget list source
 
 ENV POWERSHELL_TELEMETRY_OPTOUT="1"
 ENV DOTNET_CLI_TELEMETRY_OPTOUT="1"
 # Define the entry point for the docker container.
 # This entry point starts the developer command prompt and launches the PowerShell shell.
-ENTRYPOINT ["C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat", "&&", "pwsh.exe", "-NoLogo", "-NoExit", "-ExecutionPolicy", "Bypass", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+ENTRYPOINT ["pwsh.exe", "-NoLogo", "-NoExit", "-ExecutionPolicy", "Bypass", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue'; C:\BuildTools\Common7\Tools\Launch-VsDevShell.ps1"]
