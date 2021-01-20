@@ -86,7 +86,7 @@
     },
     {
       "packageNames": ["gitlab/gitlab-ce"],
-      "versionScheme": "docker"
+      "versioning": "docker"
     },
     {
       "depTypeList": ["action"],
@@ -113,6 +113,10 @@
     {
       "packageNames": ["rancher-cli", "rancher/cli"],
       "allowedVersions": "<2.0.0"
+    },
+    {
+      "packageNames": ["moby/moby"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?:-(?<prerelease>.*))?$"
     }
   ],
   "regexManagers": [
