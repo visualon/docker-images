@@ -2,7 +2,7 @@
 
 # 2.29.2.windows.1
 if ( -not ($Version -match '^(\d+\.\d+\.\d+)\.windows(\.\d+)$') ) {
-  throw "Invalid git version"
+  throw "Invalid $Name version"
 }
 
 $v = $Matches.1
@@ -23,12 +23,9 @@ Expand-Archive -Path $file -DestinationPath $app
 
 Install-Shim -Name git -Path cmd\git.exe
 
-exec {
-  git --version
-
-  git config --system --unset credential.helper
-  git config --system core.autocrlf input
-  git config --system core.fscache true
-  git config --system core.longpaths true
-  git config --system http.sslbackend schannel
-}
+exec { git config --system --unset credential.helper }
+exec { git config --system --unset credential.helper }
+exec { git config --system core.autocrlf input }
+exec { git config --system core.fscache true }
+exec { git config --system core.longpaths true }
+exec { git config --system http.sslbackend schannel }

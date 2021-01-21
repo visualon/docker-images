@@ -1,8 +1,8 @@
 #Requires -Version 5.1
 
 # 1.14.5
-if ( -not $Version -match '$(\d+\.\d+\.\d+)^' ) {
-  throw "Invalid node version"
+if ( -not $Version -match '^(\d+\.\d+\.\d+)$' ) {
+  throw "Invalid $Name version"
 }
 
 $file = "$tmp\$Name.zip"

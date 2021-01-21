@@ -26,7 +26,7 @@ if (-not $Version) {
 " v$Version" | Write-Host -ForegroundColor Yellow -NoNewline
 " ... "  | Write-Host -ForegroundColor DarkGray
 
-npm i -g ${Name}@${Version}
+exec { npm i -g ${Name}@${Version} } | Out-Null
 
 Remove-Cache
 

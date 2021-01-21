@@ -16,19 +16,19 @@ ENV `
 
 COPY root\ c:\
 
-# renovate: datasource=github-releases depName=PowerShell/PowerShell
-ARG PWSH_VERSION=7.1.1
+RUN c:\tools\init.cmd
+# SHELL ["powershell", "-NonInteractive", "-Command"]
 
-# renovate: datasource=github-releases depName=kiennq/scoop-better-shimexe versioning=gradle
-ARG SHIM_VERSION=2.2
+# renovate: datasource=github-releases lookupName=kiennq/scoop-better-shimexe versioning=gradle
+RUN install-tool shim 2.2
 
-RUN c:\tools\installer\base.bat
+# renovate: datasource=github-releases lookupName=PowerShell/PowerShell
+RUN install-tool pwsh 7.1.1
 
 SHELL ["pwsh", "-NonInteractive", "-Command"]
 
-
 # renovate: datasource=github-releases lookupName=git-for-windows/git versioning=loose
-RUN install-tool git 2.29.2.windows.1 -Debug
+RUN install-tool git 2.29.2.windows.1
 
 # renovate: datasource=github-releases lookupName=nodejs/node versioning=node
 RUN install-tool node 14.15.4
@@ -37,7 +37,7 @@ RUN install-tool node 14.15.4
 RUN install-npm yarn 1.22.10
 
 # install last to get latest updates
-RUN install-tool vs-tools -Debug
+RUN install-tool vs-tools
 
 # Define the entry point for the docker container.
 ENTRYPOINT ["pwsh", "-NoLogo", "-Command"]
