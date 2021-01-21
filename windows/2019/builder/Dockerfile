@@ -25,7 +25,7 @@ RUN install-tool shim 2.2.1
 # renovate: datasource=github-releases lookupName=PowerShell/PowerShell
 RUN install-tool pwsh 7.1.1
 
-# renovate: datasource=github-releases lookupName=git-for-windows/git versioning=loose
+# renovate: datasource=github-releases lookupName=git-for-windows/git
 RUN install-tool git 2.30.0.windows.2
 
 # renovate: datasource=github-releases lookupName=nodejs/node versioning=node
