@@ -20,7 +20,7 @@ RUN c:\tools\init.cmd
 # SHELL ["powershell", "-NonInteractive", "-Command"]
 
 # renovate: datasource=github-releases lookupName=kiennq/scoop-better-shimexe versioning=gradle
-RUN install-tool shim 2.2
+RUN install-tool shim 2.2.1
 
 # renovate: datasource=github-releases lookupName=PowerShell/PowerShell
 RUN install-tool pwsh 7.1.1
