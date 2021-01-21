@@ -1,9 +1,8 @@
 #Requires -Version 5.1
 
-#pragma PSScriptAnalyzer disable UseDeclaredVarsMoreThanAssignments
-$tmp = "c:\TEMP"
-$root = "c:\tools"
-$apps = "$root\apps"
-$bin = "$root\bin"
-$installer = "$root\installer"
-#pragma PSScriptAnalyzer enable UseDeclaredVarsMoreThanAssignments
+# used to silence warnings
+Set-Variable -Name tmp -Value "c:\TEMP"
+Set-Variable -Name root -Value "c:\tools"
+Set-Variable -Name apps -Value "$root\apps"
+Set-Variable -Name bin -Value "$root\bin"
+Set-Variable -Name installer -Value "$root\installer"
