@@ -108,7 +108,9 @@
         "kubernetes/kubernetes",
         "meltwater/drone-cache",
         "moby/moby",
+        "node",
         "nodejs/node",
+        "pwsh",
         "PowerShell/PowerShell",
         "rancher/cli"
       ],
