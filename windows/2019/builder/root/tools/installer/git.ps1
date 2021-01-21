@@ -23,8 +23,6 @@ Expand-Archive -Path $file -DestinationPath $app
 
 Install-Shim -Name git -Path cmd\git.exe
 
-exec { git config --system --unset credential.helper }
-exec { git config --system --unset credential.helper }
 exec { git config --system core.autocrlf input }
 exec { git config --system core.fscache true }
 exec { git config --system core.longpaths true }
