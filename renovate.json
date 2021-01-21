@@ -102,6 +102,7 @@
         "actions-runner",
         "docker/buildx",
         "drone/drone",
+        "git",
         "git-for-windows/git",
         "kubernetes/kubectl",
         "kubernetes/kubernetes",
@@ -122,7 +123,7 @@
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?:-(?<prerelease>.*))?$"
     },
     {
-      "packageNames": ["git-for-windows/git"],
+      "packageNames": ["git"],
       "automerge": false,
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?:-(?<prerelease>[a-z0-9]+))?\\.windows\\.\\d+$"
     }
