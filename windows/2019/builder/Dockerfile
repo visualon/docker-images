@@ -28,7 +28,7 @@ RUN install-tool pwsh 7.1.1
 SHELL ["pwsh", "-NonInteractive", "-Command"]
 
 # renovate: datasource=github-releases lookupName=git-for-windows/git versioning=loose
-RUN install-tool git 2.29.2.windows.1
+RUN install-tool git v2.30.0.windows.2
 
 # renovate: datasource=github-releases lookupName=nodejs/node versioning=node
 RUN install-tool node 14.15.4
