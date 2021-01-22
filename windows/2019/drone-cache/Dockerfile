@@ -17,11 +17,11 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
 ARG CACHE_VERSION=1.1.0
 
 RUN `
-	# Install VS Build Tools
-	curl -fSLo cache.zip https://github.com/meltwater/drone-cache/releases/download/v%CACHE_VERSION%/drone-cache_%CACHE_VERSION%_Windows_x86_64.zip `
-  && tar xzf cache.zip -C c:\ `
-  && del cache.zip `
-  && ren c:\drone-cache_%CACHE_VERSION%_Windows_x86_64 bin
+  mkdir tmp && cd tmp`
+	&& curl -sSfLo cache.zip https://github.com/meltwater/drone-cache/releases/download/v%CACHE_VERSION%/drone-cache_%CACHE_VERSION%_Windows_x86_64.zip `
+  && tar -oxzf cache.zip `
+  && move drone-cache_%CACHE_VERSION%_Windows_x86_64 c:\bin `
+  && /bin/drone-cache --version
 
 FROM ${REPO}/nanoserver:1809-amd64
 
