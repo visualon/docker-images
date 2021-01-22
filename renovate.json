@@ -128,6 +128,10 @@
       "packageNames": ["git"],
       "automerge": false,
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?:-(?<prerelease>[a-z0-9]+))?\\.windows\\.\\d+$"
+    },
+    {
+      "packageNames": ["mcr.microsoft.com/windows/servercore", "mcr.microsoft.com/windows/nanoserver"],
+      "pinDigests": false
     }
   ],
   "regexManagers": [

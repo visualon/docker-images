@@ -1,11 +1,6 @@
 # escape=`
 
-# * disable renovate digest pinning
-# * reuse cached docker images on github-actions
-# * allow registry override
-ARG REPO=mcr.microsoft.com/windows
-
-FROM ${REPO}/servercore:ltsc2019 AS installer
+FROM mcr.microsoft.com/windows/servercore:ltsc2019 AS installer
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" `
@@ -23,7 +18,7 @@ RUN `
   && move drone-cache_%CACHE_VERSION%_Windows_x86_64 c:\bin `
   && /bin/drone-cache --version
 
-FROM ${REPO}/nanoserver:1809-amd64
+FROM mcr.microsoft.com/windows/nanoserver:1809-amd64
 
 COPY --from=installer ["/bin", "/bin"]
 

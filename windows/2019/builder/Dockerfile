@@ -1,11 +1,7 @@
 # escape=`
-# * disable renovate digest pinning
-# * reuse cached docker images on github-actions
-# * allow registry override
-ARG REPO=mcr.microsoft.com/windows
 
 # Use the latest Windows Server Core image with .NET Framework 4.7.2.
-FROM ${REPO}/servercore:ltsc2019
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
   org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" `
