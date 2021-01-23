@@ -1,4 +1,4 @@
-FROM proget.inedo.com/productimages/inedo/proget:5.3.20@sha256:b72c2833b28745c94f7060a123bedc99c0eb3e35b78d711515ff02f74348c9e5
+FROM proget.inedo.com/productimages/inedo/proget:5.3.21@sha256:ac5d0c9bc0cbd155e801e1aa830bd99ee27a32389538eb5e4db4bb497169753f
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="proget" \
