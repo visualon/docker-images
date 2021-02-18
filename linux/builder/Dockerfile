@@ -75,7 +75,7 @@ RUN set -x \
     && rm kustomize.tgz \
     && kustomize version
 
-COPY --from=hashicorp/terraform:0.14.6@sha256:2c56a1e1d8b10f665e9fa49bc477e66b9afdde12659c90463d4b3f6672663a00 /bin/terraform   /usr/local/bin/terraform
+COPY --from=hashicorp/terraform:0.14.7@sha256:7e8d0325e120d8adae128bca9b3364c13a8c2f5109dffe681ac932a82b585729 /bin/terraform   /usr/local/bin/terraform
 RUN set -x \
     && terraform version
 
