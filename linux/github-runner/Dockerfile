@@ -23,7 +23,7 @@ COPY src/ /
 RUN install-tool docker-compose 1.28.2
 
 # renovate: datasource=docker lookupName=hashicorp/terraform versioning=docker
-RUN install-tool terraform 0.14.6
+RUN install-tool terraform 0.14.7
 
 # renovate: datasource=docker lookupName=rancher/cli versioning=docker
 RUN install-tool rancher-cli 0.6.14
