@@ -20,7 +20,11 @@ if [[ -n $RUNNER_NAME ]]; then
     CONFIG_OPTS="${CONFIG_OPTS} --name ${RUNNER_NAME}"
 fi
 
-./config.sh --url https://github.com/${GITHUB_REPO} --token ${RUNNER_TOKEN} $CONFIG_OPTS
+./config.sh \
+  --url https://github.com/${GITHUB_REPO} \
+  --token ${RUNNER_TOKEN} $CONFIG_OPTS \
+  --work _work \
+  ;
 
 cleanup() {
     echo "Removing runner..."
