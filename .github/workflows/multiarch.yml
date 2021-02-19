@@ -45,15 +45,15 @@ jobs:
           IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
 
       - name: Log into registry
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
 
       - name: Publish the Docker image
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: docker push ${{ env.IMAGE }}
 
       - name: Publish the Docker image tags
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: |
           if [ -f push.sh ]; then
             ./push.sh
@@ -92,15 +92,15 @@ jobs:
           IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
 
       - name: Log into registry
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
 
       - name: Publish the Docker image
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: docker buildx bake build
 
       - name: Publish the Docker image tags
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: |
           if [ -f push.sh ]; then
             ./push.sh
@@ -111,7 +111,7 @@ jobs:
     needs: [linux, windows]
 
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
 
     timeout-minutes: 30
 

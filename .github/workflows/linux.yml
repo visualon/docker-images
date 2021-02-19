@@ -37,15 +37,15 @@ jobs:
         working-directory: ./linux/${{ env.FILE }}
 
       - name: Log into registry
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
 
       - name: Publish the Docker image
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: docker buildx bake build
 
       - name: Publish the Docker image tags
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: |
           if [ -f push.sh ]; then
             ./push.sh
