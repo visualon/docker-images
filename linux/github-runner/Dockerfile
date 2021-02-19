@@ -1,4 +1,4 @@
-FROM renovate/buildpack:3-focal@sha256:3da9664d0c62dc5733288437b65dfc567ea354cb50a0bb518aed8d37defd0b6a
+FROM renovate/buildpack:4@sha256:fdeb1049fbce5cf7ff3c340546bab022beddccc6e694309a48f9b6a9c5f1e116
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
   org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
@@ -12,6 +12,7 @@ RUN install-apt \
   jq \
   libgcc1 \
   libicu66 \
+  rsync \
   ;
 
 # renovate: datasource=docker versioning=docker
