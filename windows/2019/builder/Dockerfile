@@ -29,7 +29,7 @@ RUN install-tool pwsh 7.1.2
 RUN install-tool git 2.30.0.windows.2
 
 # renovate: datasource=github-releases lookupName=nodejs/node versioning=node
-RUN install-tool node 14.15.5
+RUN install-tool node 14.16.0
 
 # renovate: datasource=npm
 RUN install-npm yarn 1.22.10
