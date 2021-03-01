@@ -21,7 +21,7 @@ RUN install-tool docker 20.10.3
 COPY src/ /
 
 # renovate: datasource=github-releases lookupName=docker/compose
-RUN install-tool docker-compose 1.28.4
+RUN install-tool docker-compose 1.28.5
 
 # renovate: datasource=docker lookupName=hashicorp/terraform versioning=docker
 RUN install-tool terraform 0.14.7
