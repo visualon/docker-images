@@ -65,7 +65,7 @@ RUN set -x \
 
 
 # renovate: datasource=github-releases depName=kubernetes-sigs/kustomize
-ENV KUSTOMIZE_VERSION=4.0.1
+ENV KUSTOMIZE_VERSION=4.0.4
 
 RUN set -x \
     && DISTRO=linux_amd64 \
