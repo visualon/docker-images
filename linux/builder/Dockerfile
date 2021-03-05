@@ -47,3 +47,6 @@ RUN install-tool kubectl 1.20.1
 
 # renovate: datasource=github-releases depName=kubernetes-sigs/kustomize
 RUN install-tool kustomize 4.0.4
+
+# renovate: datasource=github-releases depName=containers/skopeo
+RUN install-tool skopeo v1.2.2
