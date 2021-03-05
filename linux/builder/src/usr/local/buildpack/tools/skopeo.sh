@@ -19,4 +19,4 @@ apt_install \
   skopeo \
   ;
 
-skopeo version
+skopeo --version
