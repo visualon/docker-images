@@ -99,20 +99,15 @@
     },
     {
       "packageNames": [
-        "actions-runner",
-        "docker/buildx",
         "drone/drone",
         "git",
         "git-for-windows/git",
-        "kubernetes/kubectl",
         "kubernetes/kubernetes",
         "meltwater/drone-cache",
-        "moby/moby",
         "node",
         "nodejs/node",
         "pwsh",
-        "PowerShell/PowerShell",
-        "rancher/cli"
+        "PowerShell/PowerShell"
       ],
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
