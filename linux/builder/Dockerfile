@@ -1,84 +1,49 @@
-FROM alpine:3.13.2@sha256:a75afd8b57e7f34e4dad8d65e2c7ba2e1975c795ce1ee22fa34f8cf46f96a3be
+FROM renovate/buildpack:4@sha256:fdeb1049fbce5cf7ff3c340546bab022beddccc6e694309a48f9b6a9c5f1e116
 
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
-    org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
-    org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
-    org.opencontainers.image.url="https://github.com/VisualOn/docker-images"
+  org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
+  org.opencontainers.image.licenses="MIT" \
+  org.opencontainers.image.source="https://github.com/visualon/docker-images" \
+  org.opencontainers.image.url="https://github.com/visualon/docker-images"
 
-RUN set -x \
-    && apk add --no-cache \
-    openssh-client \
-    curl \
-    ca-certificates \
-    dumb-init \
-    bash \
-    jq \
-    skopeo \
-    rsync \
-    openssl \
-    && mkdir -p ~/.ssh \
-    && chmod 700 ~/.ssh
+RUN install-apt \
+  jq \
+  libgcc1 \
+  libicu66 \
+  rsync \
+  && mkdir -p ~/.ssh \
+  && chmod 700 ~/.ssh
 
 
-# renovate: datasource=github-releases depName=moby/moby versioning=docker
-ENV DOCKER_VERSION=20.10.4
+# renovate: datasource=docker versioning=docker
+RUN install-tool docker 20.10.5
 
-RUN set -x \
-    && DISTRO=linux/static/stable/x86_64 \
-    && URL=https://download.docker.com/${DISTRO}/docker-${DOCKER_VERSION}.tgz \
-    && curl -sL $URL -o docker.tgz \
-    && tar -xzvf docker.tgz --strip 1 -C /usr/local/bin docker/docker \
-    && rm docker.tgz \
-    && docker --version
+# renovate: datasource=github-releases lookupName=PowerShell/PowerShell
+RUN install-tool powershell v7.1.2
 
+# renovate: datasource=docker lookupName=mcr.microsoft.com/dotnet/sdk versioning=docker
+RUN install-tool dotnet 5.0.200
 
-COPY --from=docker/compose:alpine-1.28.5@sha256:eaeafd8185ae4fe49469ffbf06d21743bcf4d4bb696318b42d40a8d11b8f2149 /usr/local/bin/docker-compose   /usr/local/bin/docker-compose
-RUN set -x \
-    && docker-compose version
+# renovate: datasource=docker versioning=docker
+RUN install-tool node 14.16.0
 
+# renovate: datasource=npm versioning=npm
+RUN install-tool yarn 1.22.10
 
-# renovate: datasource=github-releases depName=docker/buildx
-ENV BUILDX_VERSION=0.5.1
+COPY src/ /
 
-RUN set -x \
-    && mkdir -p ${HOME}/.docker/cli-plugins \
-    && DISTRO=linux-amd64 \
-    && URL=https://github.com/docker/buildx/releases/download/v${BUILDX_VERSION}/buildx-v${BUILDX_VERSION}.${DISTRO} \
-    && TARGET=${HOME}/.docker/cli-plugins/docker-buildx \
-    && curl -sL ${URL} -o ${TARGET} \
-    && chmod +x ${TARGET} \
-    && docker buildx version
+# renovate: datasource=github-releases lookupName=docker/compose
+RUN install-tool docker-compose 1.28.5
 
+# renovate: datasource=docker lookupName=hashicorp/terraform versioning=docker
+#RUN install-tool terraform 0.14.7
 
 # renovate: datasource=github-tags depName=kubernetes/kubectl
-ENV KUBECTL_VERSION=1.20.1
+RUN install-tool kubectl 1.20.1
 
-RUN set -x \
-    && DISTRO=linux/amd64 \
-    && URL=https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/${DISTRO}/kubectl \
-    && TARGET=/usr/local/bin/kubectl \
-    && curl -sL ${URL} -o ${TARGET} \
-    && chmod +x ${TARGET} \
-    && kubectl version --client=true
-
+# renovate: datasource=github-releases depName=docker/buildx
+#RUN install-tool buildx 0.5.1
 
 # renovate: datasource=github-releases depName=kubernetes-sigs/kustomize
-ENV KUSTOMIZE_VERSION=4.0.4
-
-RUN set -x \
-    && DISTRO=linux_amd64 \
-    && URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_${DISTRO}.tar.gz \
-    && curl -sL ${URL} -o kustomize.tgz \
-    && tar -C /usr/local/bin -xzf kustomize.tgz \
-    && rm kustomize.tgz \
-    && kustomize version
-
-COPY --from=hashicorp/terraform:0.14.7@sha256:7e8d0325e120d8adae128bca9b3364c13a8c2f5109dffe681ac932a82b585729 /bin/terraform   /usr/local/bin/terraform
-RUN set -x \
-    && terraform version
-
-SHELL [ "/bin/bash" ]
-ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-CMD [ "bash" ]
+RUN install-tool kustomize 4.0.4
