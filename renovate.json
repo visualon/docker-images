@@ -1,32 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    ":assignee(viceice)",
-    ":automergeDigest",
-    "docker:enableMajor",
-    "docker:pinDigests",
-    ":dependencyDashboard",
-    "github>renovatebot/presets-internal:docker-images"
-  ],
-  "stabilityDays": 3,
-  "prCreation": "not-pending",
-  "semanticCommits": "enabled",
-  "separateMinorPatch": true,
-  "timezone": "Europe/Berlin",
+  "extends": ["visualon/renovate-config"],
   "labels": ["deps"],
-  "major": {
-    "dependencyDashboardApproval": true
-  },
   "digest": {
     "extends": ["schedule:daily"]
   },
-  "lockFileMaintenance": {
-    "enabled": true,
-    "stabilityDays": 0,
-    "dependencyDashboardApproval": false
-  },
-  "postUpdateOptions": ["yarnDedupeHighest"],
   "ignorePaths": ["**/node_modules/**"],
   "packageRules": [
     {
