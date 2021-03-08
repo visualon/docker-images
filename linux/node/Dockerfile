@@ -29,7 +29,7 @@ RUN set -x \
 ENV PATH="/root/.yarn/bin:/root/.config/yarn/global/node_modules/.bin:$PATH"
 
 # renovate: datasource=npm depName=pnpm
-ENV PNPM_VERSION=5.18.3
+ENV PNPM_VERSION=5.18.4
 RUN set -x \
     && curl -o- -sL https://unpkg.com/@pnpm/self-installer | node \
     && echo -n "pnpm: $(pnpm --version)"
