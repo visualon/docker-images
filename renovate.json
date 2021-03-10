@@ -64,7 +64,8 @@
     },
     {
       "packageNames": ["gitlab/gitlab-ce"],
-      "versioning": "docker"
+      "versioning": "loose",
+      "allowedVersions": "/^\\d+\\.\\d+\\.\\d+-ce\\.\\d+$/"
     },
     {
       "depTypeList": ["action"],
