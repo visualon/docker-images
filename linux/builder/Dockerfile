@@ -20,7 +20,7 @@ RUN install-apt \
 RUN install-tool docker 20.10.5
 
 # renovate: datasource=github-releases lookupName=PowerShell/PowerShell
-RUN install-tool powershell v7.1.2
+RUN install-tool powershell v7.1.3
 
 # renovate: datasource=docker lookupName=mcr.microsoft.com/dotnet/sdk versioning=docker
 RUN install-tool dotnet 5.0.200
