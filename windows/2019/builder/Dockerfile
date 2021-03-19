@@ -26,7 +26,7 @@ RUN install-tool shim 2.2.1
 RUN install-tool pwsh 7.1.3
 
 # renovate: datasource=github-releases lookupName=git-for-windows/git
-RUN install-tool git 2.30.0.windows.2
+RUN install-tool git v2.31.0.windows.1
 
 # renovate: datasource=github-releases lookupName=nodejs/node versioning=node
 RUN install-tool node 14.16.0
