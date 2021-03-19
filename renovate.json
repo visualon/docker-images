@@ -40,11 +40,6 @@
       "versionScheme": "regex:^(?<compatibility>.*)-v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     },
     {
-      "packageNames": ["hashicorp/terraform"],
-      "packagePatterns": ["^verdaccio"],
-      "extends": [":automergePatch"]
-    },
-    {
       "packageNames": [
         "actions-runner",
         "alpine",
