@@ -17,6 +17,10 @@ if (-not $Version -and (Test-Path "env:\${Name}_version")) {
   $Version = Get-Content "env:\${Name}_version"
 }
 
+if ( $Version -like 'v*') {
+  $Version = $Version.TrimStart('v')
+}
+
 "Installing Name " | Write-Host -ForegroundColor DarkGray -NoNewline
 "$Name"  | Write-Host -ForegroundColor Green -NoNewline
 if ($Version) {

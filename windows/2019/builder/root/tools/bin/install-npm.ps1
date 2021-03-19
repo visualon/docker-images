@@ -21,6 +21,10 @@ if (-not $Version) {
   Throw "Missing version for npm $Name"
 }
 
+if ( $Version -like 'v*') {
+  $Version = $Version.TrimStart('v')
+}
+
 "Installing npm " | Write-Host -ForegroundColor DarkGray -NoNewline
 "$Name"  | Write-Host -ForegroundColor Green -NoNewline
 " v$Version" | Write-Host -ForegroundColor Yellow -NoNewline
