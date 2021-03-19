@@ -45,6 +45,7 @@
         "alpine",
         "docker-compose",
         "docker/compose",
+        "git",
         "gitlab/gitlab-ce",
         "gitlab/gitlab-runner",
         "kubernetes/kubernetes",
@@ -67,9 +68,7 @@
       "extractVersion": "^kustomize\\/v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
     {
-      "packageNames": [
-        "meltwater/drone-cache"
-      ],
+      "packageNames": ["meltwater/drone-cache"],
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
     {
@@ -81,6 +80,12 @@
       "matchPaths": ["windows/**"],
       "versioning": "loose",
       "allowedVersions": "/^v\\d+\\.\\d+\\.\\d+\\.windows\\.\\d+$/"
+    },
+    {
+      "description": "Reset node to docker versioning",
+      "matchPackageNames": ["node"],
+      "matchDatasources": ["docker"],
+      "versioning": "docker"
     }
   ],
   "regexManagers": [
