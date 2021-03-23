@@ -34,7 +34,7 @@ RUN install-tool yarn 1.22.10
 COPY src/ /
 
 # renovate: datasource=github-releases lookupName=docker/compose
-RUN install-tool docker-compose 1.28.5
+RUN install-tool docker-compose 1.28.6
 
 # renovate: datasource=docker lookupName=hashicorp/terraform versioning=docker
 #RUN install-tool terraform 0.14.7
