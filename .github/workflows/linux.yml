@@ -38,7 +38,7 @@ jobs:
 
       - name: Log into registry
         if: github.ref == 'refs/heads/main'
-        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viceice --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u visualon --password-stdin
 
       - name: Publish the Docker image
         if: github.ref == 'refs/heads/main'
