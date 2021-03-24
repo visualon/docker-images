@@ -12,10 +12,6 @@ jobs:
 
     timeout-minutes: 60
 
-    defaults:
-      run:
-        shell: bash
-
     strategy:
       matrix:
         file: [builder, drone-cache]
@@ -39,7 +35,8 @@ jobs:
         run: docker build --progress plain -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} ./windows/${{ env.BASE }}/${{ env.FILE }}
 
       - name: Test run
-        run: docker-compose --file docker-compose.test.yml run sut
+        # run: docker-compose --file docker-compose.test.yml run sut
+        run: ./test.cmd
         working-directory: ./windows/${{ env.BASE }}/${{ env.FILE }}
         env:
           IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
@@ -58,6 +55,7 @@ jobs:
           if [ -f push.sh ]; then
             ./push.sh
           fi
+        shell: bash
         working-directory: ./windows/${{ env.BASE }}/${{ env.FILE }}
 
   linux:
