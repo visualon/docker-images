@@ -28,11 +28,13 @@ jobs:
 
       # ignore not yet existing images
       - name: Fetch the Docker image
-        run: docker pull ${{ env.IMAGE }}:${{ env.TAG }}
+        run: |
+          docker pull ${{ env.IMAGE }}
+          docker pull ${{ env.IMAGE }}:${{ env.TAG }}
         continue-on-error: true
 
       - name: Build the Docker image
-        run: docker build --progress plain -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} ./windows/${{ env.BASE }}/${{ env.FILE }}
+        run: docker build --progress plain -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} ./windows/${{ env.BASE }}/${{ env.FILE }}
 
       - name: Test run
         # run: docker-compose --file docker-compose.test.yml run sut
@@ -43,7 +45,7 @@ jobs:
 
       - name: Log into registry
         if: github.ref == 'refs/heads/main'
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u visualon --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Publish the Docker image
         if: github.ref == 'refs/heads/main'
@@ -91,7 +93,7 @@ jobs:
 
       - name: Log into registry
         if: github.ref == 'refs/heads/main'
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u visualon --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Publish the Docker image
         if: github.ref == 'refs/heads/main'
@@ -129,7 +131,7 @@ jobs:
           command: docker-config
 
       - name: Log into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u visualon --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Build the Docker multiarch manifest
         run: docker buildx imagetools create -t ${{ env.IMAGE }} ${{ env.IMAGE }}:linux ${{ env.IMAGE }}:windows-2019
