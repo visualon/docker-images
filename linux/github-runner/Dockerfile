@@ -1,4 +1,4 @@
-FROM renovate/buildpack:4@sha256:382389d0f1b28f25370e6f3cdb88cdfa316cc943a0cb9be58511dd14c9820308
+FROM renovate/buildpack:4@sha256:97936e9f9708d6de85e666095f04a13f6c9f8fc717e861ecd494d2c2b7353354
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
   org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
