@@ -24,7 +24,7 @@ COPY src/ /
 RUN install-tool docker-compose 1.28.6
 
 # renovate: datasource=docker lookupName=hashicorp/terraform versioning=docker
-RUN install-tool terraform 0.14.9
+RUN install-tool terraform 0.14.10
 
 # renovate: datasource=github-releases lookupName=actions/runner
 RUN install-tool actions-runner 2.277.1
