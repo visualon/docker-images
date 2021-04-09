@@ -19,6 +19,6 @@ curl -sL $URL -o runner.tgz
 tar xzf runner.tgz
 rm runner.tgz
 
-chown -R ${USER_NAME} ~${USER_NAME}
+chown -R ${USER_NAME} .
 
 ./bin/installdependencies.sh
