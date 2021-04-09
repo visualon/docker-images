@@ -9,8 +9,8 @@ if [[ ! "${MAJOR}" || ! "${MINOR}" || ! "${PATCH}" ]]; then
   exit 1
 fi
 
-mkdir -p /home/ubuntu/actions-runner
-cd /home/ubuntu/actions-runner
+mkdir -p /home/${USER_NAME}/actions-runner
+cd /home/${USER_NAME}/actions-runner
 
 DISTRO=linux-x64
 URL=https://github.com/actions/runner/releases/download/v${ACTIONS_RUNNER_VERSION}/actions-runner-${DISTRO}-${ACTIONS_RUNNER_VERSION}.tar.gz
@@ -19,6 +19,6 @@ curl -sL $URL -o runner.tgz
 tar xzf runner.tgz
 rm runner.tgz
 
-chown -R ubuntu ~ubuntu
+chown -R ${USER_NAME} .
 
 ./bin/installdependencies.sh
