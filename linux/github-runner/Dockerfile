@@ -20,7 +20,7 @@ RUN install-tool docker 20.10.5
 
 COPY src/ /
 
-RUN chown -r user /home/user/.ssh
+RUN chown -R ${USER_ID} /home/${USER_NAME}/.ssh
 
 # renovate: datasource=github-releases lookupName=docker/compose
 RUN install-tool docker-compose 1.29.0
@@ -35,7 +35,7 @@ RUN install-tool actions-runner 2.277.1
 # renovate: datasource=github-tags depName=kubernetes/kubectl
 RUN install-tool kubectl 1.20.1
 
-WORKDIR /home/user/actions-runner
+WORKDIR /home/${USER_NAME}/actions-runner
 
 # set the entrypoint to the start.sh script
 CMD ["start-runner.sh"]
