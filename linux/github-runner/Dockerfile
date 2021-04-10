@@ -35,7 +35,7 @@ RUN install-tool actions-runner 2.277.1
 # renovate: datasource=github-tags depName=kubernetes/kubectl
 RUN install-tool kubectl 1.20.1
 
-WORKDIR /home/${USER_NAME}/actions-runner
+WORKDIR /actions-runner
 
 # set the entrypoint to the start.sh script
 CMD ["start-runner.sh"]

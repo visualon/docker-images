@@ -9,8 +9,8 @@ if [[ ! "${MAJOR}" || ! "${MINOR}" || ! "${PATCH}" ]]; then
   exit 1
 fi
 
-mkdir -p /home/${USER_NAME}/actions-runner
-cd /home/${USER_NAME}/actions-runner
+mkdir -p /actions-runner
+cd /actions-runner
 
 DISTRO=linux-x64
 URL=https://github.com/actions/runner/releases/download/v${ACTIONS_RUNNER_VERSION}/actions-runner-${DISTRO}-${ACTIONS_RUNNER_VERSION}.tar.gz
