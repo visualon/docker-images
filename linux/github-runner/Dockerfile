@@ -20,6 +20,8 @@ RUN install-tool docker 20.10.5
 
 COPY src/ /
 
+RUN chown -r user /home/user/.ssh
+
 # renovate: datasource=github-releases lookupName=docker/compose
 RUN install-tool docker-compose 1.29.0
 
