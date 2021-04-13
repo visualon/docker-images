@@ -1,6 +1,6 @@
 # escape=`
 
-FROM mcr.microsoft.com/windows/servercore:ltsc2019@sha256:acae9dedd8ce6fbc624e8c4b52555a9d3201eb47aacd45b4a00e0d81083b4cab AS installer
+FROM mcr.microsoft.com/windows/servercore:ltsc2019@sha256:1bb6543a7fe87bb95d9adfa4c53ea3469c1c846ad63baf32729078062e8c1127 AS installer
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" `
