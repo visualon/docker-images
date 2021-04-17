@@ -23,7 +23,7 @@ COPY src/ /
 RUN chown -R ${USER_ID} /home/${USER_NAME}/{,.ssh}
 
 # renovate: datasource=github-releases lookupName=docker/compose
-RUN install-tool docker-compose 1.29.0
+RUN install-tool docker-compose 1.29.1
 
 # renovate: datasource=docker lookupName=hashicorp/terraform versioning=docker
 RUN install-tool terraform 0.14.10
