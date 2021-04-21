@@ -29,7 +29,7 @@ RUN install-tool docker-compose 1.29.1
 RUN install-tool terraform 0.15.0
 
 # renovate: datasource=github-releases lookupName=actions/runner
-RUN install-tool actions-runner 2.277.1
+RUN install-tool actions-runner v2.278.0
 
 
 # renovate: datasource=github-tags depName=kubernetes/kubectl
