@@ -20,6 +20,11 @@
       "dependencyDashboardApproval": false
     },
     {
+      "packagePatterns": ["^gitlab\\/"],
+      "extends": [":automergePatch"],
+      "stabilityDays": 0
+    },
+    {
       "packagePatterns": ["mcr.microsoft.com/dotnet/core"],
       "groupName": "dotnet core images"
     },
