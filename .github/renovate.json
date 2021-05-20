@@ -50,6 +50,7 @@
         "alpine",
         "docker-compose",
         "docker/compose",
+        "ghcr.io/containerbase/buildpack",
         "git",
         "gitlab/gitlab-ce",
         "gitlab/gitlab-runner",
