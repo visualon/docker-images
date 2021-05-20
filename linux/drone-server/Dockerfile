@@ -6,7 +6,7 @@ FROM alpine:3.13@sha256:69e70a79f2d41ab5d637de98c1e0b055206ba40a8145e7bddb55ccc0
 FROM golang:1.16.4@sha256:6f0b0a314b158ff6caf8f12d7f6f3a966500ec6afb533e986eca7375e2f7560f as build
 
 # renovate: datasource=github-tags depName=drone/drone
-ARG DRONE_VERSION=v1.10.1
+ARG DRONE_VERSION=v2.0.0
 RUN git clone --depth 1 --branch "${DRONE_VERSION}"  https://github.com/drone/drone.git
 
 WORKDIR /go/drone
