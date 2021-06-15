@@ -134,7 +134,10 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Build the Docker multiarch manifest
-        run: docker buildx imagetools create -t ${{ env.IMAGE }} ${{ env.IMAGE }}:linux ${{ env.IMAGE }}:windows-2019
+        run: docker manifest create ${{ env.IMAGE }} ${{ env.IMAGE }}:linux ${{ env.IMAGE }}:windows-2019
+
+      - name: Publish the Docker multiarch manifest
+        run: docker manifest push ${{ env.IMAGE }}
 
       - name: Inspect the Docker multiarch manifest
-        run: docker buildx imagetools inspect ${{ env.IMAGE }}
+        run: docker manifest inspect ${{ env.IMAGE }}
