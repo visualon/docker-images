@@ -1,4 +1,4 @@
-FROM alpine:3.13@sha256:69e70a79f2d41ab5d637de98c1e0b055206ba40a8145e7bddb55ccc04e13cf8f as base
+FROM alpine:3.13@sha256:afa7330f2f36f398a1cb98a1ca5cd83b9efb2ad9dd171c2d2fdfa19bfc794b76 as base
 
 #=================
 # build: go build
