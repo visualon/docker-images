@@ -1,4 +1,4 @@
-FROM node:14.17.1-alpine@sha256:a58557f68e324afbca6846e7ba326a6c9520f41059b81dc9fc33d6e6bea48e3a
+FROM node:14.17.1-alpine@sha256:ec68bdc1f61ed11169c319fe71348581a5d474cb1fd8c6a0f734e2698010fcc3
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
