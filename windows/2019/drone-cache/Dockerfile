@@ -18,7 +18,7 @@ RUN `
   && move drone-cache_%CACHE_VERSION%_Windows_x86_64 c:\bin `
   && /bin/drone-cache --version
 
-FROM mcr.microsoft.com/windows/nanoserver:1809-amd64@sha256:91a8bf84ed3005e16ce752a33728437bea966c26b0bdb8caffc9710580ba9193
+FROM mcr.microsoft.com/windows/nanoserver:1809-amd64@sha256:502ecb75e37ada29fa102f92437a0b55504290a715a607d83a2b371811b00d44
 
 COPY --from=installer ["/bin", "/bin"]
 
