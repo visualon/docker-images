@@ -3,7 +3,7 @@ FROM alpine:3.14@sha256:234cb88d3020898631af0ccbbcca9a66ae7306ecd30c9720690858c1
 #=================
 # build: go build
 #=================
-FROM golang:1.16.5@sha256:ff32c519d06080e976a2f70926147737365e260f164db8c2c4f06399d16a744d as build
+FROM golang:1.16.5@sha256:3ba07778b0a48cef0820fe630220089b74ac9bd06a92ac1cf7b2f1abceffcdaa as build
 
 # renovate: datasource=github-tags depName=drone/drone
 ARG DRONE_VERSION=v2.0.4
