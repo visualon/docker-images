@@ -3,8 +3,8 @@ FROM ghcr.io/containerbase/buildpack:1.10.1@sha256:39c77d18cbfb05d696642436b40b4
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
   org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
   org.opencontainers.image.licenses="MIT" \
-  org.opencontainers.image.source="https://github.com/VisualOn/docker-images" \
-  org.opencontainers.image.url="https://github.com/VisualOn/docker-images"
+  org.opencontainers.image.source="https://github.com/visualon/docker-images" \
+  org.opencontainers.image.url="https://github.com/visualon/docker-images"
 
 # install python and the packages the your code depends on along with jq so we can parse JSON
 # add additional packages as necessary
