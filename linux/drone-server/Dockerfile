@@ -1,3 +1,6 @@
+# renovate: datasource=github-tags depName=drone/drone
+ARG DRONE_VERSION=v2.0.4
+
 FROM alpine:3.14@sha256:234cb88d3020898631af0ccbbcca9a66ae7306ecd30c9720690858c1b007d2a0 as base
 
 #=================
@@ -5,8 +8,7 @@ FROM alpine:3.14@sha256:234cb88d3020898631af0ccbbcca9a66ae7306ecd30c9720690858c1
 #=================
 FROM golang:1.16.5@sha256:3ba07778b0a48cef0820fe630220089b74ac9bd06a92ac1cf7b2f1abceffcdaa as build
 
-# renovate: datasource=github-tags depName=drone/drone
-ARG DRONE_VERSION=v2.0.4
+ARG DRONE_VERSION
 RUN git clone --depth 1 --branch "${DRONE_VERSION}"  https://github.com/drone/drone.git
 
 WORKDIR /go/drone
@@ -14,15 +16,11 @@ WORKDIR /go/drone
 RUN go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o /bin/drone-server  github.com/drone/drone/cmd/drone-server
 
 #=================
-# alpine: ca certs
-#=================
-FROM base as alpine
-RUN apk add -U --no-cache ca-certificates
-
-#=================
 # final
 #=================
 FROM base as final
+
+RUN apk add --no-cache ca-certificates tzdata dumb-init
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
@@ -46,7 +44,10 @@ ENV DRONE_SERVER_HOST=localhost
 ENV DRONE_DATADOG_ENABLED=false
 #ENV DRONE_DATADOG_ENDPOINT=https://stats.drone.ci/api/v1/series
 
-COPY --from=alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+ENTRYPOINT ["/usr/bin/dumb-init", "--", "/bin/drone-server"]
+
+ARG DRONE_VERSION
+LABEL org.opencontainers.image.version="${DRONE_VERSION}"
 
 COPY --from=build /bin/drone-server /bin/
-ENTRYPOINT ["/bin/drone-server"]
+

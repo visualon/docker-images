@@ -27,7 +27,7 @@ RUN yarn install --frozen-lockfile --prod
 FROM base as final
 
 
-RUN apk --no-cache add dumb-init
+RUN apk --no-cache add tzdata dumb-init
 
 RUN mkdir -p /verdaccio/storage /verdaccio/plugins /verdaccio/conf
 
