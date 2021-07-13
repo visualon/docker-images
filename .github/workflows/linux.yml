@@ -6,6 +6,10 @@ on:
 env:
   OWNER: ${{ github.repository_owner }}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
 
   linux:
