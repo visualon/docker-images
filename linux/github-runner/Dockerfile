@@ -15,7 +15,7 @@ RUN install-apt \
   rsync \
   ;
 
-# renovate: datasource=docker versioning=docker
+# renovate: datasource=github-releases lookupName=moby/moby
 RUN install-tool docker 20.10.7
 
 COPY src/ /
