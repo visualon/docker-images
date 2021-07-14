@@ -19,6 +19,6 @@ LABEL org.opencontainers.image.version="${CACHE_VERSION}"
 RUN `
   mkdir tmp && mkdir bin`
 	&& curl -sSfLo tmp/file.zip https://github.com/meltwater/drone-cache/releases/download/v%CACHE_VERSION%/drone-cache_%CACHE_VERSION%_Windows_x86_64.zip `
-  && tar -C bin -oxzf tmp/file.zip --strip 1 drone-cache.exe`
+  && tar -C bin -oxzf tmp/file.zip --strip 1 drone-cache_%CACHE_VERSION%_Windows_x86_64/drone-cache.exe`
   && rmdir /Q /S tmp `
   && /bin/drone-cache --version
