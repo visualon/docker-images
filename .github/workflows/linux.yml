@@ -26,10 +26,10 @@ jobs:
       IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
 
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # renovate: tag=v2.3.4
 
       - name: docker-config
-        uses: renovatebot/internal-tools@v1.7.5
+        uses: renovatebot/internal-tools@bc44033a2b24f5cc5bb4cd2ead548c8d0ce2f967 # renovate: tag=v1.7.5
         with:
           command: docker-config
 
