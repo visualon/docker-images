@@ -3,7 +3,7 @@
 # renovate: datasource=github-releases depName=drone-cache lookupName=meltwater/drone-cache
 ARG CACHE_VERSION=1.1.0
 
-FROM mcr.microsoft.com/windows/nanoserver:1809-amd64@sha256:0516c5340eedba94b5294c64b4030f48f297501d235bc32efb200dee5938cc16
+FROM mcr.microsoft.com/windows/nanoserver:1809-amd64@sha256:f62209f4626da66eb7ff902ab595a309d183fd463a96a3bed2f44887915ef0c2
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" `
