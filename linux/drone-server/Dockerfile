@@ -1,5 +1,5 @@
 # renovate: datasource=github-tags depName=drone/drone
-ARG DRONE_VERSION=v2.0.6
+ARG DRONE_VERSION=v2.1.0
 
 FROM alpine:3.14@sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a as base
 
