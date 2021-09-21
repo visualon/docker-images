@@ -5,6 +5,8 @@ ARG CACHE_VERSION=1.1.0
 
 FROM mcr.microsoft.com/windows/nanoserver:1809-amd64@sha256:d0932f4f07d670f2224f8a2056cc0779b281d3de25f4058e0e26f69c0c95e551
 
+USER ContainerAdministrator
+
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" `
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" `
     org.opencontainers.image.licenses="MIT" `
