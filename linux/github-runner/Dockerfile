@@ -32,7 +32,7 @@ RUN install-tool terraform 1.0.7
 RUN install-tool actions-runner v2.282.1
 
 
-# renovate: datasource=github-tags depName=kubernetes/kubectl
+# renovate: datasource=github-tags lookupName=kubernetes/kubectl
 RUN install-tool kubectl 1.20.1
 
 WORKDIR /actions-runner
