@@ -41,8 +41,7 @@ jobs:
         run: docker build --progress plain -t ${{ env.IMAGE }}:${{ env.TAG }} --cache-from ${{ env.IMAGE }} --cache-from ${{ env.IMAGE }}:${{ env.TAG }} ./windows/${{ env.BASE }}/${{ env.FILE }}
 
       - name: Test run
-        # run: docker-compose --file docker-compose.test.yml run sut
-        run: ./test.cmd
+        run: docker-compose --file docker-compose.test.yml run sut
         working-directory: ./windows/${{ env.BASE }}/${{ env.FILE }}
         env:
           IMAGE: ${{ env.IMAGE }}:${{ env.TAG }}
@@ -53,16 +52,7 @@ jobs:
 
       - name: Publish the Docker image
         if: github.ref == 'refs/heads/main'
-        run: docker push ${{ env.IMAGE }}
-
-      - name: Publish the Docker image tags
-        if: github.ref == 'refs/heads/main'
-        run: |
-          if [ -f push.sh ]; then
-            ./push.sh
-          fi
-        shell: bash
-        working-directory: ./windows/${{ env.BASE }}/${{ env.FILE }}
+        run: docker push ${{ env.IMAGE }}:${{ env.TAG }}
 
   linux:
     runs-on: ubuntu-latest
@@ -102,14 +92,6 @@ jobs:
       - name: Publish the Docker image
         if: github.ref == 'refs/heads/main'
         run: docker buildx bake build
-
-      - name: Publish the Docker image tags
-        if: github.ref == 'refs/heads/main'
-        run: |
-          if [ -f push.sh ]; then
-            ./push.sh
-          fi
-        working-directory: ./linux/${{ env.FILE }}
 
   multi-arch:
     needs: [linux, windows]
