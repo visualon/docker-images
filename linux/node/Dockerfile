@@ -19,7 +19,7 @@ RUN set -x \
     && echo "done"
 
 # renovate: datasource=npm depName=yarn
-ENV YARN_VERSION=1.22.11
+ENV YARN_VERSION=1.22.14
 RUN set -x \
     && rm -f /usr/local/bin/yarn \
     && curl -o- -sL https://yarnpkg.com/install.sh | bash -s -- --version ${YARN_VERSION} \
