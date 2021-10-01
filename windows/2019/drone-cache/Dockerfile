@@ -1,7 +1,7 @@
 # escape=`
 
 # renovate: datasource=github-releases depName=meltwater/drone-cache
-ARG CACHE_VERSION=1.1.0
+ARG CACHE_VERSION=1.2.1
 
 FROM mcr.microsoft.com/windows/nanoserver:1809-amd64@sha256:d0932f4f07d670f2224f8a2056cc0779b281d3de25f4058e0e26f69c0c95e551
 
