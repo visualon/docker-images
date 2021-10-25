@@ -16,7 +16,7 @@ RUN install-apt \
   ;
 
 # renovate: datasource=github-releases lookupName=moby/moby
-RUN install-tool docker v20.10.9
+RUN install-tool docker v20.10.10
 
 COPY src/ /
 
