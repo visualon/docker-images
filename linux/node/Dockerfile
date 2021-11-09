@@ -12,7 +12,7 @@ RUN set -x \
         curl \
         bash \
         openjdk8-jre-base \
-        python \
+        python3 \
         make \
         g++ \
         dumb-init \
