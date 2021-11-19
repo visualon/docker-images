@@ -1,4 +1,4 @@
-# renovate: datasource=github-tags depName=drone/drone
+# renovate: datasource=github-releases depName=harness/drone
 ARG DRONE_VERSION=v2.4.0
 
 FROM alpine:3.15@sha256:02cab15358692fb7baa1c9f0a798e9709b6333441b9d5b8aa5960db6becfc613 as base
@@ -9,11 +9,11 @@ FROM alpine:3.15@sha256:02cab15358692fb7baa1c9f0a798e9709b6333441b9d5b8aa5960db6
 FROM golang:1.17.3@sha256:4f0671cf24397b6f98013bfc47882d4299573639c3714825297ddbd4b621ee92 as build
 
 ARG DRONE_VERSION
-RUN git clone --depth 1 --branch "${DRONE_VERSION}"  https://github.com/drone/drone.git
+RUN git clone --depth 1 --branch "${DRONE_VERSION}"  https://github.com/harness/drone.git
 
 WORKDIR /go/drone
 
-RUN go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o /bin/drone-server  github.com/drone/drone/cmd/drone-server
+RUN go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o /bin/drone-server  github.com/harness/drone/cmd/drone-server
 
 #=================
 # final
