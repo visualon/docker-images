@@ -13,7 +13,7 @@ RUN git clone --depth 1 --branch "${DRONE_VERSION}"  https://github.com/harness/
 
 WORKDIR /go/drone
 
-RUN go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o /bin/drone-server  github.com/harness/drone/cmd/drone-server
+RUN go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o /bin/drone-server  github.com/drone/drone/cmd/drone-server
 
 #=================
 # final
