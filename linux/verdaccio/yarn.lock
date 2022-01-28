@@ -1895,10 +1895,10 @@ verdaccio-ldap@4.2.0:
     ldapauth-fork "~4.3.3"
     rfc2253 "~0.1.1"
 
-verdaccio@5.5.1:
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/verdaccio/-/verdaccio-5.5.1.tgz#4864199258e03832a9c511fc276211a4bcd1d93a"
-  integrity sha512-BWxEQA8dktjbE/ANGnFhBdB0EDQZXOgG5qYVhrlstmedMFtgY3YCkMq56LsaLM6poasswz415LfE9FylD+92qw==
+verdaccio@5.5.2:
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/verdaccio/-/verdaccio-5.5.2.tgz#82d21c0ad1329a248efb8fa2d8a35d51b43800ae"
+  integrity sha512-SU107gfxE8FLrwp5GezhmWE0otWTAb7xIcz/m931vqOPjeH2MwbMf0+WuCDQ5O80XxdwurlK/JFNRYzDzqUrMA==
   dependencies:
     "@verdaccio/commons-api" "10.1.0"
     "@verdaccio/local-storage" "10.1.1"
