@@ -4,6 +4,6 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "re2": "1.17.3"
+    "re2": "1.17.4"
   }
 }
