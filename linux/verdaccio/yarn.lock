@@ -57,10 +57,10 @@
   resolved "https://registry.yarnpkg.com/@verdaccio/streams/-/streams-10.2.0.tgz#e01d2bfdcfe8aa2389f31bc6b72a602628bd025b"
   integrity sha512-FaIzCnDg0x0Js5kSQn1Le3YzDHl7XxrJ0QdIw5LrDUmLsH3VXNi4/NMlSHnw5RiTTMs4UbEf98V3RJRB8exqJA==
 
-"@verdaccio/ui-theme@6.0.0-6-next.18":
-  version "6.0.0-6-next.18"
-  resolved "https://registry.yarnpkg.com/@verdaccio/ui-theme/-/ui-theme-6.0.0-6-next.18.tgz#45e5854a717a58a438fc2358bb5e932e1e659fc9"
-  integrity sha512-ofh4yke0950ry+ilWCdFIjHPadKK9xvjC/nzKEaKEFAxJxTt90guZNp++l1rz/LAQ7BMAX905G/2N//6M85+tw==
+"@verdaccio/ui-theme@6.0.0-6-next.20":
+  version "6.0.0-6-next.20"
+  resolved "https://registry.yarnpkg.com/@verdaccio/ui-theme/-/ui-theme-6.0.0-6-next.20.tgz#359ce91c1d7f00a9696cee282988fab667450dab"
+  integrity sha512-Mr3sNJ577lMartUC3Dbu1nTZP+wXISFI20SwjI9JmQLBw6CRZtwyUbQCrrLYiT34BMVMxC4kC9j0akxLCCcDTw==
 
 JSONStream@1.3.5:
   version "1.3.5"
@@ -1907,16 +1907,16 @@ verdaccio-ldap@4.2.0:
     ldapauth-fork "~4.3.3"
     rfc2253 "~0.1.1"
 
-verdaccio@5.6.2:
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/verdaccio/-/verdaccio-5.6.2.tgz#6f3d4f854fc82bdce4cb420a387ecc1feaf991a1"
-  integrity sha512-r0BI31Dt5RnXxpCdWPTGXSthIg4XRB6onYRXziEi1stHd1TmwzAV35Jiv7FXu25Rwvh8dHGSozTxKi0t3kbjGg==
+verdaccio@5.7.0:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/verdaccio/-/verdaccio-5.7.0.tgz#aa37ac88213b5b818169b66240893e192c9ee922"
+  integrity sha512-I4EKZ27bU9XnKkubqjPKxNo9unZ5PzgXBnC+79MEjiKKUKCt5N5lZZb4qq9fBbENyfEV51xf7Z274JxbeOXfzQ==
   dependencies:
     "@verdaccio/commons-api" "10.2.0"
     "@verdaccio/local-storage" "10.2.0"
     "@verdaccio/readme" "10.3.2"
     "@verdaccio/streams" "10.2.0"
-    "@verdaccio/ui-theme" "6.0.0-6-next.18"
+    "@verdaccio/ui-theme" "6.0.0-6-next.20"
     JSONStream "1.3.5"
     async "3.2.3"
     body-parser "1.19.1"
