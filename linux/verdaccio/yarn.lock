@@ -57,10 +57,10 @@
   resolved "https://registry.yarnpkg.com/@verdaccio/streams/-/streams-10.2.0.tgz#e01d2bfdcfe8aa2389f31bc6b72a602628bd025b"
   integrity sha512-FaIzCnDg0x0Js5kSQn1Le3YzDHl7XxrJ0QdIw5LrDUmLsH3VXNi4/NMlSHnw5RiTTMs4UbEf98V3RJRB8exqJA==
 
-"@verdaccio/ui-theme@6.0.0-6-next.21":
-  version "6.0.0-6-next.21"
-  resolved "https://registry.yarnpkg.com/@verdaccio/ui-theme/-/ui-theme-6.0.0-6-next.21.tgz#cf5d023af8875d049c98f2f4239c93cc1b2e0ded"
-  integrity sha512-0lFMfUHJIJp37VTjDCXToOT2Ybqb3mzhhLbOJUX6r42BeFUz//oTxOvPBfHZcpIz2IZ22ykQ7khYt1ODH7t+SA==
+"@verdaccio/ui-theme@6.0.0-6-next.22":
+  version "6.0.0-6-next.22"
+  resolved "https://registry.yarnpkg.com/@verdaccio/ui-theme/-/ui-theme-6.0.0-6-next.22.tgz#55a0cbcbee382195a31620d3968a1512eaea2a9e"
+  integrity sha512-MuuIcNLSjm8ZzibIXyzLae8Omsq7btha9JuRf1oBOA/oHRt+ZsUlVsHlJgA5w49FWa4WU74724USWD0ZpT7Y5w==
 
 JSONStream@1.3.5:
   version "1.3.5"
@@ -1991,16 +1991,16 @@ verdaccio-ldap@4.2.0:
     ldapauth-fork "~4.3.3"
     rfc2253 "~0.1.1"
 
-verdaccio@5.7.1:
-  version "5.7.1"
-  resolved "https://registry.yarnpkg.com/verdaccio/-/verdaccio-5.7.1.tgz#533e0c6a5f36e5734f946fe87295682751448997"
-  integrity sha512-B0u6U/Zwu1tsKZdmor0EnOCD4wWxrolMsizOSB43VGPsDA4tLbvobmZZ9podJKxBX6do3DCJB7BLCIlrJeEihw==
+verdaccio@5.8.0:
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/verdaccio/-/verdaccio-5.8.0.tgz#c6986f9fb9f92d4910cbb514d66474214ebe7b03"
+  integrity sha512-g8CWr57F8pn2Vio8MCO7kJuUNTp9cl6/exr7HR6fYmnhr+jv1Fcl5I7iR49UkD6YfDoYtZcWdFgdCBVy/hpDbg==
   dependencies:
     "@verdaccio/commons-api" "10.2.0"
     "@verdaccio/local-storage" "10.2.0"
     "@verdaccio/readme" "10.3.2"
     "@verdaccio/streams" "10.2.0"
-    "@verdaccio/ui-theme" "6.0.0-6-next.21"
+    "@verdaccio/ui-theme" "6.0.0-6-next.22"
     JSONStream "1.3.5"
     async "3.2.3"
     body-parser "1.19.1"
