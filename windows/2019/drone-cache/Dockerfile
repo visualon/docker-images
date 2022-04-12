@@ -3,7 +3,7 @@
 # renovate: datasource=github-releases depName=meltwater/drone-cache
 ARG CACHE_VERSION=1.3.0
 
-FROM mcr.microsoft.com/windows/nanoserver:1809-amd64@sha256:993cca74c6516a41b5303206508f5ac5182159a17c7c113f55db128c14536cce
+FROM mcr.microsoft.com/windows/nanoserver:1809-amd64@sha256:1108dc6b56e0e7bfd58f2f22c0f31abdd132a109879663bfefef186c30232502
 
 USER ContainerAdministrator
 
