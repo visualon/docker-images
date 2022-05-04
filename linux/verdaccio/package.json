@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "verdaccio": "5.10.0",
-    "verdaccio-ldap": "4.2.0"
+    "verdaccio-ldap": "5.0.0"
   },
   "resolutions": {
     "dompurify": ">=2.0.17",
