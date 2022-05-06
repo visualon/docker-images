@@ -1,25 +1,11 @@
-FROM node:16.15.0-alpine@sha256:e20f90906aa052de28a41923073eb87e9e0384b9bf1d0d4eab698c4de3dd7df8
-
+FROM ghcr.io/containerbase/buildpack:3.17.2@sha256:7481fa8425a57912a40c20068d930414713f4e9deb76957b0a92a637b6355ac5
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.source="https://github.com/nodejs/node" \
     org.opencontainers.image.url="https://nodejs.org/"
+ 
+# renovate: datasource=node
+RUN install-tool node 16.15.0
 
-
-RUN set -x \
-    && apk add --no-cache \
-        git \
-        curl \
-        bash \
-        openjdk8-jre-base \
-        python3 \
-        make \
-        g++ \
-        dumb-init \
-    && echo "done"
-
-RUN corepack enable
-
-ENV PATH="/root/.yarn/bin:/root/.config/yarn/global/node_modules/.bin:$PATH"
-
-ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+# renovate: datasource=npm
+RUN install-tool corepack 0.10.0
