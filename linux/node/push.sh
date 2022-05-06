@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FROM=$(cat Dockerfile | grep 'FROM node:')
+FROM=$(cat Dockerfile | grep 'install-tool node')
 SEMVER_REGEX=":(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[a-z0-9]+)?@"
 
 
