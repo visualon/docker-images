@@ -19,7 +19,7 @@ if [[ -n $RUNNER_LABELS ]]; then
 fi
 
 if [[ -n $RUNNER_NAME ]]; then
-    CONFIG_OPTS=("${CONFIG_OPTS[@]}"--name "${RUNNER_NAME}")
+    CONFIG_OPTS=("${CONFIG_OPTS[@]}" --name "${RUNNER_NAME}")
 fi
 
 ./config.sh \
