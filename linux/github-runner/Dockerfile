@@ -1,4 +1,4 @@
-FROM ghcr.io/containerbase/buildpack:3.17.4@sha256:dbcfcca7de096140389a21695976c0056b5adee5e494bfb6b537dee5c7384080
+FROM ghcr.io/visualon/buildpack:2.3.0@sha256:f58d4a3c619b0f10747d3a753b01563ffec39af95a63be28263035cf4700b4df
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
   org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
@@ -31,7 +31,6 @@ RUN install-tool terraform 1.2.1
 
 # renovate: datasource=github-releases lookupName=actions/runner
 RUN install-tool actions-runner v2.292.0
-
 
 # renovate: datasource=github-tags lookupName=kubernetes/kubectl
 RUN install-tool kubectl 1.20.1
