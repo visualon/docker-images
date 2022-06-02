@@ -9,7 +9,7 @@ RUN install-apt \
   ;
 
 # renovate: datasource=node
-RUN install-tool node 16.15.0
+RUN install-tool node 16.15.1
 
 # renovate: datasource=npm
 RUN install-tool corepack 0.10.0
