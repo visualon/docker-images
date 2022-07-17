@@ -1,4 +1,4 @@
-FROM renovate/renovate:32.117.3-slim@sha256:71b49a680e46f8290c7797d6f11d910b3d7636255f095fda4ec879bb1511f09f
+FROM renovate/renovate:32.118.0-slim@sha256:f0481ed8770532238179d8487606434ae5ac48fe27bd9fd4e54a5815bbf440b0
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>"
 
