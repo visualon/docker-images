@@ -3,4 +3,4 @@ FROM renovate/renovate:32.125.0-slim@sha256:fb6d4f64e84ec7baeedf51d8414ec25efa58
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>"
 
 # renovate: datasource=npm
-RUN install-tool corepack 0.12.0
+RUN install-tool corepack 0.12.1
