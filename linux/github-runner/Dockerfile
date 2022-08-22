@@ -24,7 +24,7 @@ COPY src/ /
 RUN chown -R ${USER_ID} /home/${USER_NAME}/{,.ssh}; chmod g+w /usr/local/bin
 
 # renovate: datasource=github-releases lookupName=docker/compose
-RUN install-tool docker-compose v2.9.0
+RUN install-tool docker-compose v2.10.0
 
 # renovate: datasource=docker lookupName=hashicorp/terraform versioning=docker
 RUN install-tool terraform 1.2.7
