@@ -6,7 +6,7 @@ FROM alpine:3.16@sha256:bc41182d7ef5ffc53a40b044e725193bc10142a1243f395ee852a8d9
 #=================
 # build: go build
 #=================
-FROM golang:1.19.1@sha256:4c8f4b8402a868dc6fb3902c97032b971d0179fbe007be408b455697e98d194a as build
+FROM golang:1.19.1@sha256:7aa8e69111c032e649bfd11439ff133a18f68d1028f138526592b76866985228 as build
 
 ARG DRONE_VERSION
 RUN git clone --depth 1 --branch "${DRONE_VERSION}"  https://github.com/harness/drone.git
