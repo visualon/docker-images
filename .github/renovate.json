@@ -1,6 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["visualon/renovate-config", "visualon/renovate-config:automergePatch"],
+  "platformAutomerge": true,
   "labels": ["deps"],
   "digest": {
     "extends": ["schedule:daily"]
