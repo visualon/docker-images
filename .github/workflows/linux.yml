@@ -5,6 +5,7 @@ on:
 
 env:
   OWNER: ${{ github.repository_owner }}
+  BUILDKIT_PROGRESS: plain
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
@@ -34,7 +35,7 @@ jobs:
           command: docker-config
 
       - name: Build the Docker image
-        run: docker buildx bake --progress plain test
+        run: docker buildx bake test
 
       - name: Test run
         run: docker-compose --file docker-compose.test.yml run sut
