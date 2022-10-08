@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
 
       - name: docker-config
-        uses: renovatebot/internal-tools@ac2a85780492e013c8fa9d87aa72a788b78fbd58 # tag=v1.14.2
+        uses: renovatebot/internal-tools@44a5a74eecdbe5d9bba6859e884a6cebbcc7d526 # tag=v1.14.5
         with:
           command: docker-config
 
