@@ -204,7 +204,7 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bcryptjs@2.4.3, bcryptjs@^2.4.0, bcryptjs@^2.4.3:
+bcryptjs@2.4.3, bcryptjs@^2.4.0:
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
   integrity sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==
@@ -279,6 +279,11 @@ caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==
+
+charenc@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/charenc/-/charenc-0.0.2.tgz#c0a1d2f3a7092e03774bfa83f14c0fc5790a8667"
+  integrity sha512-yrLQ/yVUFXkzg7EDQsPieE/53+0RlaWTs+wBrvW36cyilJ2SaDWfl4Yj7MtLTXleV9uEKefbAGUPv2/iWSooRA==
 
 clipanion@3.1.0:
   version "3.1.0"
@@ -361,6 +366,11 @@ cors@2.8.5:
   dependencies:
     object-assign "^4"
     vary "^1"
+
+crypt@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/crypt/-/crypt-0.0.2.tgz#88d7ff7ec0dfb86f713dc87bbb42d044d3e6c41b"
+  integrity sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==
 
 cssom@^0.4.4:
   version "0.4.4"
@@ -873,6 +883,11 @@ ipaddr.js@1.9.1:
   resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.9.1.tgz#bff38543eeb8984825079ff3a2a8e6cbd46781b3"
   integrity sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==
 
+is-buffer@~1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
+  integrity sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==
+
 is-core-module@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.9.0.tgz#e1c34429cd51c6dd9e09e0799e396e27b19a9c69"
@@ -1027,7 +1042,7 @@ ldap-filter@^0.3.3:
   dependencies:
     assert-plus "^1.0.0"
 
-ldapauth-fork@~5.0.2:
+ldapauth-fork@~5.0.5:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/ldapauth-fork/-/ldapauth-fork-5.0.5.tgz#984f98ffda8622a4dcf150533e2d3282372c2cb1"
   integrity sha512-LWUk76+V4AOZbny/3HIPQtGPWZyA3SW2tRhsWIBi9imP22WJktKLHV1ofd8Jo/wY7Ve6vAT7FCI5mEn3blZTjw==
@@ -1152,6 +1167,15 @@ marked@4.0.18, marked@4.1.0, marked@>=2.0.0:
   version "4.0.17"
   resolved "https://registry.yarnpkg.com/marked/-/marked-4.0.17.tgz#1186193d85bb7882159cdcfc57d1dfccaffb3fe9"
   integrity sha512-Wfk0ATOK5iPxM4ptrORkFemqroz0ZDxp5MWfYA7H/F+wO17NRWV5Ypxi6p3g2Xmw2bKeiYOl6oVnLHKxBA0VhA==
+
+md5@~2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/md5/-/md5-2.3.0.tgz#c3da9a6aae3a30b46b7b0c349b87b110dc3bda4f"
+  integrity sha512-T1GITYmFaKuO91vxyoQMFETst+O71VUPEU3ze5GNzDm0OWdP8v1ziTaAEPUr/3kLsY3Sftgz242A1SetQiDL7g==
+  dependencies:
+    charenc "0.0.2"
+    crypt "0.0.2"
+    is-buffer "~1.1.6"
 
 media-typer@0.3.0:
   version "0.3.0"
@@ -1830,14 +1854,14 @@ verdaccio-htpasswd@10.5.0:
     http-errors "2.0.0"
     unix-crypt-td-js "1.1.4"
 
-verdaccio-ldap@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/verdaccio-ldap/-/verdaccio-ldap-5.0.0.tgz#4d3bfeaec53ef035a6f9ded72418c8839c1bc802"
-  integrity sha512-57XlhyYDIaukuT1QdzXRtW8NgEE4NIy8NMw/yrtwgqs1iIZYulbNtF7VtgHkOj89fRloa0tM0+RsHKgoR4kTNA==
+verdaccio-ldap@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/verdaccio-ldap/-/verdaccio-ldap-6.0.0.tgz#45a97f527005022b005426f1ed27a0ae085292fc"
+  integrity sha512-xbCArADu1BgzcxnBKcUT0j+qsVLB2wDxLqQkiwHJKad2q5BpavrgR5FydO4nBrfrFy6cIhrggXpOh8dK2uJPFA==
   dependencies:
-    bcryptjs "^2.4.3"
     bluebird "~3.7.2"
-    ldapauth-fork "~5.0.2"
+    ldapauth-fork "~5.0.5"
+    md5 "~2.3.0"
     rfc2253 "~0.2.0"
 
 verdaccio@5.15.4:
