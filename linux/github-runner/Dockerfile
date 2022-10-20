@@ -27,7 +27,7 @@ RUN chown -R ${USER_ID} /home/${USER_NAME}/{,.ssh}; chmod g+w /usr/local/bin
 RUN install-tool docker-compose v2.11.2
 
 # renovate: datasource=docker lookupName=hashicorp/terraform versioning=docker
-RUN install-tool terraform 1.3.2
+RUN install-tool terraform 1.3.3
 
 # renovate: datasource=github-releases lookupName=actions/runner
 RUN install-tool actions-runner v2.298.2
