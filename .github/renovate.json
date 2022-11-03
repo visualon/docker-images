@@ -86,10 +86,11 @@
       "allowedVersions": "/^v\\d+\\.\\d+\\.\\d+\\.windows\\.\\d+$/"
     },
     {
-      "description": "Reset node to docker versioning",
+      "description": "Fix node docker image versioning",
       "matchPackageNames": ["node"],
       "matchDatasources": ["docker"],
-      "versioning": "docker"
+      "versioning": "docker",
+      "allowedVersions": "^\\d+[02468]\\.\\d+\\.\\d+(?:-.+)?$"
     }
   ]
 }
