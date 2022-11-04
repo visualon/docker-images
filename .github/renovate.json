@@ -90,7 +90,7 @@
       "matchPackageNames": ["node"],
       "matchDatasources": ["docker"],
       "versioning": "docker",
-      "allowedVersions": "^\\d+[02468]\\.\\d+\\.\\d+(?:-.+)?$"
+      "allowedVersions": "/^\\d+[02468]\\.\\d+\\.\\d+(?:-.+)?$/"
     }
   ]
 }
