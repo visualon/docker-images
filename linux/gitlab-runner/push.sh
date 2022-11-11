@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FROM=$(cat Dockerfile | grep 'FROM gitlab/gitlab-runner:')
+FROM=$(grep 'FROM gitlab/gitlab-runner:' Dockerfile)
 SEMVER_REGEX="v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)"
 
 
@@ -17,6 +17,6 @@ patch=${BASH_REMATCH[3]}
 # Tag and push image for each additional tag
 for tag in {"${major}","${major}.${minor}","${major}.${minor}.${patch}"}; do
   echo "Tagging ${IMAGE}:${tag}"
-  docker tag $IMAGE ${IMAGE}:${tag}
-  docker push ${IMAGE}:${tag}
+  docker tag "$IMAGE" "${IMAGE}:${tag}"
+  docker push "${IMAGE}:${tag}"
 done
