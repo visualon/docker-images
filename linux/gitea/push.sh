@@ -15,7 +15,12 @@ patch=${BASH_REMATCH[3]}
 
 
 # Tag and push image for each additional tag
-for tag in {"${major}","${major}.${minor}","${major}.${minor}.${patch}"}; do
+for tag in {"${major}.${minor}.${patch}"}; do
+  echo "Tagging ${IMAGE}:${tag}"
+  docker tag "$IMAGE" "${IMAGE}:${tag}"
+  docker push "${IMAGE}:${tag}"
+
+  # required for gitea helm chart
   echo "Tagging ${IMAGE}:${tag}-rootless"
   docker tag "$IMAGE" "${IMAGE}:${tag}-rootless"
   docker push "${IMAGE}:${tag}-rootless"
