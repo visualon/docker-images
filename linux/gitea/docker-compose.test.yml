@@ -1,5 +1,5 @@
-version: "3.7"
+version: '3.7'
 services:
   sut:
-    image: "${IMAGE}"
-    command: gitlab-ctl check-config
+    image: '${IMAGE}'
+    command: gitea -v
