@@ -1,5 +1,5 @@
-version: "3.7"
+version: '3.7'
 services:
   sut:
-    image: "${IMAGE}"
+    image: '${IMAGE}'
     command: sh -c 'verdaccio --info; rc=$$?; if [[ $$rc -ne 1 ]]; then exit $$rc; fi'
