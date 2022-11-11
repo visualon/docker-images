@@ -1,4 +1,4 @@
-FROM gitlab/gitlab-runner:alpine-v15.5.0@sha256:31ca964ad8f227c7dee37f5eda5df216b82ce0ba5cba291df26a6179f02ef234
+FROM gitlab/gitlab-runner:alpine-v15.5.1@sha256:ba458e95eddd43d9a229d512f3e029b43092e79b9be07e7c4b6fba0b04a9529d
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="gitlab-runner" \
