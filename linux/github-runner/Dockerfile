@@ -21,7 +21,10 @@ RUN install-tool docker v20.10.21
 COPY src/ /
 
 # fix permissions after copy
-RUN chown -R ${USER_ID} /home/${USER_NAME}/{,.ssh}; chmod g+w /usr/local/bin
+RUN set -ex; \
+  mkdir /home/${USER_NAME}/.ssh; \
+  chown ${USER_ID} /home/${USER_NAME}/.ssh; \
+  chmod g+w /usr/local/bin
 
 # renovate: datasource=github-releases lookupName=docker/compose
 RUN install-tool docker-compose v2.12.2
