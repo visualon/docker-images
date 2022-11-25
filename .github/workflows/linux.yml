@@ -20,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        file: [drone-server, verdaccio, node, gitlab-ce, gitlab-runner, renovate, github-runner, gitea]
+        file: [drone-server, verdaccio, node, gitlab-ce, gitlab-runner, github-runner, gitea]
 
     env:
       FILE: ${{ matrix.file }}
