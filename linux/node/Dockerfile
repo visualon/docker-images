@@ -12,4 +12,4 @@ RUN install-apt \
 RUN install-tool node 18.12.1
 
 # renovate: datasource=npm
-RUN install-tool corepack 0.15.1
+RUN install-tool corepack 0.15.2
