@@ -10,8 +10,8 @@ fi
 
 CONFIG_OPTS=()
 
-if [ "$(echo $RUNNER_REPLACE_EXISTING | tr '[:upper:]' '[:lower:]')" == "true" ]; then
-	CONFIG_OPTS=("--replace")
+if [ "$(echo "$RUNNER_REPLACE_EXISTING" | tr '[:upper:]' '[:lower:]')" == "true" ]; then
+	cleanup || true
 fi
 
 if [[ -n $RUNNER_LABELS ]]; then
