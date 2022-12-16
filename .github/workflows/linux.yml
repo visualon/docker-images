@@ -28,6 +28,7 @@ jobs:
           - gitlab-runner
           - github-runner
           - gitea
+          - keydb
 
     env:
       FILE: ${{ matrix.file }}
