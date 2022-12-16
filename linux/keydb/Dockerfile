@@ -10,7 +10,7 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
 ARG DUMB_INIT_VERSION=v1.2.5
 
 RUN set -ex; \
-  curl -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION:1}_x86_64; \
+  wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION:1}_x86_64; \
   chmod +x /usr/local/bin/dumb-init; \
   true
 
