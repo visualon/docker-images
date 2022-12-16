@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FROM=$(grep 'FROM eqalpha/keydb:' Dockerfile)
-SEMVER_REGEX=":x86_64_(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)@"
+SEMVER_REGEX=":x86_64_v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)@"
 
 
 if ! [[ "$FROM" =~ $SEMVER_REGEX ]]; then
