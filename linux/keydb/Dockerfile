@@ -21,4 +21,12 @@ RUN set -ex; \
 # final
 FROM base
 
+# fake to support https://github.com/Enapter/charts/issues/50
+RUN set -wx; \
+  echo '#!/bin/sh' > /usr/local/sbin/keydb-server; \
+  echo 'set -e' >> /usr/local/sbin/keydb-server; \
+  echo 'exec dumb-init -- /usr/local/bin/keydb-server "$@"' >> /usr/local/sbin/keydb-server; \
+  chmod +x /usr/local/sbin/keydb-server; \
+  true
+
 COPY --from=fetch /usr/local/bin/dumb-init /usr/local/bin/dumb-init
