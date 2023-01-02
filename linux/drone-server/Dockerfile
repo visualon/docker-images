@@ -1,7 +1,7 @@
 # renovate: datasource=github-releases depName=harness/drone
 ARG DRONE_VERSION=v2.16.0
 
-FROM alpine:3.16@sha256:b95359c2505145f16c6aa384f9cc74eeff78eb36d308ca4fd902eeeb0a0b161b as base
+FROM alpine:3.17@sha256:8914eb54f968791faf6a8638949e480fef81e697984fba772b3976835194c6d4 as base
 
 #=================
 # build: go build
