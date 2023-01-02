@@ -31,7 +31,7 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
 EXPOSE 80 443
 VOLUME /data
 
-RUN [ ! -e /etc/nsswitch.conf ] && echo 'hosts: files dns' > /etc/nsswitch.conf
+RUN [ -e /etc/nsswitch.conf ] || echo 'hosts: files dns' > /etc/nsswitch.conf
 
 ENV GODEBUG netdns=go
 ENV XDG_CACHE_HOME /data
