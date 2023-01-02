@@ -5,10 +5,9 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.source="https://github.com/go-gitea/gitea" \
     org.opencontainers.image.url="https://github.com/go-gitea/gitea"
 
-# USER root
+USER root
 
-# RUN apk --no-cache add \
-#  dumb-init \
-#  ;
+COPY ./vo-root.crt /usr/local/share/ca-certificates/visualon-root.crt
+RUN update-ca-certificates
 
-# USER 1000:1000
+USER 1000:1000
