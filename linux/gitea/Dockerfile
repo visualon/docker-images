@@ -5,13 +5,10 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.source="https://github.com/go-gitea/gitea" \
     org.opencontainers.image.url="https://github.com/go-gitea/gitea"
 
-USER root
+# USER root
 
-RUN apk --no-cache add \
- dumb-init \
- ;
+# RUN apk --no-cache add \
+#  dumb-init \
+#  ;
 
-USER 1000:1000
-
-ENTRYPOINT ["/usr/bin/dumb-init", "--", "/usr/local/bin/docker-entrypoint.sh"]
-
+# USER 1000:1000
