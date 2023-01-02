@@ -24,6 +24,7 @@ jobs:
           - drone-server
           - verdaccio
           - node
+          - forgejo
           - gitlab-ce
           - gitlab-runner
           - github-runner
