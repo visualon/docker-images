@@ -15,7 +15,7 @@ patch=${BASH_REMATCH[3]}
 build=${BASH_REMATCH[4]}
 
 
-tag="${major}.${minor}.${patch}.${build}"
+tag="${major}.${minor}.${patch}-${build}"
 echo "Tagging ${IMAGE}:${tag}"
 docker tag "$IMAGE" "${IMAGE}:${tag}"
 docker push "${IMAGE}:${tag}"
