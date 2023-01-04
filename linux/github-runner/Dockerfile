@@ -30,7 +30,7 @@ RUN set -ex; \
 RUN install-tool docker-compose v2.14.2
 
 # renovate: datasource=docker lookupName=hashicorp/terraform versioning=docker
-RUN install-tool terraform 1.3.6
+RUN install-tool terraform 1.3.7
 
 # renovate: datasource=github-releases lookupName=actions/runner
 RUN install-tool actions-runner v2.300.2
