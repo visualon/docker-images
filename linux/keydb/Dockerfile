@@ -10,7 +10,7 @@ ENTRYPOINT ["/usr/local/bin/dumb-init", "--", "docker-entrypoint.sh"]
 # fetch dumbinit
 FROM alpine:3.17@sha256:f271e74b17ced29b915d351685fd4644785c6d1559dd1f2d4189a5e851ef753a as fetch
 
-# renovate: datasource=github-releases lookupName=Yelp/dumb-init
+# renovate: datasource=github-releases packageName=Yelp/dumb-init
 ARG DUMB_INIT_VERSION=v1.2.5
 
 RUN set -ex; \

@@ -15,7 +15,7 @@ RUN install-apt \
   rsync \
   ;
 
-# renovate: datasource=github-releases lookupName=moby/moby
+# renovate: datasource=github-releases packageName=moby/moby
 RUN install-tool docker v20.10.23
 
 COPY src/ /
@@ -26,16 +26,16 @@ RUN set -ex; \
   chown ${USER_ID} /home/${USER_NAME}/.ssh; \
   chmod g+w /usr/local/bin
 
-# renovate: datasource=github-releases lookupName=docker/compose
+# renovate: datasource=github-releases packageName=docker/compose
 RUN install-tool docker-compose v2.15.1
 
-# renovate: datasource=docker lookupName=hashicorp/terraform versioning=docker
+# renovate: datasource=docker packageName=hashicorp/terraform versioning=docker
 RUN install-tool terraform 1.3.7
 
-# renovate: datasource=github-releases lookupName=actions/runner
+# renovate: datasource=github-releases packageName=actions/runner
 RUN install-tool actions-runner v2.301.1
 
-# renovate: datasource=github-tags lookupName=kubernetes/kubectl
+# renovate: datasource=github-tags packageName=kubernetes/kubectl
 RUN install-tool kubectl 1.20.1
 
 WORKDIR /actions-runner
