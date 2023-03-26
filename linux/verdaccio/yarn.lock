@@ -1791,10 +1791,10 @@ verdaccio-ldap@6.0.0:
     md5 "~2.3.0"
     rfc2253 "~0.2.0"
 
-verdaccio@5.23.0:
-  version "5.23.0"
-  resolved "https://registry.yarnpkg.com/verdaccio/-/verdaccio-5.23.0.tgz#7362c24f1460fc3ef24ab885bab61427d96b15be"
-  integrity sha512-zjDvS0J+ofaneBhrUk1CJSjw2A44GeraLzUd+6V7Os40R+cOX+hp/OGaaPIY2yoxHNorwbJvCowdgNk5Vb6VTQ==
+verdaccio@5.23.1:
+  version "5.23.1"
+  resolved "https://registry.yarnpkg.com/verdaccio/-/verdaccio-5.23.1.tgz#4b83e832f4fff91d70f7014e04f2fe0b0eca6346"
+  integrity sha512-tPEm0hQub2jV5b5ID9B/dexAKI00iI+wCvLyhhg/OSu+E6OHMyJuj5KkT58AxM4Lsz0zOG58qhNwmy9JEgq6vA==
   dependencies:
     "@verdaccio/config" "6.0.0-6-next.66"
     "@verdaccio/core" "6.0.0-6-next.67"
