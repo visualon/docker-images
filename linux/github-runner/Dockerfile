@@ -27,7 +27,7 @@ RUN set -ex; \
   chmod g+w /usr/local/bin
 
 # renovate: datasource=github-releases packageName=docker/compose
-RUN install-tool docker-compose v2.17.1
+RUN install-tool docker-compose v2.17.2
 
 # renovate: datasource=docker packageName=hashicorp/terraform versioning=docker
 RUN install-tool terraform 1.4.2
