@@ -8,7 +8,7 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--", "docker-entrypoint.sh"]
 
 # fetch dumbinit
-FROM alpine:3.17@sha256:124c7d2707904eea7431fffe91522a01e5a861a624ee31d03372cc1d138a3126 as fetch
+FROM alpine:3.18@sha256:02bb6f428431fbc2809c5d1b41eab5a68350194fb508869a33cb1af4444c9b11 as fetch
 
 # renovate: datasource=github-releases packageName=Yelp/dumb-init
 ARG DUMB_INIT_VERSION=v1.2.5
