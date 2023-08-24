@@ -1,4 +1,4 @@
-FROM ghcr.io/containerbase/base:9.17.2@sha256:99dc2ebdb5fd42476c20fd55ad365434143cd5a82bbdce9b754055408b24c9e2
+FROM ghcr.io/containerbase/base:9.17.3@sha256:c5814c3e74fdd88bede5ed66303617d3b82e11f0fbc30066bb1615af26126829
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
     org.opencontainers.image.source="https://github.com/nodejs/node" \
