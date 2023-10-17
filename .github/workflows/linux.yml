@@ -40,7 +40,7 @@ jobs:
       IMAGE: ghcr.io/${{ github.repository_owner }}/${{ matrix.file }}
 
     steps:
-      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: docker-config
         uses: containerbase/internal-tools@7fb857084d40e89ba7d1534da4944012628cecb9 # v2.0.0
