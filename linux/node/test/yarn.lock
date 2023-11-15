@@ -260,10 +260,10 @@ indent-string@^4.0.0:
   resolved "https://registry.yarnpkg.com/indent-string/-/indent-string-4.0.0.tgz#624f8f4497d619b2d9768531d58f4122854d7251"
   integrity sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==
 
-install-artifact-from-github@^1.3.3:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/install-artifact-from-github/-/install-artifact-from-github-1.3.3.tgz#57d89bacfa0f47d7307fe41b6247cda9f9a8079c"
-  integrity sha512-x79SL0d8WOi1ZjXSTUqqs0GPQZ92YArJAN9O46wgU9wdH2U9ecyyhB9YGDbPe2OLV4ptmt6AZYRQZ2GydQZosQ==
+install-artifact-from-github@^1.3.5:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/install-artifact-from-github/-/install-artifact-from-github-1.3.5.tgz#88c96fe40e5eb21d45586d564208c648a1dbf38d"
+  integrity sha512-gZHC7f/cJgXz7MXlHFBxPVMsvIbev1OQN1uKQYKVJDydGNm9oYf9JstbU4Atnh/eSvk41WtEovoRm+8IF686xg==
 
 ip@^2.0.0:
   version "2.0.0"
@@ -477,12 +477,12 @@ promise-retry@^2.0.1:
     err-code "^2.0.2"
     retry "^0.12.0"
 
-re2@1.20.7:
-  version "1.20.7"
-  resolved "https://registry.yarnpkg.com/re2/-/re2-1.20.7.tgz#dc1336d51d374a4061f678bbb771fb75a1b3c258"
-  integrity sha512-k6m3ACAKl2k83nwM7vk7tSDnO5KwNzSYf73aVNFWLo0rBBZsAJzZeeU1tyZjsX0lhBK0BQiMrIf7zaIwk8WaCQ==
+re2@1.20.8:
+  version "1.20.8"
+  resolved "https://registry.yarnpkg.com/re2/-/re2-1.20.8.tgz#128d00c029880c4adfbab0ade4d5d485cc72172c"
+  integrity sha512-5GArE3towC0ZyinRkkaZARZxlbX3K+z2REXSVltGSW+F/ID8SLrbh1okTXEcTFBp9zsAhKcGH1Vm+zJ2IwMb7Q==
   dependencies:
-    install-artifact-from-github "^1.3.3"
+    install-artifact-from-github "^1.3.5"
     nan "^2.18.0"
     node-gyp "^10.0.1"
 
@@ -550,6 +550,7 @@ ssri@^10.0.0:
     minipass "^7.0.3"
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -568,6 +569,7 @@ string-width@^5.0.1, string-width@^5.1.2:
     strip-ansi "^7.0.1"
 
 "strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+  name strip-ansi-cjs
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
