@@ -36,7 +36,7 @@ RUN install-tool terraform 1.6.4
 RUN install-tool actions-runner v2.311.0
 
 # renovate: datasource=github-releases packageName=kubernetes/kubernetes
-RUN install-tool kubectl v1.28.3
+RUN install-tool kubectl v1.28.4
 
 WORKDIR /actions-runner
 
