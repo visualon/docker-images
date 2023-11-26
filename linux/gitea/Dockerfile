@@ -1,4 +1,4 @@
-FROM gitea/gitea:1.21.0-rootless@sha256:89e4d9f64c030a1415454259f58c517e81bbe9710db1e12a17849e2c198df301
+FROM gitea/gitea:1.21.1-rootless@sha256:00486bc884e745209e8246b3d070761310d0e4334e4cacea52b3ce8b7c2a065a
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="gitea" \
