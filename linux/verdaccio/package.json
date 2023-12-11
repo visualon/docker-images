@@ -2,7 +2,7 @@
   "name": "verdaccio",
   "private": true,
   "dependencies": {
-    "verdaccio": "5.28.0",
+    "verdaccio": "5.29.0",
     "verdaccio-ldap": "6.0.0"
   },
   "resolutions": {
