@@ -43,7 +43,7 @@ jobs:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: docker-config
-        uses: containerbase/internal-tools@bdc9733990cf3added253065dd4d3ed5421de6ef # v3.0.33
+        uses: containerbase/internal-tools@c42c055392697446900ab3a44ca54d01cbe3cecd # v3.0.34
         with:
           command: docker-config
 
