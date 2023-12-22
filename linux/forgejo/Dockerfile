@@ -1,4 +1,4 @@
-FROM codeberg.org/forgejo/forgejo:1.21.2-1-rootless@sha256:05996cda03897755b5d9b55d1422160f40b720eb789f1fcf305cb4a8515caba8
+FROM codeberg.org/forgejo/forgejo:1.21.3-0-rootless@sha256:c2510342c618ff294d12c56086c537082718833ae3ea5a60030deaa33dfcdb5d
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="forgejo" \
