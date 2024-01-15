@@ -45,14 +45,13 @@
       "pinDigests": false
     },
     {
-      "matchPackageNames": ["docker/compose", "gitlab/gitlab-runner"],
+      "matchPackageNames": ["gitlab/gitlab-runner"],
       "versioning": "regex:^(?<compatibility>.*)-v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     },
     {
       "matchPackageNames": [
-        "actions-runner",
+        "actions/runner",
         "alpine",
-        "docker-compose",
         "docker/compose",
         "ghcr.io/containerbase/buildpack",
         "git",
@@ -76,10 +75,6 @@
     {
       "matchPackageNames": ["kubernetes-sigs/kustomize"],
       "extractVersion": "^kustomize\\/v(?<version>\\d+\\.\\d+\\.\\d+)$"
-    },
-    {
-      "matchPackageNames": ["moby/moby"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?:-(?<prerelease>.*))?$"
     },
     {
       "matchPackageNames": ["git"],
