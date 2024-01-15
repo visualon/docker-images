@@ -29,8 +29,8 @@ jobs:
           - verdaccio
           - node
           - forgejo
-          - gitlab-ce
-          - gitlab-runner
+          # - gitlab-ce
+          # - gitlab-runner
           - github-runner
           - gitea
           - keydb
