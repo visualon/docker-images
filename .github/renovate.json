@@ -12,44 +12,44 @@
   "ignorePaths": ["**/node_modules/**"],
   "packageRules": [
     {
-      "packageNames": ["renovate", "renovate/renovate", "renovatebot/internal-tools"],
+      "matchPackageNames": ["renovate", "renovate/renovate", "renovatebot/internal-tools"],
       "extends": [":automergeMajor"],
-      "stabilityDays": 0,
+      "minimumReleaseAge": null,
       "dependencyDashboardApproval": false
     },
     {
-      "packageNames": ["actions-runner"],
+      "matchPackageNames": ["actions-runner"],
       "extends": [":automergeMinor"],
-      "stabilityDays": 0,
+      "minimumReleaseAge": null,
       "dependencyDashboardApproval": false
     },
     {
-      "packagePatterns": ["^gitlab\\/"],
+      "matchPackagePatterns": ["^gitlab\\/"],
       "extends": [":automergePatch"],
-      "stabilityDays": 0
+      "minimumReleaseAge": null
     },
     {
-      "packagePatterns": ["mcr.microsoft.com/dotnet/core"],
+      "matchPackagePatterns": ["mcr.microsoft.com/dotnet/core"],
       "groupName": "dotnet core images"
     },
     {
-      "packageNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner"],
+      "matchPackageNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner"],
       "groupName": "gitlab docker images"
     },
     {
-      "packagePatterns": ["^verdaccio"],
+      "matchPackagePatterns": ["^verdaccio"],
       "groupName": "verdaccio packages"
     },
     {
-      "managers": ["regex"],
+      "matchManagers": ["custom.regex"],
       "pinDigests": false
     },
     {
-      "packageNames": ["docker/compose", "gitlab/gitlab-runner"],
-      "versionScheme": "regex:^(?<compatibility>.*)-v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
+      "matchPackageNames": ["docker/compose", "gitlab/gitlab-runner"],
+      "versioning": "regex:^(?<compatibility>.*)-v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     },
     {
-      "packageNames": [
+      "matchPackageNames": [
         "actions-runner",
         "alpine",
         "docker-compose",
@@ -69,21 +69,21 @@
       "extends": [":automergeMinor"]
     },
     {
-      "packageNames": ["gitlab/gitlab-ce"],
+      "matchPackageNames": ["gitlab/gitlab-ce"],
       "versioning": "loose",
       "allowedVersions": "/^\\d+\\.\\d+\\.\\d+-ce\\.\\d+$/"
     },
     {
-      "packageNames": ["kubernetes-sigs/kustomize"],
+      "matchPackageNames": ["kubernetes-sigs/kustomize"],
       "extractVersion": "^kustomize\\/v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
     {
-      "packageNames": ["moby/moby"],
+      "matchPackageNames": ["moby/moby"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?:-(?<prerelease>.*))?$"
     },
     {
-      "packageNames": ["git"],
-      "matchPaths": ["windows/**"],
+      "matchPackageNames": ["git"],
+      "matchFileNames": ["windows/**"],
       "versioning": "loose",
       "allowedVersions": "/^v\\d+\\.\\d+\\.\\d+\\.windows\\.\\d+$/"
     },
