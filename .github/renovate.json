@@ -91,7 +91,7 @@
     {
       "description": "disable packages",
       "matchDepNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner", "gitea/gitea"],
-      "groupName": "gitlab docker images"
+      "enabled": false
     }
   ]
 }
