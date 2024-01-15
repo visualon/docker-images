@@ -93,6 +93,12 @@
       "matchDatasources": ["docker"],
       "versioning": "docker",
       "allowedVersions": "/^\\d+[02468]\\.\\d+\\.\\d+(?:-.+)?$/"
+    },
+    {
+      "description": "Fix eqalpha/keydb docker image versioning",
+      "matchDepNames": ["eqalpha/keydb"],
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<compabillity>x86_64_v)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ]
 }
