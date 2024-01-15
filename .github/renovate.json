@@ -34,8 +34,7 @@
     },
     {
       "matchPackageNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner"],
-      "groupName": "gitlab docker images",
-      "enabled": false
+      "groupName": "gitlab docker images"
     },
     {
       "matchPackagePatterns": ["^verdaccio"],
@@ -100,6 +99,11 @@
       "matchDepNames": ["eqalpha/keydb"],
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<compabillity>x86_64_v)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    },
+    {
+      "description": "disable packages",
+      "matchDepNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner", "gitea/gitea"],
+      "groupName": "gitlab docker images"
     }
   ]
 }

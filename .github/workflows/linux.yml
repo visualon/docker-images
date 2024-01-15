@@ -32,7 +32,7 @@ jobs:
           # - gitlab-ce
           # - gitlab-runner
           - github-runner
-          - gitea
+          # - gitea
           - keydb
           - nextcloud
 
