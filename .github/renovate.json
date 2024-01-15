@@ -34,7 +34,8 @@
     },
     {
       "matchPackageNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner"],
-      "groupName": "gitlab docker images"
+      "groupName": "gitlab docker images",
+      "enabled": false
     },
     {
       "matchPackagePatterns": ["^verdaccio"],
