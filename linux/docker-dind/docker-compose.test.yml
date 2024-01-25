@@ -1,0 +1,4 @@
+services:
+  sut:
+    image: '${IMAGE}'
+    command: docker -v

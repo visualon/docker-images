@@ -26,15 +26,16 @@ jobs:
     strategy:
       matrix:
         file:
-          - verdaccio
-          - node
+          - docker
           - forgejo
+          # - gitea
+          - github-runner
           # - gitlab-ce
           # - gitlab-runner
-          - github-runner
-          # - gitea
           - keydb
           - nextcloud
+          - node
+          - verdaccio
 
     env:
       FILE: ${{ matrix.file }}
