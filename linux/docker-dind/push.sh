@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FROM=$(grep 'FROM docker:' Dockerfile)
-SEMVER_REGEX=":(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)-dind)"
+SEMVER_REGEX=":(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)-dind"
 
 
 if ! [[ "$FROM" =~ $SEMVER_REGEX ]]; then
