@@ -1,4 +1,4 @@
-FROM ghcr.io/visualon/buildpack:5.0.17@sha256:51de85d2951dd661eb99e358364d7c8d6f86d5f1b25fd0a6fedc93080ffb4a58
+FROM ghcr.io/visualon/buildpack:5.0.18@sha256:1b258ef2725f35c5aa6b599168c985c46d7d305da3b67dddc1ce26b9eb9258b4
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
   org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
