@@ -28,6 +28,7 @@ jobs:
         file:
           - docker-dind
           - forgejo
+          - forgejo-runner
           # - gitea
           - github-runner
           # - gitlab-ce
