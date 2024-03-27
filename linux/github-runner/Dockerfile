@@ -38,6 +38,9 @@ RUN install-tool actions-runner v2.315.0
 # renovate: datasource=github-releases packageName=kubernetes/kubernetes
 RUN install-tool kubectl v1.29.3
 
+# renovate: datasource=github-releases packageName=fluxcd/flux2
+RUN install-tool flux v2.2.3
+
 WORKDIR /actions-runner
 
 # set the entrypoint to the start.sh script
