@@ -18,9 +18,9 @@ WORKDIR $VERDACCIO_APPDIR
 # Build
 FROM base as build
 
-COPY package.json yarn.lock ./
+COPY package.json pnpm-lock.yaml ./
 
-RUN yarn install --frozen-lockfile --prod
+RUN pnpm install --frozen-lockfile --prod
 
 
 # Final
