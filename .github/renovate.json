@@ -24,17 +24,8 @@
       "dependencyDashboardApproval": false
     },
     {
-      "matchPackagePatterns": ["^gitlab\\/"],
-      "extends": [":automergePatch"],
-      "minimumReleaseAge": null
-    },
-    {
       "matchPackagePatterns": ["mcr.microsoft.com/dotnet/core"],
       "groupName": "dotnet core images"
-    },
-    {
-      "matchPackageNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner"],
-      "groupName": "gitlab docker images"
     },
     {
       "matchPackagePatterns": ["^verdaccio"],
@@ -43,10 +34,6 @@
     {
       "matchManagers": ["custom.regex"],
       "pinDigests": false
-    },
-    {
-      "matchPackageNames": ["gitlab/gitlab-runner"],
-      "versioning": "regex:^(?<compatibility>.*)-v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     },
     {
       "matchPackageNames": [
@@ -67,31 +54,14 @@
       "extends": [":automergeMinor"]
     },
     {
-      "matchPackageNames": ["gitlab/gitlab-ce"],
-      "versioning": "loose",
-      "allowedVersions": "/^\\d+\\.\\d+\\.\\d+-ce\\.\\d+$/"
-    },
-    {
       "matchPackageNames": ["kubernetes-sigs/kustomize"],
       "extractVersion": "^kustomize\\/v(?<version>\\d+\\.\\d+\\.\\d+)$"
-    },
-    {
-      "description": "Fix node docker image versioning",
-      "matchPackageNames": ["node"],
-      "matchDatasources": ["docker"],
-      "versioning": "docker",
-      "allowedVersions": "/^\\d+[02468]\\.\\d+\\.\\d+(?:-.+)?$/"
     },
     {
       "description": "Fix eqalpha/keydb docker image versioning",
       "matchDepNames": ["eqalpha/keydb"],
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<compabillity>x86_64_v)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
-    },
-    {
-      "description": "disable packages",
-      "matchDepNames": ["gitlab/gitlab-ce", "gitlab/gitlab-runner", "gitea/gitea"],
-      "enabled": false
     }
   ]
 }
