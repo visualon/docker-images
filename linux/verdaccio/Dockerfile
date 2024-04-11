@@ -20,7 +20,7 @@ FROM base as build
 
 COPY package.json pnpm-lock.yaml ./
 
-RUN pnpm install --frozen-lockfile --prod
+RUN corepack pnpm install --frozen-lockfile --prod
 
 
 # Final
