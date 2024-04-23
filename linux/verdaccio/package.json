@@ -5,10 +5,10 @@
     "verdaccio": "5.30.3",
     "verdaccio-ldap": "6.0.0"
   },
-  "packageManager": "pnpm@8.15.7",
+  "packageManager": "pnpm@9.0.4",
   "engines": {
     "node": ">=20.9.0",
-    "pnpm": "^8.0.0"
+    "pnpm": "^9.0.0"
   },
   "resolutions": {
     "express": "4.19.2"
