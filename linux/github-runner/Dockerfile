@@ -33,7 +33,7 @@ RUN install-tool docker-compose v2.27.0
 RUN install-tool terraform 1.8.2
 
 # renovate: datasource=github-releases packageName=actions/runner
-RUN install-tool actions-runner v2.316.0
+RUN install-tool actions-runner v2.316.1
 
 # renovate: datasource=github-releases packageName=kubernetes/kubernetes
 RUN install-tool kubectl v1.30.0
