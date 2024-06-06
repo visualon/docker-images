@@ -482,10 +482,10 @@ promise-retry@^2.0.1:
     err-code "^2.0.2"
     retry "^0.12.0"
 
-re2@1.21.0:
-  version "1.21.0"
-  resolved "https://registry.yarnpkg.com/re2/-/re2-1.21.0.tgz#340f46b84cb370d83390c584c45e1ce0bcfae027"
-  integrity sha512-4KvJJQTCfkUbMWCTxwtMVsVlWi/o3RrEpKYFbj0vkbi6Qk+UlI7xlIyVsgMSjxEvxeec7IhqOOfsU/KQcF+PUw==
+re2@1.21.1:
+  version "1.21.1"
+  resolved "https://registry.yarnpkg.com/re2/-/re2-1.21.1.tgz#b00fba5f642f242e00165535aeeddc7c393d1f24"
+  integrity sha512-MZlbPp1m4LyN4LvHoODs0kBHhi55O1wrDHoDP74ox7QMtLqsrgn/MPHS/ptFKHVVYRn49TPV/UhcQsltNZQfMw==
   dependencies:
     install-artifact-from-github "^1.3.5"
     nan "^2.19.0"
