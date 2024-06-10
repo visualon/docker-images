@@ -20,8 +20,8 @@ importers:
 
 packages:
 
-  '@babel/runtime@7.24.6':
-    resolution: {integrity: sha512-Ja18XcETdEl5mzzACGd+DKgaGJzPTCow7EglgwTmHdwokzDFYh/MHua6lU6DV/hjF2IaOJ4oX2nqnjG7RElKOw==}
+  '@babel/runtime@7.24.7':
+    resolution: {integrity: sha512-UwgBRMjJP+xv857DCngvqXI3Iq6J4v0wXmwc6sapg+zyhbwmQX67LUEFrkK5tbyJ30jGuG3ZvWpBiB9LCy1kWw==}
     engines: {node: '>=6.9.0'}
 
   '@cypress/request@3.0.1':
@@ -31,11 +31,11 @@ packages:
   '@types/ldapjs@2.2.5':
     resolution: {integrity: sha512-Lv/nD6QDCmcT+V1vaTRnEKE8UgOilVv5pHcQuzkU1LcRe4mbHHuUo/KHi0LKrpdHhQY8FJzryF38fcVdeUIrzg==}
 
-  '@types/lodash@4.17.4':
-    resolution: {integrity: sha512-wYCP26ZLxaT3R39kiN2+HcJ4kTd3U1waI/cY7ivWYqFP6pW3ZNpvi6Wd6PHZx7T/t8z0vlkXMg3QYLa7DZ/IJQ==}
+  '@types/lodash@4.17.5':
+    resolution: {integrity: sha512-MBIOHVZqVqgfro1euRDWX7OO0fBVUUMrN6Pwm8LQsz8cWhEpihlvR70ENj3f40j58TNxZaWv2ndSkInykNBBJw==}
 
-  '@types/node@20.14.0':
-    resolution: {integrity: sha512-5cHBxFGJx6L4s56Bubp4fglrEpmyJypsqI6RgzMfBHWUJQGWAAi8cWcgetEbZXHYXo9C2Fa4EEds/uSyS4cxmA==}
+  '@types/node@20.14.2':
+    resolution: {integrity: sha512-xyu6WAMVwv6AKFLB+e/7ySZVr/0zLCzOa7rSpq6jNwpqOrUbcACDWC+53d4n2QHOnDou0fbIsg8wZu/sxrnI4Q==}
 
   '@verdaccio/auth@7.0.0-next-7.16':
     resolution: {integrity: sha512-jOfyBjBwCN+XqVKrjZSVQLGm1EOPKsKtaLzG9g9DyBUa89eMbjsRfA9g/ipf7jTuG1NZrZRQ68nzpGVbpEbC9Q==}
@@ -282,6 +282,9 @@ packages:
 
   core-util-is@1.0.2:
     resolution: {integrity: sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==}
+
+  core-util-is@1.0.3:
+    resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
   cors@2.8.5:
     resolution: {integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==}
@@ -1029,8 +1032,8 @@ packages:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
 
-  uglify-js@3.17.4:
-    resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}
+  uglify-js@3.18.0:
+    resolution: {integrity: sha512-SyVVbcNBCk0dzr9XL/R/ySrmYf0s372K6/hFklzgcp2lBFyXtw4I7BOdDjlLhE1aVqaI/SHWXWmYdlZxuyF38A==}
     engines: {node: '>=0.8.0'}
     hasBin: true
 
@@ -1131,7 +1134,7 @@ packages:
 
 snapshots:
 
-  '@babel/runtime@7.24.6':
+  '@babel/runtime@7.24.7':
     dependencies:
       regenerator-runtime: 0.14.1
 
@@ -1158,11 +1161,11 @@ snapshots:
 
   '@types/ldapjs@2.2.5':
     dependencies:
-      '@types/node': 20.14.0
+      '@types/node': 20.14.2
 
-  '@types/lodash@4.17.4': {}
+  '@types/lodash@4.17.5': {}
 
-  '@types/node@20.14.0':
+  '@types/node@20.14.2':
     dependencies:
       undici-types: 5.26.5
 
@@ -1493,6 +1496,8 @@ snapshots:
 
   core-util-is@1.0.2: {}
 
+  core-util-is@1.0.3: {}
+
   cors@2.8.5:
     dependencies:
       object-assign: 4.1.1
@@ -1697,7 +1702,7 @@ snapshots:
       source-map: 0.6.1
       wordwrap: 1.0.0
     optionalDependencies:
-      uglify-js: 3.17.4
+      uglify-js: 3.18.0
 
   has-property-descriptors@1.0.2:
     dependencies:
@@ -2071,7 +2076,7 @@ snapshots:
 
   readable-stream@2.3.8:
     dependencies:
-      core-util-is: 1.0.2
+      core-util-is: 1.0.3
       inherits: 2.0.4
       isarray: 1.0.0
       process-nextick-args: 2.0.1
@@ -2273,7 +2278,7 @@ snapshots:
       media-typer: 0.3.0
       mime-types: 2.1.35
 
-  uglify-js@3.17.4:
+  uglify-js@3.18.0:
     optional: true
 
   undici-types@5.26.5: {}
@@ -2414,8 +2419,8 @@ snapshots:
 
   yup@0.32.11:
     dependencies:
-      '@babel/runtime': 7.24.6
-      '@types/lodash': 4.17.4
+      '@babel/runtime': 7.24.7
+      '@types/lodash': 4.17.5
       lodash: 4.17.21
       lodash-es: 4.17.21
       nanoclone: 0.2.1
