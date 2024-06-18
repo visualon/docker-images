@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FROM=$(grep 'FROM codeberg.org/forgejo/forgejo:' Dockerfile)
+FROM=$(grep 'FROM code.forgejo.org/forgejo/forgejo:' Dockerfile)
 SEMVER_REGEX=":(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)"
 
 
