@@ -16,7 +16,7 @@ RUN install-apt \
   ;
 
 # renovate: datasource=github-releases packageName=moby/moby
-RUN install-tool docker v26.1.4
+RUN install-tool docker v26.1.5
 
 COPY src/ /
 
