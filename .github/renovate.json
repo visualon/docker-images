@@ -24,12 +24,12 @@
       "dependencyDashboardApproval": false
     },
     {
-      "matchPackagePatterns": ["mcr.microsoft.com/dotnet/core"],
-      "groupName": "dotnet core images"
+      "groupName": "dotnet core images",
+      "matchPackageNames": ["/mcr.microsoft.com/dotnet/core/"]
     },
     {
-      "matchPackagePatterns": ["^verdaccio"],
-      "groupName": "verdaccio packages"
+      "groupName": "verdaccio packages",
+      "matchPackageNames": ["/^verdaccio/"]
     },
     {
       "matchManagers": ["custom.regex"],
