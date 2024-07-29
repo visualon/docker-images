@@ -24,7 +24,7 @@ COPY src/ /
 RUN set -ex; \
   mkdir /home/${USER_NAME}/.ssh; \
   chown ${USER_ID} /home/${USER_NAME}/.ssh; \
-  chmod g+w /usr/local/bin
+  true
 
 # renovate: datasource=github-releases packageName=docker/compose
 RUN install-tool docker-compose v2.29.1
