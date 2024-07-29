@@ -24,11 +24,7 @@
       "dependencyDashboardApproval": false
     },
     {
-      "matchPackagePatterns": ["mcr.microsoft.com/dotnet/core"],
-      "groupName": "dotnet core images"
-    },
-    {
-      "matchPackagePatterns": ["^verdaccio"],
+      "matchPackageNams": ["verdaccio**"],
       "groupName": "verdaccio packages"
     },
     {
