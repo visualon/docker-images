@@ -24,7 +24,7 @@
       "dependencyDashboardApproval": false
     },
     {
-      "matchPackageNams": ["verdaccio**"],
+      "matchPackageNames": ["verdaccio**"],
       "groupName": "verdaccio packages"
     },
     {
