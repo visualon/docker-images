@@ -1,4 +1,4 @@
-FROM ghcr.io/visualon/buildpack:5.1.64@sha256:607869156d01bf9a04ec115d2948105a0cafa3e2d9d48f1b1f2189f631ed8785
+FROM ghcr.io/visualon/buildpack:5.2.7@sha256:bf91c116b16278baf8d9064087ffb4df0fc05448b5fccd57ecfe67b9751cac8a
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
   org.opencontainers.image.authors="Michael Kriese <michael.kriese@visualon.de>" \
@@ -24,7 +24,7 @@ COPY src/ /
 RUN set -ex; \
   mkdir /home/${USER_NAME}/.ssh; \
   chown ${USER_ID} /home/${USER_NAME}/.ssh; \
-  chmod g+w /usr/local/bin
+  true
 
 # renovate: datasource=github-releases packageName=docker/compose
 RUN install-tool docker-compose v2.29.1
