@@ -2,7 +2,7 @@
   "name": "verdaccio",
   "private": true,
   "dependencies": {
-    "verdaccio": "5.31.1",
+    "verdaccio": "5.32.0",
     "verdaccio-ldap": "6.0.0"
   },
   "packageManager": "pnpm@9.6.0",
