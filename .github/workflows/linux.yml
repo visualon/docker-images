@@ -33,6 +33,7 @@ jobs:
           - keydb
           - nextcloud
           - node
+          - uptime-kuma
           - verdaccio
 
     env:
