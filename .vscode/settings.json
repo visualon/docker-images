@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/compose-spec/compose-spec/HEAD/schema/compose-spec.json": "linux/**/*.test.yml"
+  }
+}
