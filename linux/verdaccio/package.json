@@ -11,6 +11,6 @@
     "pnpm": "^9.0.0"
   },
   "resolutions": {
-    "express": "4.19.2"
+    "express": "4.20.0"
   }
 }
