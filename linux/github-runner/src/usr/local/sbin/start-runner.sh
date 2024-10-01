@@ -2,7 +2,7 @@
 
 set -e
 
-_TOKEN=$(curl -sLX POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" -H "Authorization: Bearer ${GITHUB_ACCESS_TOKEN}" https://api.github.com/repos/"${GITHUB_REPO}"/actions/runners/registration-token)
+_TOKEN=$(curl -sLX POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" -H "Authorization: Bearer ${GITHUB_ACCESS_TOKEN}" "https://api.github.com/repos/${GITHUB_REPO}/actions/runners/registration-token")
 RUNNER_TOKEN=$(echo $_TOKEN | jq .token --raw-output)
 
 if [[ -z $RUNNER_REPLACE_EXISTING ]]; then
