@@ -42,7 +42,7 @@ RUN install-tool kubectl v1.31.1
 RUN install-tool flux v2.4.0
 
 # renovate: datasource=github-releases packageName=getsops/sops
-RUN install-tool sops v3.9.0
+RUN install-tool sops v3.9.1
 
 WORKDIR /actions-runner
 
