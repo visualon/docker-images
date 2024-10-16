@@ -12,6 +12,11 @@
   "ignorePaths": ["**/node_modules/**"],
   "packageRules": [
     {
+      "description": "Don't require major approval",
+      "matchPackageNames": ["/.*/"],
+      "dependencyDashboardApproval": false
+    },
+    {
       "matchPackageNames": ["renovate", "renovate/renovate", "renovatebot/internal-tools"],
       "extends": [":automergeMajor"],
       "minimumReleaseAge": null,
