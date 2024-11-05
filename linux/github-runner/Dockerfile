@@ -10,8 +10,6 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
 # add additional packages as necessary
 RUN install-apt \
   jq \
-  libgcc1 \
-  libicu66 \
   rsync \
   ;
 
