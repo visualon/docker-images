@@ -24,7 +24,6 @@
     },
     {
       "matchPackageNames": ["actions/runner"],
-      "extends": [":automergeMinor"],
       "minimumReleaseAge": null,
       "dependencyDashboardApproval": false
     },
@@ -50,6 +49,7 @@
         "node",
         "pnpm",
         "proget.inedo.com/productimages/inedo/proget",
+        "roundcube/roundcubemail",
         "yarn"
       ],
       "extends": [":automergeMinor"]
