@@ -1,4 +1,4 @@
-FROM eqalpha/keydb:x86_64_v6.3.3@sha256:6396b5ad495437ce368a832e114d3007c070007e4f84d4c8feb1240fcd1f23c6 as base
+FROM eqalpha/keydb:x86_64_v6.3.4@sha256:eceb1806730c7850395b8262300182c2e15a6e5dacbf0b72cbab110518caf43f as base
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="keydb" \
