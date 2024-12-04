@@ -20,7 +20,6 @@ jobs:
 
   linux:
     runs-on: ubuntu-latest
-
     timeout-minutes: 30
 
     strategy:
@@ -70,3 +69,16 @@ jobs:
             ./push.sh
           fi
         working-directory: ./linux/${{ env.FILE }}
+
+  success:
+    needs:
+      - linux
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    if: always()
+    steps:
+      - name: Fail for failed or cancelled linux
+        if: |
+          needs.linux.result == 'failure' ||
+          needs.linux.result == 'cancelled'
+        run: exit 1
