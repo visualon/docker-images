@@ -29,7 +29,6 @@ jobs:
           - forgejo
           - forgejo-runner
           - github-runner
-          - keydb
           - nextcloud
           - roundcube
           - uptime-kuma
