@@ -32,7 +32,6 @@ jobs:
           - github-runner
           - keydb
           - nextcloud
-          - node
           - roundcube
           - uptime-kuma
           - verdaccio
