@@ -9,8 +9,5 @@
   "engines": {
     "node": "^22.11.0",
     "pnpm": "^9.0.0"
-  },
-  "resolutions": {
-    "express": "4.21.2"
   }
 }
