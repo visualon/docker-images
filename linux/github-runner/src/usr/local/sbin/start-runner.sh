@@ -2,6 +2,8 @@
 
 set -e
 
+echo "Initializing runner..."
+
 if [[ -z "$GITHUB_ACCESS_TOKEN" ]]; then
   echo "Missing github token!" >&2
   exit 20
@@ -17,7 +19,7 @@ fi
 
 unset GITHUB_ACCESS_TOKEN
 
-if [[ -z $RUNNER_REPLACE_EXISTING ]]; then
+if [[ -z "$RUNNER_REPLACE_EXISTING" ]]; then
   export RUNNER_REPLACE_EXISTING="true"
 fi
 
@@ -27,15 +29,15 @@ if [ "$(echo "$RUNNER_REPLACE_EXISTING" | tr '[:upper:]' '[:lower:]')" == "true"
  	CONFIG_OPTS=("${CONFIG_OPTS[@]}" --replace)
 fi
 
-if [[ -n $RUNNER_LABELS ]]; then
+if [[ -n "$RUNNER_LABELS" ]]; then
   CONFIG_OPTS=("${CONFIG_OPTS[@]}" --labels "${RUNNER_LABELS}")
 fi
 
-if [[ -n $RUNNER_NAME ]]; then
+if [[ -n "$RUNNER_NAME" ]]; then
   CONFIG_OPTS=("${CONFIG_OPTS[@]}" --name "${RUNNER_NAME}")
 fi
 
-if [[ -n $RUNNER_GROUP ]]; then
+if [[ -n "$RUNNER_GROUP" ]]; then
   CONFIG_OPTS=("${CONFIG_OPTS[@]}" --runnergroup "${RUNNER_GROUP}")
 fi
 
@@ -44,8 +46,9 @@ if [[ -f .runner ]]; then
 	rm .runner
 fi
 
+echo "Configure runner..."
 ./config.sh \
-  --url https://github.com/"${GITHUB_REPO}" \
+  --url "https://github.com/${GITHUB_REPO}" \
   --token "${RUNNER_TOKEN}" "${CONFIG_OPTS[@]}" \
   --work _work \
   --unattended \
@@ -60,4 +63,5 @@ cleanup() {
 trap 'cleanup; exit 130' INT
 trap 'cleanup; exit 143' TERM
 
+echo "Starting runner..."
 ./bin/runsvc.sh
