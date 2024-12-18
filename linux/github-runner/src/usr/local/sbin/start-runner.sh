@@ -15,6 +15,8 @@ if [[ -z "$RUNNER_TOKEN" ]]; then
   exit 21
 fi
 
+unset GITHUB_ACCESS_TOKEN
+
 if [[ -z $RUNNER_REPLACE_EXISTING ]]; then
   export RUNNER_REPLACE_EXISTING="true"
 fi
