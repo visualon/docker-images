@@ -1,4 +1,4 @@
-FROM registry:2.8.3@sha256:e54fc7162fb357c4476ffc09b5b8656c9cd113015386f2393d430a7379419aa0
+FROM registry:2.8.3@sha256:319881be2ee9e345d5837d15842a04268de6a139e23be42654fc7664fc6eaf52
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="distribution" \
