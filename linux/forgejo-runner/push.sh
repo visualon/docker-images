@@ -16,5 +16,4 @@ patch=${BASH_REMATCH[3]}
 
 tag="${major}.${minor}.${patch}"
 echo "Tagging ${IMAGE}:${tag}"
-docker tag "$IMAGE" "${IMAGE}:${tag}"
-docker push "${IMAGE}:${tag}"
+crane tag "$IMAGE" "${tag}"
