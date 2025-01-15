@@ -1,3 +1,3 @@
 docker.io:
-  image-by-semver:
+  images-by-semver:
     bitnamicharts/bitnami-common: '>=2.29.0'
