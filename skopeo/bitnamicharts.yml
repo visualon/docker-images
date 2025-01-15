@@ -1,3 +1,7 @@
 docker.io:
   images-by-semver:
-    bitnamicharts/bitnami-common: '>=2.29.0'
+    bitnamicharts/common: '>=2.29.0'
+    bitnamicharts/postgresql: '>=16.4.2'
+    bitnamicharts/postgresql-ha: '>=14.3.10'
+    bitnamicharts/redis-cluster: '>=11.3.0'
+    bitnamicharts/redis: '>=20.6.2'
