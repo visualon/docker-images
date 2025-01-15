@@ -1,0 +1,44 @@
+
+name: charts
+
+on:
+  schedule:
+    - cron: '13 */6 * * *' # https://crontab.guru/#13_*/6_*_*_*
+
+  workflow_dispatch:
+
+
+jobs:
+  sync-bitnamicharts:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:3.21@sha256:21dc6063fd678b478f57c0e13f47560d0ea4eeba26dfc947b2a4f81f686b9f45
+
+    steps:
+      - name: Install packages
+        run: |
+          apk add --no-cache \
+            jq \
+            git \
+            nodejs \
+            skopeo \
+            ;
+
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          show-progress: false
+
+      - name: Docker login
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | skopeo login -u ${{ github.repository_owner }} --password-stdin ghcr.io
+
+      - name: Sync charts
+        run: |
+          skopeo sync --all --preserve-digests --keep-going --src yaml --dest docker skopeo/bitnamicharts.yml ghcr.io/visualon/bitnamicharts
+
+      # - name: Cleanup renovate images
+      #   run: |
+      #     skopeo list-tags docker://code.forgejo.org/renovate/renovate | jq -r '.Tags[]' | sed -n -Ee '/^[0-9]+\.[0-9]+\.[0-9]+/p' | sort -r -V | sed -n '50,$p' | while read version ; \
+      #         do echo "deleting $version" ; \
+      #         skopeo delete docker://code.forgejo.org/renovate/renovate:$version ; \
+      #       done
