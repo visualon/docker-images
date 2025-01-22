@@ -1,4 +1,4 @@
-FROM code.forgejo.org/forgejo/runner:6.0.1@sha256:fe7b189b95ea5ce5e72d2776207e6d08ce67b61bfdbfcd06fd767be44930e10f
+FROM code.forgejo.org/forgejo/runner:6.1.0@sha256:58d47817a0527cd929f6797db2e53ad4e2429fa0c215825f7583caad03ed277a
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="forgejo-runner" \
