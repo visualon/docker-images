@@ -16,15 +16,19 @@ ENV VERDACCIO_APPDIR=/opt/verdaccio \
 WORKDIR $VERDACCIO_APPDIR
 
 # Build
-FROM base as build
+FROM base AS build
 
-COPY package.json pnpm-lock.yaml ./
+COPY --link package.json pnpm-lock.yaml ./
 
-RUN corepack pnpm install --frozen-lockfile --prod
+# renovate: datasource=npm depName=pnpm
+ARG PNPM_VERSION=10.0.0
+RUN npm install -g pnpm@${PNPM_VERSION}
+
+RUN pnpm install --frozen-lockfile --prod
 
 
 # Final
-FROM base as final
+FROM base AS final
 
 
 RUN apk --no-cache add tzdata dumb-init
@@ -39,8 +43,8 @@ RUN addgroup -g $VERDACCIO_USER_UID $VERDACCIO_USER_NAME && \
     chown -R $VERDACCIO_USER_UID:$VERDACCIO_USER_UID /verdaccio/storage && \
     chmod -R g=u /verdaccio/storage
 
-COPY package.json .
-COPY --from=build $VERDACCIO_APPDIR/node_modules node_modules
+COPY --link package.json .
+COPY --link --from=build $VERDACCIO_APPDIR/node_modules node_modules
 
 USER $VERDACCIO_USER_UID
 
