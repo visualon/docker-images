@@ -34,7 +34,7 @@ RUN install-tool terraform 1.10.5
 RUN install-tool actions-runner v2.322.0
 
 # renovate: datasource=github-releases packageName=kubernetes/kubernetes
-RUN install-tool kubectl v1.32.1
+RUN install-tool kubectl v1.32.2
 
 # renovate: datasource=github-releases packageName=fluxcd/flux2
 RUN install-tool flux v2.4.0
