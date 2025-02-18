@@ -69,7 +69,7 @@
     {
       "description": "update skopeo docker references",
       "customType": "jsonata",
-      "fileMacth": ["^skopeo/.+\\.yml"],
+      "fileMatch": ["^skopeo/.+\\.yml"],
       "matchStrings": ["$each(`docker.io`.`images-by-semver`, function($v, $n) { { \"depName\": $n, \"currentValue\": $v } })"]
     }
   ]
