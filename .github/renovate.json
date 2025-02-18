@@ -61,7 +61,8 @@
     {
       "description": "group skopeo oci sync updates",
       "matchFileNames": ["/^skopeo/.+\\.yml/"],
-      "groupName": "skopeo oci references"
+      "groupName": "skopeo oci references",
+      "separateMinorPatch": false
     }
   ],
   "customManagers": [
@@ -70,7 +71,9 @@
       "customType": "jsonata",
       "fileFormat": "yaml",
       "fileMatch": ["^skopeo/.+\\.yml"],
-      "matchStrings": ["$each(`docker.io`.`images-by-semver`, function($v, $n) { { \"depName\": $n, \"currentValue\": $replace($v, \">=\", \"\") } })"],
+      "matchStrings": [
+        "$each(`docker.io`.`images-by-semver`, function($v, $n) { { \"depName\": $n, \"currentValue\": $replace($v, \">=\", \"\") } })"
+      ],
       "datasourceTemplate": "docker"
     }
   ]
