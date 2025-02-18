@@ -63,6 +63,7 @@
       "matchFileNames": ["/^skopeo/.+\\.yml/"],
       "groupName": "skopeo oci references",
       "separateMinorPatch": false,
+      "separateMajorMinor": true,
       "separateMultipleMajor": false,
       "separateMultipleMinor": false
     }
