@@ -62,13 +62,9 @@
       "description": "group skopeo oci updates",
       "matchFileNames": ["/^skopeo/.+\\.yml/"],
       "groupName": "skopeo oci references",
-      "separateMinorPatch": false
-    },
-    {
-      "description": "group skopeo oci major updates",
-      "matchFileNames": ["/^skopeo/.+\\.yml/"],
-      "matchUpdateTypes": ["major"],
-      "groupName": "skopeo oci references (major)"
+      "separateMinorPatch": false,
+      "separateMultipleMajor": false,
+      "separateMultipleMinor": false
     }
   ],
   "customManagers": [
