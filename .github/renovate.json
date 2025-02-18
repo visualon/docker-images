@@ -59,10 +59,16 @@
       "extractVersion": "^kustomize\\/v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
     {
-      "description": "group skopeo oci sync updates",
+      "description": "group skopeo oci updates",
       "matchFileNames": ["/^skopeo/.+\\.yml/"],
       "groupName": "skopeo oci references",
       "separateMinorPatch": false
+    },
+    {
+      "description": "group skopeo oci major updates",
+      "matchFileNames": ["/^skopeo/.+\\.yml/"],
+      "matchUpdateTypes": ["major"],
+      "groupName": "skopeo oci references (major)"
     }
   ],
   "customManagers": [
