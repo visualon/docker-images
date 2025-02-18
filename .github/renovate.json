@@ -65,13 +65,15 @@
       "separateMinorPatch": false,
       "separateMajorMinor": true,
       "separateMultipleMajor": false,
-      "separateMultipleMinor": false
+      "separateMultipleMinor": false,
+      "minimumReleaseAge": "3 days"
     },
     {
       "description": "Automerge skopeo oci references",
       "matchFileNames": ["/^skopeo/.+\\.yml/"],
       "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true
+      "automerge": true,
+      "extends": ["schedule:weekly"]
     }
   ],
   "customManagers": [
