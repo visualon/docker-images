@@ -1,6 +1,6 @@
 docker.io:
   images-by-semver:
-    bitnamicharts/cert-manager: '>=1.4.1'
+    bitnamicharts/cert-manager: '>=1.4.10'
     bitnamicharts/common: '>=2.29.0'
     bitnamicharts/harbor: '>=24.1.6'
     bitnamicharts/keydb: '>=0.3.1'
