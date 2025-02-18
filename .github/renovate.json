@@ -65,7 +65,7 @@
       "customType": "jsonata",
       "fileFormat": "yaml",
       "fileMatch": ["^skopeo/.+\\.yml"],
-      "matchStrings": ["$each(`docker.io`.`images-by-semver`, function($v, $n) { { \"depName\": $n, \"currentValue\": $v } })"],
+      "matchStrings": ["$each(`docker.io`.`images-by-semver`, function($v, $n) { { \"depName\": $n, \"currentValue\": $replace($v, \">=\", \"\") } })"],
       "datasourceTemplate": "docker"
     }
   ]
