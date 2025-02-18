@@ -32,7 +32,7 @@
       "groupName": "verdaccio packages"
     },
     {
-      "matchManagers": ["custom.regex"],
+      "matchManagers": ["custom.regex", "custom.jsonata"],
       "pinDigests": false
     },
     {
@@ -57,20 +57,16 @@
     {
       "matchPackageNames": ["kubernetes-sigs/kustomize"],
       "extractVersion": "^kustomize\\/v(?<version>\\d+\\.\\d+\\.\\d+)$"
-    },
-    {
-      "description": "Fix eqalpha/keydb docker image versioning",
-      "matchDepNames": ["eqalpha/keydb"],
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<compabillity>x86_64_v)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ],
   "customManagers": [
     {
       "description": "update skopeo docker references",
       "customType": "jsonata",
+      "fileFormat": "yaml",
       "fileMatch": ["^skopeo/.+\\.yml"],
-      "matchStrings": ["$each(`docker.io`.`images-by-semver`, function($v, $n) { { \"depName\": $n, \"currentValue\": $v } })"]
+      "matchStrings": ["$each(`docker.io`.`images-by-semver`, function($v, $n) { { \"depName\": $n, \"currentValue\": $v } })"],
+      "datasourceTemplate": "docker"
     }
   ]
 }
