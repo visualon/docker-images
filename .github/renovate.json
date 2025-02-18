@@ -57,11 +57,16 @@
     {
       "matchPackageNames": ["kubernetes-sigs/kustomize"],
       "extractVersion": "^kustomize\\/v(?<version>\\d+\\.\\d+\\.\\d+)$"
+    },
+    {
+      "description": "group skopeo oci sync updates",
+      "matchFileNames": ["/^skopeo/.+\\.yml/"],
+      "groupName": "skopeo oci references"
     }
   ],
   "customManagers": [
     {
-      "description": "update skopeo docker references",
+      "description": "update skopeo oci references",
       "customType": "jsonata",
       "fileFormat": "yaml",
       "fileMatch": ["^skopeo/.+\\.yml"],
