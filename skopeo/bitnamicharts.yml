@@ -5,7 +5,7 @@ docker.io:
     bitnamicharts/harbor: '>=24.1.6'
     bitnamicharts/keydb: '>=0.3.1'
     bitnamicharts/kube-prometheus: '>=10.2.3'
-    bitnamicharts/mariadb: '>=20.2.1'
+    bitnamicharts/mariadb: '>=20.2.4'
     bitnamicharts/matomo: '>=9.2.1'
     bitnamicharts/metallb: '>=6.4.2'
     bitnamicharts/metrics-server: '>=7.3.1'
