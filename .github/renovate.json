@@ -74,6 +74,11 @@
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
       "extends": ["schedule:weekly"]
+    },
+    {
+      "description": "headlamp cert-manager plugin",
+      "matchDepNames": ["headlamp-cert-manager-plugin"],
+      "extractVersion": "^cert-manager-(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ],
   "customManagers": [

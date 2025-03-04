@@ -25,13 +25,13 @@ group "test" {
 target "settings" {
   context    = "./linux/${FILE}"
   inherits   = ["settings"]
-  cache-from = ["type=registry,ref=ghcr.io/${OWNER}/cache:${FILE}", "type=registry,ref=ghcr.io/${OWNER}/cache:${FILE}-${TAG}"]
+  cache-from = ["type=registry,ref=ghcr.io/${OWNER}/cache:${replace(FILE, "/", "-")}", "type=registry,ref=ghcr.io/${OWNER}/cache:${replace(FILE, "/", "-")}-${TAG}"]
 }
 
 target "build_ghcr" {
   inherits = ["settings"]
   output   = ["type=registry"]
-  tags     = ["ghcr.io/${OWNER}/cache:${FILE}-${TAG}"]
+  tags     = ["ghcr.io/${OWNER}/cache:${replace(FILE, "/", "-")}-${TAG}"]
   cache-to = ["type=inline,mode=max"]
 }
 
