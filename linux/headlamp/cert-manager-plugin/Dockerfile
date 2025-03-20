@@ -1,7 +1,7 @@
 # renovate: datasource=github-releases depName=headlamp-cert-manager-plugin packageName=headlamp-k8s/plugins
 ARG PLUGIN_VERSION=0.1.0
 
-FROM public.ecr.aws/docker/library/busybox:1.37.0@sha256:498a000f370d8c37927118ed80afe8adc38d1edcbfc071627d17b25c88efcab0
+FROM public.ecr.aws/docker/library/busybox:1.37.0@sha256:37f7b378a29ceb4c551b1b5582e27747b855bbfaa73fa11914fe0df028dc581f
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="verdaccio" \
