@@ -12,7 +12,7 @@ docker.io:
     bitnamicharts/minio: '>=15.0.7'
     bitnamicharts/opensearch: '>=1.8.0'
     bitnamicharts/phpmyadmin: '>=18.1.5'
-    bitnamicharts/postgresql: '>=16.5.6'
+    bitnamicharts/postgresql: '>=16.6.0'
     bitnamicharts/postgresql-ha: '>=15.3.8'
     bitnamicharts/redis-cluster: '>=11.4.6'
     bitnamicharts/redis: '>=20.11.4'
