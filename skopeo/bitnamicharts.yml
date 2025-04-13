@@ -16,4 +16,4 @@ docker.io:
     bitnamicharts/postgresql-ha: '>=15.3.8'
     bitnamicharts/redis-cluster: '>=11.4.6'
     bitnamicharts/redis: '>=20.11.4'
-    bitnamicharts/valkey: '>=2.4.7'
+    bitnamicharts/valkey: '>=3.0.1'
