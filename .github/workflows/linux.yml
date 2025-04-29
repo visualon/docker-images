@@ -25,7 +25,6 @@ jobs:
     strategy:
       matrix:
         file:
-          - distribution
           - docker-dind
           - forgejo
           - forgejo-runner
