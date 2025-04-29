@@ -1,10 +1,8 @@
 docker.io:
   images-by-semver:
     bitnami/kubectl: '>=1.33.0-debian-12-r0'
-    bitnami/os-shell: '>=12-debian-12-r30'
-    bitnami/postgresql: '^16.4.0-debian-12-r14'
-    bitnami/postgres-exporter: '^0.15.0-debian-12-r43'
-    bitnami/redis-exporter: '>=1.70.0-debian-12-r2'
+    bitnami/os-shell: '>=12-debian-12-r43'
+    bitnami/postgresql: '>=17.4.0-debian-12-r17'
     bitnami/valkey: '>=8.1.1-debian-12-r0'
     bitnami/valkey-cluster: '>=8.1.1-debian-12-r0'
     bitnami/valkey-sentinel: '>=8.1.1-debian-12-r0'
