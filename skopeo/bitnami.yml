@@ -4,4 +4,5 @@ docker.io:
     bitnami/os-shell: '>=12-debian-12-r43'
     bitnami/redis-exporter: '>=1.70.0-debian-12-r2'
     bitnami/valkey: '>=8.1.1-debian-12-r0'
+    bitnami/valkey-cluster: '>=8.0.0-debian-12-r0'
     bitnami/valkey-sentinel: '>=8.1.1-debian-12-r0'
