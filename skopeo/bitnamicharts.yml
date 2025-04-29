@@ -17,3 +17,4 @@ docker.io:
     bitnamicharts/redis-cluster: '>=11.5.0'
     bitnamicharts/redis: '>=20.11.5'
     bitnamicharts/valkey: '>=3.0.1'
+    bitnamicharts/valkey-cluster: '>=3.0.1'
