@@ -2,6 +2,11 @@ name: linux-builds
 
 on:
   push:
+    branches:
+      - main
+
+  pull_request:
+  merge_group:
 
 env:
   OWNER: ${{ github.repository_owner }}

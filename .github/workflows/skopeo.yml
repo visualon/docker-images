@@ -2,6 +2,12 @@ name: skopeo
 
 on:
   push:
+    branches:
+      - main
+
+  pull_request:
+  merge_group:
+
   schedule:
     - cron: '13 */6 * * *' # https://crontab.guru/#13_*/6_*_*_*
 
