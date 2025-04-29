@@ -2,12 +2,15 @@ name: skopeo
 
 on:
   push:
-    branches:
-      - main
   schedule:
     - cron: '13 */6 * * *' # https://crontab.guru/#13_*/6_*_*_*
 
   workflow_dispatch:
+
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -41,12 +44,13 @@ jobs:
           show-progress: false
 
       - name: Docker login
+        if: github.ref_name == 'main'
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | skopeo login -u ${{ github.repository_owner }} --password-stdin ghcr.io
 
       - name: Sync charts
         run: |
-          skopeo sync --all --preserve-digests --keep-going --src yaml --dest docker skopeo/${{matrix.file}}.yml ghcr.io/visualon/${{matrix.file}}
+          skopeo sync ${{ github.ref_name != 'main' && '--dry-run' || '' }} --all --preserve-digests --keep-going --src yaml --dest docker skopeo/${{matrix.file}}.yml ghcr.io/visualon/${{matrix.file}}
 
       # - name: Cleanup renovate images
       #   run: |
@@ -54,3 +58,16 @@ jobs:
       #         do echo "deleting $version" ; \
       #         skopeo delete docker://code.forgejo.org/renovate/renovate:$version ; \
       #       done
+
+  success:
+    needs:
+      - sync
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    if: always()
+    steps:
+      - name: Fail for failed or cancelled sync
+        if: |
+          needs.sync.result == 'failure' ||
+          needs.sync.result == 'cancelled'
+        run: exit 1
