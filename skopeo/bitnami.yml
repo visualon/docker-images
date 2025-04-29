@@ -1,7 +1,7 @@
 docker.io:
   images-by-semver:
     bitnami/kubectl: '>=1.33.0-debian-12-r0'
-    bitnami/os-shell: '>=12-debian-r40'
+    bitnami/os-shell: '>=12-debian-12-r40'
     bitnami/redis-exporter: '>=1.70.0-debian-12-r2'
     bitnami/valkey: '>=8.1.1-debian-12-r0'
     bitnami/valkey-sentinel: '>=8.1.1-debian-12-r0'
