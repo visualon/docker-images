@@ -86,7 +86,7 @@
       "description": "update skopeo oci references",
       "customType": "jsonata",
       "fileFormat": "yaml",
-      "fileMatch": ["^skopeo/.+\\.yml"],
+      "managerFilePatterns": ["/^skopeo/.+\\.yml/"],
       "matchStrings": [
         "$each(`docker.io`.`images-by-semver`, function($v, $n) { { \"depName\": $n, \"currentValue\": $replace($v, \">=\", \"\") } })"
       ],
