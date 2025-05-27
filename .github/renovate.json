@@ -60,7 +60,7 @@
     },
     {
       "description": "Group skopeo oci updates",
-      "matchFileNames": ["/^skopeo/.+\\.yml/"],
+      "matchFileNames": ["/^skopeo/.+\\.yml/", "!skopeo/rancher.yml"],
       "groupName": "skopeo oci references",
       "separateMinorPatch": false,
       "separateMajorMinor": true,
@@ -70,10 +70,22 @@
     },
     {
       "description": "Automerge skopeo oci references",
-      "matchFileNames": ["/^skopeo/.+\\.yml/"],
+      "matchFileNames": ["/^skopeo/.+\\.yml/", "!skopeo/rancher.yml"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
       "extends": ["schedule:weekly"]
+    },
+    {
+      "description": "Automerge and separate rancher",
+      "matchFileNames": ["skopeo/rancher.yml"],
+      "separateMultipleMinor": true,
+      "separateMinorPatch": true
+    },
+    {
+      "description": "Automerge and separate rancher",
+      "matchFileNames": ["skopeo/rancher.yml"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
     },
     {
       "description": "headlamp cert-manager plugin",

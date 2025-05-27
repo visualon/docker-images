@@ -54,7 +54,7 @@ jobs:
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | skopeo login -u ${{ github.repository_owner }} --password-stdin ghcr.io
 
-      - name: Sync charts
+      - name: Sync oci references
         run: |
           skopeo sync ${{ github.ref_name != 'main' && '--dry-run' || '' }} --all --preserve-digests --keep-going --src yaml --dest docker skopeo/${{matrix.file}}.yml ghcr.io/visualon/${{matrix.file}}
 
