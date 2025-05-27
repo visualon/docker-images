@@ -65,7 +65,7 @@ jobs:
       #         skopeo delete docker://code.forgejo.org/renovate/renovate:$version ; \
       #       done
 
-  success:
+  success-skopeo:
     needs:
       - sync
     runs-on: ubuntu-latest

@@ -80,7 +80,7 @@ jobs:
           fi
         working-directory: ./linux/${{ env.FILE }}
 
-  success:
+  success-linux:
     needs:
       - linux
     runs-on: ubuntu-latest
