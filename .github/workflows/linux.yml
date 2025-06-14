@@ -50,7 +50,7 @@ jobs:
 
       - uses: imjasonh/setup-crane@31b88efe9de28ae0ffa220711af4b60be9435f6e # v0.4
         with:
-          version: v0.20.5 # renovate: datasource=github-releases depName=crane packageName=google/go-containerregistry
+          version: v0.20.6 # renovate: datasource=github-releases depName=crane packageName=google/go-containerregistry
 
       - name: docker-config
         uses: containerbase/internal-tools@feca6cf1cfca09641ab497b50c52614e0eecf399 # v3.10.44
