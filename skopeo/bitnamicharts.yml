@@ -9,7 +9,7 @@ docker.io:
     bitnamicharts/matomo: '>=9.3.11'
     bitnamicharts/metallb: '>=6.4.16'
     bitnamicharts/metrics-server: '>=7.4.6'
-    bitnamicharts/minio: '>=16.0.10'
+    bitnamicharts/minio: '>=17.0.5'
     bitnamicharts/opensearch: '>=2.0.3'
     bitnamicharts/phpmyadmin: '>=18.1.9'
     bitnamicharts/postgresql: '>=16.7.11'
