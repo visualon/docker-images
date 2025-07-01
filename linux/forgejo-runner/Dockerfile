@@ -1,4 +1,4 @@
-FROM code.forgejo.org/forgejo/runner:6.3.1@sha256:5071e6832313bafe71577e05631bece88caff08fcfb372193e4a21941f4ed54b
+FROM code.forgejo.org/forgejo/runner:6.4.0@sha256:e8dd2880f2fc81984d2308b93f1bc064dfb41187942300676536c09a3b30043d
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="forgejo-runner" \
@@ -7,6 +7,8 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
 
 USER root
 
+# add missing packages
+RUN apk add --no-cache ca-certificates
 COPY ./vo-root.crt /usr/local/share/ca-certificates/visualon-root.crt
 RUN update-ca-certificates
 
