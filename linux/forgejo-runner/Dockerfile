@@ -7,6 +7,8 @@ LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
 
 USER root
 
+# add missing packges
+RUN apk add --no-cache ca-certificates
 COPY ./vo-root.crt /usr/local/share/ca-certificates/visualon-root.crt
 RUN update-ca-certificates
 
