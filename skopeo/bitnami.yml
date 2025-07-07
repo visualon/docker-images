@@ -1,12 +1,12 @@
 docker.io:
   images-by-semver:
-    bitnami/keydb: '>=6.3.4-debian-12-r21'
-    bitnami/kubectl: '>=1.33.1-debian-12-r5'
-    bitnami/mariadb: '>=11.4.7-debian-12-r2'
+    bitnami/keydb: '>=6.3.4-debian-12-r22'
+    bitnami/kubectl: '>=1.33.2-debian-12-r2'
+    bitnami/mariadb: '>=11.8.2-debian-12-r3'
     bitnami/os-shell: '>=12-debian-12-r43'
-    bitnami/pgpool: '>=4.6.2-debian-12-r1'
-    bitnami/postgresql: '>=17.5.0-debian-12-r12'
-    bitnami/postgresql-repmgr: '>=17.5.0-debian-12-r10'
+    bitnami/pgpool: '>=4.6.2-debian-12-r3'
+    bitnami/postgresql: '>=17.5.0-debian-12-r16'
+    bitnami/postgresql-repmgr: '>=17.5.0-debian-12-r13'
     bitnami/valkey: '>=8.1.2-debian-12-r0'
     bitnami/valkey-cluster: '>=8.1.2-debian-12-r0'
     bitnami/valkey-sentinel: '>=8.1.2-debian-12-r0'
