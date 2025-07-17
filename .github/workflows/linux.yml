@@ -34,7 +34,6 @@ jobs:
           - forgejo
           - forgejo-runner
           - github-runner
-          - headlamp/cert-manager-plugin
           - nextcloud
           - roundcube
           - traefik
