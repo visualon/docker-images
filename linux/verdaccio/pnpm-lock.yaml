@@ -12,16 +12,16 @@ importers:
   .:
     dependencies:
       verdaccio:
-        specifier: 6.1.5
-        version: 6.1.5(typanion@3.14.0)
+        specifier: 6.1.6
+        version: 6.1.6(typanion@3.14.0)
       verdaccio-ldap:
         specifier: 6.0.0
         version: 6.0.0
 
 packages:
 
-  '@cypress/request@3.0.8':
-    resolution: {integrity: sha512-h0NFgh1mJmm1nr4jCwkGHwKneVYKghUyWe6TMNrk0B9zsjAJxpg8C4/+BAcmLgCPa1vj1V8rNUaILl+zYRUWBQ==}
+  '@cypress/request@3.0.9':
+    resolution: {integrity: sha512-I3l7FdGRXluAS44/0NguwWlO83J18p0vlr2FYHrJkWdNYhgVoiYo61IXPqaOsL+vNxU1ZqMACzItGK3/KKDsdw==}
     engines: {node: '>= 6'}
 
   '@types/ldapjs@2.2.5':
@@ -1005,8 +1005,8 @@ packages:
     resolution: {integrity: sha512-xbCArADu1BgzcxnBKcUT0j+qsVLB2wDxLqQkiwHJKad2q5BpavrgR5FydO4nBrfrFy6cIhrggXpOh8dK2uJPFA==}
     engines: {node: '>= 16'}
 
-  verdaccio@6.1.5:
-    resolution: {integrity: sha512-gXEbG5Oj3SITUOXRQ0KuTtJ/eyhg8ARyaKXQfYOakA1gIxnjCF+SQLYkKe5El4OiDNOPu8QtviKzytRPA+UUag==}
+  verdaccio@6.1.6:
+    resolution: {integrity: sha512-zUMMKW0hjtOaLIm1cY9AqA0bMjvuGtKJVolzXQacIW9PHTnTjcsWF2+sbNLBhVrHwo+FJ1DzdNVaTWXOBWZgiQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1036,7 +1036,7 @@ packages:
 
 snapshots:
 
-  '@cypress/request@3.0.8':
+  '@cypress/request@3.0.9':
     dependencies:
       aws-sign2: 0.7.0
       aws4: 1.13.2
@@ -2142,9 +2142,9 @@ snapshots:
       md5: 2.3.0
       rfc2253: 0.2.0
 
-  verdaccio@6.1.5(typanion@3.14.0):
+  verdaccio@6.1.6(typanion@3.14.0):
     dependencies:
-      '@cypress/request': 3.0.8
+      '@cypress/request': 3.0.9
       '@verdaccio/auth': 8.0.0-next-8.19
       '@verdaccio/config': 8.0.0-next-8.19
       '@verdaccio/core': 8.0.0-next-8.19
