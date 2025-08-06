@@ -14,7 +14,7 @@ public.ecr.aws:
     bitnami/keydb: '>=6.3.4-debian-12-r23'
     bitnami/kubectl: '>=1.33.3-debian-12-r1'
     bitnami/kube-state-metrics: '>=2.15.0-debian-12-r11'
-    bitnami/nginx: '>=1.29.0-debian-12-r5'
+    bitnami/nginx: '>=1.26.2-debian-12-r10'
     bitnami/mariadb: '>=11.8.2-debian-12-r4'
     bitnami/matomo: '>=5.3.2-debian-12-r0'
     bitnami/metallb-controller: '>=0.15.2-debian-12-r3'
