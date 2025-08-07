@@ -52,7 +52,7 @@ jobs:
           version: v0.20.6 # renovate: datasource=github-releases depName=crane packageName=google/go-containerregistry
 
       - name: docker-config
-        uses: containerbase/internal-tools@3628dcfa047595ed2f32804803bf27af78eafc04 # v3.10.62
+        uses: containerbase/internal-tools@4ab91e1bcd5d4bcc211e3c3a363a0e8cf710922f # v3.10.64
         with:
           command: docker-config
 
