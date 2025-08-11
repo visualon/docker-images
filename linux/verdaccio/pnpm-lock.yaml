@@ -27,8 +27,8 @@ packages:
   '@types/ldapjs@2.2.5':
     resolution: {integrity: sha512-Lv/nD6QDCmcT+V1vaTRnEKE8UgOilVv5pHcQuzkU1LcRe4mbHHuUo/KHi0LKrpdHhQY8FJzryF38fcVdeUIrzg==}
 
-  '@types/node@24.0.15':
-    resolution: {integrity: sha512-oaeTSbCef7U/z7rDeJA138xpG3NuKc64/rZ2qmUFkFJmnMsAPaluIifqyWd8hSSMxyP9oie3dLAqYPblag9KgA==}
+  '@types/node@24.2.1':
+    resolution: {integrity: sha512-DRh5K+ka5eJic8CjH7td8QpYEV6Zo10gfRkjHCO3weqZHWDtAaSTFtl4+VMqOJ4N5jcuhZ9/l+yy8rVgw7BQeQ==}
 
   '@verdaccio/auth@8.0.0-next-8.19':
     resolution: {integrity: sha512-VEWhj9Zs6qY2vzVpwY0uViPGxCPhiVo+g2WTLPNGa8avYz6sC8eiHZOJv3E22TKm/PaeSzclvSbMXiXP1bYuMA==}
@@ -173,8 +173,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  bare-events@2.6.0:
-    resolution: {integrity: sha512-EKZ5BTXYExaNqi3I3f9RtEsaI/xBSGjE0XZCZilPzFAV/goswFHuPd9jEZlPIZ/iNZJwDSao9qRiScySz7MbQg==}
+  bare-events@2.6.1:
+    resolution: {integrity: sha512-AuTJkq9XmE6Vk0FJVNq5QxETrSA/vKHarWVBG5l/JbdCL1prJemiyJqUS0jrlXO0MftuPq4m3YVYhoNc5+aE/g==}
 
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
@@ -960,8 +960,8 @@ packages:
     engines: {node: '>=0.8.0'}
     hasBin: true
 
-  undici-types@7.8.0:
-    resolution: {integrity: sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw==}
+  undici-types@7.10.0:
+    resolution: {integrity: sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag==}
 
   unix-crypt-td-js@1.1.4:
     resolution: {integrity: sha512-8rMeVYWSIyccIJscb9NdCfZKSRBKYTeVnwmiRYT2ulE3qd1RaDQ0xQDP+rI3ccIWbhu/zuo5cgN8z73belNZgw==}
@@ -1059,11 +1059,11 @@ snapshots:
 
   '@types/ldapjs@2.2.5':
     dependencies:
-      '@types/node': 24.0.15
+      '@types/node': 24.2.1
 
-  '@types/node@24.0.15':
+  '@types/node@24.2.1':
     dependencies:
-      undici-types: 7.8.0
+      undici-types: 7.10.0
 
   '@verdaccio/auth@8.0.0-next-8.19':
     dependencies:
@@ -1270,7 +1270,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  bare-events@2.6.0:
+  bare-events@2.6.1:
     optional: true
 
   base64-js@1.5.1: {}
@@ -2031,7 +2031,7 @@ snapshots:
       fast-fifo: 1.3.2
       text-decoder: 1.2.3
     optionalDependencies:
-      bare-events: 2.6.0
+      bare-events: 2.6.1
 
   string_decoder@1.1.1:
     dependencies:
@@ -2092,7 +2092,7 @@ snapshots:
   uglify-js@3.19.3:
     optional: true
 
-  undici-types@7.8.0: {}
+  undici-types@7.10.0: {}
 
   unix-crypt-td-js@1.1.4: {}
 
