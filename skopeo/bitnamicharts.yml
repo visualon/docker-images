@@ -2,7 +2,7 @@ docker.io:
   images-by-semver:
     bitnamicharts/cert-manager: '>=1.5.14'
     bitnamicharts/common: '>=2.31.4'
-    bitnamicharts/harbor: '>=26.8.5'
+    bitnamicharts/harbor: '>=27.0.3'
     bitnamicharts/keydb: '>=0.5.21'
     bitnamicharts/kube-prometheus: '>=11.3.8'
     bitnamicharts/mariadb: '>=21.0.8'
