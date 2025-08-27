@@ -1,4 +1,4 @@
-FROM roundcube/roundcubemail:1.6.11-apache@sha256:d78d0cb94100c0b6377f422f671bf9c68c3939bdda3a64efebef108a77edcbbb
+FROM roundcube/roundcubemail:1.6.11-apache@sha256:b5109f2e26f8a3451a82b068211f4c43c1057cf36b8476b7a8c4a224a6cb47df
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
   name="roundcube" \
