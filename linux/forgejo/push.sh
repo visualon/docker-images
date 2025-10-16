@@ -14,10 +14,6 @@ minor=${BASH_REMATCH[2]}
 patch=${BASH_REMATCH[3]}
 
 
-tag="${major}.${minor}.${patch}"
+tag="${major}.${minor}.${patch}-rootless"
 echo "Tagging ${IMAGE}:${tag}"
 crane tag "$IMAGE" "${tag}"
-
-# required for gitea helm chart
-echo "Tagging ${IMAGE}:${tag}-rootless"
-crane tag "$IMAGE" "${tag}-rootless"
