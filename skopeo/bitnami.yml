@@ -21,8 +21,6 @@ public.ecr.aws:
     bitnami/metallb-controller: '>=0.15.2'
     bitnami/metallb-speaker: '>=0.15.2'
     bitnami/metrics-server: '>=0.8.0-debian'
-    bitnami/minio: '>=2025.4.22-debian'
-    bitnami/minio-object-browser: '>=2.0.1-debian'
     bitnami/node-exporter: '>=1.9.1-debian'
     bitnami/opensearch: '>=3.0.0'
     bitnami/os-shell: '>=12-debian'
