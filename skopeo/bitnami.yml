@@ -12,7 +12,7 @@ public.ecr.aws:
     bitnami/harbor-portal: '>=2.13.2'
     bitnami/harbor-registry: '>=2.13.2'
     bitnami/harbor-registryctl: '>=2.13.2'
-    bitnami/keydb: '>=6.3.4-debian'
+    bitnami/keydb: '>=6.3.4'
     bitnami/kubectl: '>=1.33.3-debian'
     bitnami/kube-state-metrics: '>=2.15.0-debian'
     bitnami/nginx: '>=1.26.2-debian'
