@@ -12,7 +12,6 @@ public.ecr.aws:
     bitnami/harbor-portal: '>=2.13.2'
     bitnami/harbor-registry: '>=2.13.2'
     bitnami/harbor-registryctl: '>=2.13.2'
-    bitnami/keydb: '>=6.3.4'
     bitnami/kubectl: '>=1.33.3'
     bitnami/kube-state-metrics: '>=2.15.0-debian'
     bitnami/mariadb: '>=11.8.3'
@@ -27,5 +26,4 @@ public.ecr.aws:
     bitnami/prometheus: '>=3.5.0-debian'
     bitnami/prometheus-operator: '>=0.84.0-debian'
     bitnami/valkey: '>=8.1.3'
-    bitnami/valkey-cluster: '>=8.1.3'
     bitnami/valkey-sentinel: '>=8.1.3'
