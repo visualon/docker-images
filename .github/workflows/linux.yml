@@ -55,8 +55,6 @@ jobs:
         with:
           version: v0.20.6 # renovate: datasource=github-releases depName=crane packageName=google/go-containerregistry
 
-      - uses: sigstore/cosign-installer@faadad0cce49287aee09b3a48701e75088a2c6ad # v4.0.0
-
       - name: docker-config
         uses: containerbase/internal-tools@fe770ba6b0bf4b72cb2e3e691f6e4e2974d5c80a # v3.14.4
         with:
@@ -72,19 +70,27 @@ jobs:
         working-directory: ./linux/${{ env.FILE }}
 
       - name: Log into registry
-        if: github.ref == 'refs/heads/main'
+        if: github.ref_name == 'main'
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Publish the Docker image
-        if: github.ref == 'refs/heads/main'
+        if: github.ref_name == 'main'
         run: |
           docker buildx bake --metadata-file /tmp/meta.json build
           jq . /tmp/meta.json
           digest=$(jq -r '.push_ghcr.["containerimage.digest"]' /tmp/meta.json)
-          cosign sign --yes $IMAGE@$digest
+          echo "digest=$digest" >> "$GITHUB_ENV"
+
+      - name: Attest the Docker image
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3.0.0
+        if: github.ref_name == 'main'
+        with:
+          subject-name: ${{ env.IMAGE }}
+          subject-digest: ${{ env.digest }}
+          push-to-registry: true
 
       - name: Publish the Docker image tags
-        if: github.ref == 'refs/heads/main'
+        if: github.ref_name == 'main'
         run: |
           if [ -f push.sh ]; then
             ./push.sh
