@@ -80,8 +80,8 @@ jobs:
         run: |
           docker buildx bake --metadata-file /tmp/meta.json build
           jq . /tmp/meta.json
-          digest=$(jq -r '.push_ghcr."containerimage.digest"' /tmp/meta.json)
-          cosign sign --yes $IMAGE:$digest
+          digest=$(jq -r '.push_ghcr.["containerimage.digest"]' /tmp/meta.json)
+          cosign sign --yes $IMAGE@$digest
 
       - name: Publish the Docker image tags
         if: github.ref == 'refs/heads/main'
