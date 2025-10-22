@@ -17,15 +17,18 @@ concurrency:
   cancel-in-progress: true
 
 
-permissions:
-  contents: read
-  packages: write
+permissions: {}
 
 jobs:
 
   linux:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
 
     strategy:
       matrix:
@@ -52,13 +55,17 @@ jobs:
         with:
           version: v0.20.6 # renovate: datasource=github-releases depName=crane packageName=google/go-containerregistry
 
+      - uses: sigstore/cosign-installer@faadad0cce49287aee09b3a48701e75088a2c6ad # v4.0.0
+
       - name: docker-config
         uses: containerbase/internal-tools@fe770ba6b0bf4b72cb2e3e691f6e4e2974d5c80a # v3.14.4
         with:
           command: docker-config
 
       - name: Build the Docker image
-        run: docker buildx bake test
+        run: |
+          docker buildx bake --metadata-file /tmp/meta.json test
+          jq . /tmp/meta.json
 
       - name: Test run
         run: docker compose --file docker-compose.test.yml run sut
@@ -70,7 +77,11 @@ jobs:
 
       - name: Publish the Docker image
         if: github.ref == 'refs/heads/main'
-        run: docker buildx bake build
+        run: |
+          docker buildx bake --metadata-file /tmp/meta.json build
+          jq . /tmp/meta.json
+          digest=$(jq -r '.push_ghcr."containerimage.digest"' /tmp/meta.json)
+          cosign sign --yes $IMAGE:$digest
 
       - name: Publish the Docker image tags
         if: github.ref == 'refs/heads/main'
