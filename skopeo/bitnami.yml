@@ -15,7 +15,6 @@ public.ecr.aws:
     bitnami/keydb: '>=6.3.4'
     bitnami/kubectl: '>=1.33.3'
     bitnami/kube-state-metrics: '>=2.15.0-debian'
-    bitnami/nginx: '>=1.26.2-debian'
     bitnami/mariadb: '>=11.8.3'
     bitnami/matomo: '>=5.5.0'
     bitnami/metallb-controller: '>=0.15.2'
