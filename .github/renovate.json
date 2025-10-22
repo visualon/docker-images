@@ -10,13 +10,6 @@
     "extends": ["schedule:daily"]
   },
   "ignorePaths": ["**/node_modules/**"],
-  "hostRules": [
-    {
-      "description": "mark as forgejo",
-      "matchHost": "git.deuxfleurs.fr",
-      "hostType": "forgejo"
-    }
-  ],
   "packageRules": [
     {
       "description": "Don't require major approval",
