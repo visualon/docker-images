@@ -33,7 +33,6 @@ jobs:
         file:
           - bitnami
           - bitnamicharts
-          - rancher
 
     steps:
       - name: Install packages
