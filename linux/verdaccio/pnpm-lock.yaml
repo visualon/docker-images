@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  verdaccio>compression: 1.8.1
-
 importers:
 
   .:
