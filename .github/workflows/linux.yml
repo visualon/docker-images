@@ -33,6 +33,7 @@ jobs:
           - docker-dind
           - forgejo
           - forgejo-runner
+          - garage
           - github-runner
           - nextcloud
           - roundcube
