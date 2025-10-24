@@ -1,4 +1,4 @@
-FROM louislam/uptime-kuma:1.23.17@sha256:3d632903e6af34139a37f18055c4f1bfd9b7205ae1138f1e5e8940ddc1d176f9
+FROM louislam/uptime-kuma:2.0.2@sha256:4c364ef96aaddac7ec4c85f5e5f31c3394d35f631381ccbbf93f18fd26ac7cba
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="uptime-kuma" \
