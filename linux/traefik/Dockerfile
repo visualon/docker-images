@@ -1,4 +1,4 @@
-FROM traefik:v3.6.5@sha256:2979bff651c98e70345dd886186a7a15ee3ce18b636af208d4ccbf2d56dbdddd
+FROM traefik:v3.6.5@sha256:67622638cd88dbfcfba40159bc652ecf0aea0e032f8a3c7e3134ae7c037b9910
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="traefik" \
