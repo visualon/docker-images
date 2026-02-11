@@ -5,7 +5,7 @@
     "verdaccio": "6.2.5",
     "verdaccio-ldap": "6.0.0"
   },
-  "packageManager": "pnpm@10.29.1",
+  "packageManager": "pnpm@10.29.3",
   "engines": {
     "node": "^22.11.0 || >=24.10.0",
     "pnpm": "^10.0.0"
