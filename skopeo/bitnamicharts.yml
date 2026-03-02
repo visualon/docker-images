@@ -1,13 +1,13 @@
 docker.io:
   images-by-semver:
     bitnamicharts/cert-manager: '>=1.5.14'
-    bitnamicharts/common: '>=2.34.0'
+    bitnamicharts/common: '>=2.36.0'
     bitnamicharts/harbor: '>=27.0.3'
     bitnamicharts/kube-prometheus: '>=11.3.10'
-    bitnamicharts/mariadb: '>=25.0.0'
+    bitnamicharts/mariadb: '>=25.0.1'
     bitnamicharts/matomo: '>=11.0.0'
     bitnamicharts/metallb: '>=6.4.22'
     bitnamicharts/metrics-server: '>=7.4.12'
     bitnamicharts/opensearch: '>=2.0.10'
     bitnamicharts/phpmyadmin: '>=20.0.0'
-    bitnamicharts/valkey: '>=5.1.7'
+    bitnamicharts/valkey: '>=5.4.3'
