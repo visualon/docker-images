@@ -1,6 +1,6 @@
 FROM dxflrs/garage:v2.2.0@sha256:45a61ce3f7c9c24fc23d9ed2b09b27ed560ab87b34605d175d5c588f539c24e4 AS build
 
-FROM ghcr.io/visualon/library/busybox:1.36.1@sha256:b9598f8c98e24d0ad42c1742c32516772c3aa2151011ebaf639089bd18c605b8
+FROM ghcr.io/visualon/library/busybox:1.36.1@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="garage" \
