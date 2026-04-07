@@ -37,7 +37,7 @@ RUN install-tool actions-runner v2.333.1
 RUN install-tool kubectl v1.35.3
 
 # renovate: datasource=github-releases packageName=fluxcd/flux2
-RUN install-tool flux v2.8.4
+RUN install-tool flux v2.8.5
 
 # renovate: datasource=github-releases packageName=getsops/sops
 RUN install-tool sops v3.12.2
