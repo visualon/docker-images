@@ -1,3 +1,4 @@
 public.ecr.aws:
   images-by-semver:
     docker/library/busybox: '>=1.36.1'
+    docker/library/phpmyadmin: '>=5.2.3'
