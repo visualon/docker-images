@@ -22,7 +22,6 @@ public.ecr.aws:
     bitnami/node-exporter: '>=1.9.1-debian'
     bitnami/opensearch: '>=3.0.0'
     bitnami/os-shell: '>=12-debian'
-    bitnami/phpmyadmin: '>=5.2.2'
     bitnami/prometheus: '>=3.5.0-debian'
     bitnami/prometheus-operator: '>=0.84.0-debian'
     bitnami/valkey: '>=8.1.3'
