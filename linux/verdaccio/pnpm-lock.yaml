@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       verdaccio:
-        specifier: 6.5.1
-        version: 6.5.1(typanion@3.14.0)
+        specifier: 6.5.2
+        version: 6.5.2(typanion@3.14.0)
       verdaccio-ldap:
         specifier: 6.0.0
         version: 6.0.0
@@ -113,8 +113,8 @@ packages:
     resolution: {integrity: sha512-Qxm6JQYEFfkeJd4YQII/2IAMiL++QnM6gqKXZbM5mNkAApyqx8ZbL1e9pe3aCDmBYs2mo0JGORCy3OaHZcsJGw==}
     engines: {node: '>=18'}
 
-  '@verdaccio/ui-theme@9.0.0-next-9.10':
-    resolution: {integrity: sha512-sJRuAGKHklQU8bLdcXjvzfajXk9VqyBcFUKHAAyWXAeIKs04/lTgCHB6nFcEm0WDzlXk8CMAQuo/kcjNkg7qyw==}
+  '@verdaccio/ui-theme@9.0.0-next-9.14':
+    resolution: {integrity: sha512-0PQW6PV+sHsQdV3gnHQqAcDcVGfT75vHq1TfIeEN2QY5KuEkvli8e5vut+sTe89p+GOTahHKgTMOcL0O3BvsgA==}
 
   '@verdaccio/url@13.0.0-next-8.37':
     resolution: {integrity: sha512-Gtv5oDgVwGPGxzuXaIJLbmL8YkBKW2UZwDsrnbDoWRt1nWLtiOp4Vui1VISTqX7A9BB50YslLEgNLcPd2qRE+w==}
@@ -1106,8 +1106,8 @@ packages:
     resolution: {integrity: sha512-xbCArADu1BgzcxnBKcUT0j+qsVLB2wDxLqQkiwHJKad2q5BpavrgR5FydO4nBrfrFy6cIhrggXpOh8dK2uJPFA==}
     engines: {node: '>= 16'}
 
-  verdaccio@6.5.1:
-    resolution: {integrity: sha512-bCaAmlFhqokqiJAHOa5PW6+wo5o8hUROIXjSPbjBO5n6DDOYncHWK4b/FnrAKRT6k+FDXcpOvwftKJOTNj5XSQ==}
+  verdaccio@6.5.2:
+    resolution: {integrity: sha512-zFzUz/2b5z4svs7/wkX0JDSvOE3ViWdNcIs8qwnmUg2hKBbWeVoA5Kt/JWHRkUrCuwiIfAoEWobiKZmrAFqHqw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1327,7 +1327,11 @@ snapshots:
       - react-native-b4a
       - supports-color
 
-  '@verdaccio/ui-theme@9.0.0-next-9.10': {}
+  '@verdaccio/ui-theme@9.0.0-next-9.14':
+    dependencies:
+      debug: 4.4.3
+    transitivePeerDependencies:
+      - supports-color
 
   '@verdaccio/url@13.0.0-next-8.37':
     dependencies:
@@ -2372,7 +2376,7 @@ snapshots:
       md5: 2.3.0
       rfc2253: 0.2.0
 
-  verdaccio@6.5.1(typanion@3.14.0):
+  verdaccio@6.5.2(typanion@3.14.0):
     dependencies:
       '@cypress/request': 3.0.10
       '@verdaccio/auth': 8.0.0-next-8.37
@@ -2388,7 +2392,7 @@ snapshots:
       '@verdaccio/signature': 8.0.0-next-8.29
       '@verdaccio/streams': 10.2.1
       '@verdaccio/tarball': 13.0.0-next-8.37
-      '@verdaccio/ui-theme': 9.0.0-next-9.10
+      '@verdaccio/ui-theme': 9.0.0-next-9.14
       '@verdaccio/url': 13.0.0-next-8.37
       '@verdaccio/utils': 8.1.0-next-8.37
       JSONStream: 1.3.5
