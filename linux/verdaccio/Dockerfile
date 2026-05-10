@@ -21,7 +21,7 @@ FROM base AS build
 COPY --link package.json pnpm-lock.yaml ./
 
 # renovate: datasource=npm depName=pnpm
-ARG PNPM_VERSION=11.0.7
+ARG PNPM_VERSION=11.0.8
 RUN npm install -g pnpm@${PNPM_VERSION}
 
 RUN pnpm install --frozen-lockfile --prod
