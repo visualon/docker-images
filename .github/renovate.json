@@ -94,7 +94,7 @@
       "fileFormat": "yaml",
       "managerFilePatterns": ["/^skopeo/.+\\.yml/"],
       "matchStrings": [
-        "$each($, function($images, $host) {$each($images.`images-by-semver`, function($v, $n) { { \"packageName\": $host & \"/\" & $n, \"depName\": $n, \"currentValue\": $replace($v, \">=\", \"\") } })})"
+        "$reduce($map($, function($f){$each($, function($images, $host) {$each($images.`images-by-semver`, function($v, $n){ { \"packageName\": $host & \"/\" & $n, \"depName\": $n, \"currentValue\": $replace($v, \">=\", \"\") } })})}), $append)"
       ],
       "datasourceTemplate": "docker"
     }
