@@ -85,6 +85,11 @@
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["digest"],
       "groupName": "docker-digests"
+    },
+    {
+      "description": "no longer exist",
+      "matchPackageNames": ["public.ecr.aws/bitnami/**"],
+      "enabled": false
     }
   ],
   "customManagers": [
