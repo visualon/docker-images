@@ -90,6 +90,11 @@
       "description": "no longer exist",
       "matchPackageNames": ["public.ecr.aws/bitnami/**"],
       "enabled": false
+    },
+    {
+      "description": "disabkle traefik changelogs, they are broken",
+      "matchDepNames": ["traefik"],
+      "fetchChangeLogs": "off"
     }
   ],
   "customManagers": [
