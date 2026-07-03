@@ -1,0 +1,79 @@
+name: flux-mirror
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+  merge_group:
+
+  schedule:
+    - cron: '13 */6 * * *' # https://crontab.guru/#13_*/6_*_*_*
+
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  flux-mirror-sync:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:3.24@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+
+    strategy:
+      matrix:
+        file:
+          - library
+
+    steps:
+      - name: Install packages
+        run: |
+          apk add --no-cache \
+            jq \
+            git \
+            nodejs \
+            ;
+
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          show-progress: false
+
+      - uses: fluxcd/flux-mirror/actions/setup@a1ece1be0c3c52dae76137dfa0a4039c85e2afd8 # v0.8.0
+        with:
+          version: v0.8.0 # renovate: datasource=github-releases depName=flux-mirror packageName=fluxcd/flux-mirror
+
+      - name: Docker login
+        if: github.ref_name == 'main'
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | skopeo login -u ${{ github.repository_owner }} --password-stdin ghcr.io
+
+      - name: Sync oci references
+        run: |
+          flux-mirror sync flux-mirror/${{matrix.file}}.yml ${{ github.ref_name != 'main' && '--dry-run' || '' }} --no-progress
+
+      # - name: Cleanup renovate images
+      #   run: |
+      #     skopeo list-tags docker://code.forgejo.org/renovate/renovate | jq -r '.Tags[]' | sed -n -Ee '/^[0-9]+\.[0-9]+\.[0-9]+/p' | sort -r -V | sed -n '50,$p' | while read version ; \
+      #         do echo "deleting $version" ; \
+      #         skopeo delete docker://code.forgejo.org/renovate/renovate:$version ; \
+      #       done
+
+  success-flux-mirror:
+    needs:
+      - flux-mirror-sync
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    if: always()
+    steps:
+      - name: Fail for failed or cancelled sync
+        if: |
+          needs.sync.result == 'failure' ||
+          needs.sync.result == 'cancelled'
+        run: exit 1
