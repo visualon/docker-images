@@ -19,6 +19,15 @@ artifacts:
       limit: 5
     includeReferrers: true
     overwrite: true
+  - source: docker.io/library/matomo
+    destination: ghcr.io/visualon/library/matomo
+    selector:
+      semver: '>=5.10.0'
+      regex:
+        pattern: ^\d+\.\d+\.\d+$
+      limit: 5
+    includeReferrers: true
+    overwrite: true
   - source: docker.io/library/phpmyadmin
     destination: ghcr.io/visualon/library/phpmyadmin
     selector:
