@@ -22,7 +22,7 @@ permissions:
   packages: write
 
 jobs:
-  flux-mirror-sync:
+  sync:
     runs-on: ubuntu-latest
 
     strategy:
@@ -46,7 +46,7 @@ jobs:
 
       - name: Sync oci references
         run: |
-          flux-mirror sync flux-mirror/${{matrix.file}}.yml ${{ github.ref_name != 'main' && '--dry-run' || '' }} --no-progress
+          flux-mirror sync flux-mirror/${{matrix.file}}.yml ${{ github.ref_name != 'main' && '--dry-run' || '' }} --no-progress --verbose
 
       # - name: Cleanup renovate images
       #   run: |
@@ -57,7 +57,7 @@ jobs:
 
   success-flux-mirror:
     needs:
-      - flux-mirror-sync
+      - sync
     runs-on: ubuntu-latest
     timeout-minutes: 1
     if: always()

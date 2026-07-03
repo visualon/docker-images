@@ -1,7 +1,7 @@
 apiVersion: mirror.plugin.fluxcd.io/v1beta1
 kind: Config
 artifacts:
-  - source: public.ecr.aws/docker/library/mariadb
+  - source: docker.io/library/mariadb
     destination: ghcr.io/visualon/library/mariadb
     selector:
       semver: '>=12.2.2'
