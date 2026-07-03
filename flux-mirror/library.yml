@@ -6,6 +6,6 @@ artifacts:
     selector:
       semver: '>=12.2.2'
       regex:
-        pattern: ^\\d+\\.\\d+\\.\\d+$
+        pattern: ^\d+\.\d+\.\d+$
       limit: 3
     includeReferrers: true
