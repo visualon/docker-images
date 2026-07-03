@@ -24,8 +24,6 @@ permissions:
 jobs:
   flux-mirror-sync:
     runs-on: ubuntu-latest
-    container:
-      image: alpine:3.24@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
 
     strategy:
       matrix:
@@ -33,14 +31,6 @@ jobs:
           - library
 
     steps:
-      - name: Install packages
-        run: |
-          apk add --no-cache \
-            jq \
-            git \
-            nodejs \
-            ;
-
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           show-progress: false
