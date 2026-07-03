@@ -9,3 +9,7 @@ artifacts:
         pattern: ^\d+\.\d+\.\d+$
       limit: 3
     includeReferrers: true
+hosts:
+  - host: ghcr.io
+    credential:
+      provider: github

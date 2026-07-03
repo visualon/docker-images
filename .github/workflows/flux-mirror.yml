@@ -39,10 +39,10 @@ jobs:
         with:
           version: v0.8.0 # renovate: datasource=github-releases depName=flux-mirror packageName=fluxcd/flux-mirror
 
-      - name: Docker login
-        if: github.ref_name == 'main'
-        run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" | skopeo login -u ${{ github.repository_owner }} --password-stdin ghcr.io
+      # - name: Docker login
+      #   if: github.ref_name == 'main'
+      #   run: |
+      #     echo "${{ secrets.GITHUB_TOKEN }}" | skopeo login -u ${{ github.repository_owner }} --password-stdin ghcr.io
 
       - name: Sync oci references
         run: |
