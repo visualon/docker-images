@@ -41,7 +41,7 @@ jobs:
 
       - name: Sync oci references
         run: |
-          flux-mirror sync flux-mirror/${{matrix.file}}.yml ${{ github.ref_name != 'main' && '--dry-run' || '' }} --no-progress --verbose
+          flux-mirror sync flux-mirror/${{matrix.file}}.yml ${{ github.ref_name != 'main' && '--dry-run' || '' }} --no-progress ${{ runner.debug == '1' && '--verbose' || '' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

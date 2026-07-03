@@ -13,7 +13,6 @@ on:
 
   workflow_dispatch:
 
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
   cancel-in-progress: true
@@ -31,7 +30,6 @@ jobs:
     strategy:
       matrix:
         file:
-          - library
           - bitnami
           - bitnamicharts
 
