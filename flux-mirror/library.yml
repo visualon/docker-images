@@ -11,5 +11,6 @@ artifacts:
     includeReferrers: true
 hosts:
   - host: ghcr.io
+    username: ${GITHUB_REPOSITORY_OWNER} # ignored by GHCR; any value works
     credential:
-      provider: github
+      value: ${GH_TOKEN}

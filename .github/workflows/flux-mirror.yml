@@ -20,7 +20,6 @@ concurrency:
 permissions:
   contents: read
   packages: write
-  id-token: write
 
 jobs:
   sync:
@@ -40,14 +39,11 @@ jobs:
         with:
           version: v0.8.0 # renovate: datasource=github-releases depName=flux-mirror packageName=fluxcd/flux-mirror
 
-      # - name: Docker login
-      #   if: github.ref_name == 'main'
-      #   run: |
-      #     echo "${{ secrets.GITHUB_TOKEN }}" | skopeo login -u ${{ github.repository_owner }} --password-stdin ghcr.io
-
       - name: Sync oci references
         run: |
           flux-mirror sync flux-mirror/${{matrix.file}}.yml ${{ github.ref_name != 'main' && '--dry-run' || '' }} --no-progress --verbose
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Cleanup renovate images
       #   run: |
