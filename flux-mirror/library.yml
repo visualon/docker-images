@@ -1,0 +1,16 @@
+apiVersion: mirror.plugin.fluxcd.io/v1beta1
+kind: Config
+artifacts:
+  - source: docker.io/library/mariadb
+    destination: ghcr.io/visualon/library/mariadb
+    selector:
+      semver: '>=12.2.2'
+      regex:
+        pattern: ^\d+\.\d+\.\d+$
+      limit: 3
+    includeReferrers: true
+hosts:
+  - host: ghcr.io
+    username: ${GITHUB_REPOSITORY_OWNER} # ignored by GHCR; any value works
+    credential:
+      value: ${GH_TOKEN}
