@@ -9,4 +9,4 @@ docker.io:
     bitnamicharts/metallb: '>=6.4.22'
     bitnamicharts/metrics-server: '>=7.4.12'
     bitnamicharts/opensearch: '>=2.0.10'
-    bitnamicharts/valkey: '>=6.2.0'
+    bitnamicharts/valkey: '>=6.2.2'
