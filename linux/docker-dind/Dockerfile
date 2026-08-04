@@ -1,4 +1,4 @@
-FROM docker:29.6.2-dind@sha256:bfec1f5159c63a81ca6fdedbd81404d2c0e16378ed0feec3bb3fbf3998847659
+FROM docker:29.7.1-dind@sha256:e8faad5a8dc5279dff929afc5449f2791736912fff9f99351d742db2fad01b4c
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
     name="docker" \
