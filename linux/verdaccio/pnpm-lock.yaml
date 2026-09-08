@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       verdaccio:
-        specifier: 6.10.2
-        version: 6.10.2(typanion@3.14.0)
+        specifier: 6.10.3
+        version: 6.10.3(typanion@3.14.0)
       verdaccio-ldap:
         specifier: 6.0.0
         version: 6.0.0
@@ -1205,8 +1205,8 @@ packages:
     resolution: {integrity: sha512-xbCArADu1BgzcxnBKcUT0j+qsVLB2wDxLqQkiwHJKad2q5BpavrgR5FydO4nBrfrFy6cIhrggXpOh8dK2uJPFA==}
     engines: {node: '>= 16'}
 
-  verdaccio@6.10.2:
-    resolution: {integrity: sha512-avuvgx9EN9PQUg33e0ea+ltTs6CKffJVjS0h2odtULgIrHMqCdb7DHN6hg3qBou7OFdPiJG3sgtCc5VcrYj85A==}
+  verdaccio@6.10.3:
+    resolution: {integrity: sha512-hFr1rarjoKz3kA/42vPqRmueFuuk70y/22qZqNlOc/VNszUUqPJewtyroEZ8Tp7XtaIqoXuCfRq12j3igFGgyg==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -2566,7 +2566,7 @@ snapshots:
       md5: 2.3.0
       rfc2253: 0.2.0
 
-  verdaccio@6.10.2(typanion@3.14.0):
+  verdaccio@6.10.3(typanion@3.14.0):
     dependencies:
       '@cypress/request': 4.0.1
       '@verdaccio/auth': 8.1.3
