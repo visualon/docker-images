@@ -1,4 +1,4 @@
-FROM nextcloud:34.0.4-apache@sha256:a5ace30c695afe48c2c406e940ee7886a81e13fa382e57cd68b2416d1a66914c
+FROM nextcloud:35.0.1-apache@sha256:276547e033df451770dbf9c0065929e5ea179a613b1884bd3fa807ba1c2703e7
 
 LABEL maintainer="Michael Kriese <michael.kriese@visualon.de>" \
   name="nextcloud" \
