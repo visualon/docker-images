@@ -37,7 +37,7 @@ jobs:
 
       - uses: fluxcd/flux-mirror/actions/setup@4db0a40aeb825f165b96d5edc4e49bd2ab15db6d # v0.9.0
         with:
-          version: v0.9.0 # renovate: datasource=github-releases depName=flux-mirror packageName=fluxcd/flux-mirror
+          version: v0.10.0 # renovate: datasource=github-releases depName=flux-mirror packageName=fluxcd/flux-mirror
 
       - name: Sync oci references
         run: |
