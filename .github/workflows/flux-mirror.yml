@@ -35,7 +35,7 @@ jobs:
         with:
           show-progress: false
 
-      - uses: fluxcd/flux-mirror/actions/setup@fd8f13223e9a5236017e1a39177de074e6e7cd47 # v0.16.0
+      - uses: fluxcd/flux-mirror/actions/setup@5ac513aec160a794b40db9bdb6a98c34227196a8 # v0.17.0
         with:
           version: v0.17.0 # renovate: datasource=github-releases depName=flux-mirror packageName=fluxcd/flux-mirror
 
